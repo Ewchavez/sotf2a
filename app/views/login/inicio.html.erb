@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Asesorias home</title>
+
+    <link rel="stylesheet" type="text/css" href="/login.css">
+
+</head>
+<body>
+
+  <div id="messages">
+    <%= render @messages %>
+  </div>
+
+  <form>
+    <label>Escribe algo:</label>
+    <br>
+    <input type="text" data-behavior="room_speaker">
+  </form>
+
+  <div  id="LoginH">
+
+  <div class="container">
+
+
+    <section id="content"   >
+
+      <form method="post" action="verificar">
+
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"  >
+
+        <h1  id="ti">Asesorias Ulima</h1>
+        <div id="inputL">
+
+
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10"  >
+                      <input class="form-control" type="codigousuario" placeholder="codigo usuario" required="" id="codigou"    name="codigou"   />
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                      <div class="col-sm-10">
+                        <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                  <div >
+                    <input class="btn btn-default"  type="submit" value="Login" id="a1"  onmouseover="checkCookie()"  />
+                    <a   class="btn btn-default" href="/login/regis"  id="a2">Register</a>
+                  </div>
+        </form>
+
+
+                <div class="button">
+                  <a>
+                    <%  if @mensaje==true         %>
+                    <a > "Usuario Incorrecto"</a>
+                    <%end%>
+                    <%  if @mensaje==false         %>
+                    <a > "Usuario correcto"</a>
+                    <%end%>
+                  </a>
+                </div><!-- button --   >
+
+
+      </section><!-- content -->
+
+
+
+      </div><!-- container -->
+
+  </div>
+    </div>
+
+
+</body>
+</html>

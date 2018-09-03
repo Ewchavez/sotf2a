@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/login.css">
+</head>
+<body>
+
+
+    <div  id="LoginH">
+  <div class="container">
+  <section id="content">
+    <form method="get" action="registrar" name="registro">
+
+
+
+      <h1>Registrese</h1>
+  <div id="inputL">
+
+      <div>
+        <input  class="form-control" type="text" placeholder="codigo usuario" required="" id="username"    name="codigou"/>
+      </div>
+      <hr>
+      <div>
+        <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+      </div>
+<hr>
+
+      <div class="button">
+
+                      <div>
+                        <input type="submit" value="Registrar"   />
+                        <%  if @mensaje==true         %>
+                         <a > "Gracias por registrarse, en un momento el administrador recibira su petición"</a>
+                         <%end%>
+
+                        <%  if @mensaje==false         %>
+
+                        <a > "Su usuario ya existe"</a>
+
+
+                        <%end%>
+                        </div>
+        </div>
+
+
+  </div>
+
+
+
+
+    </form>
+
+  </section><!-- content -->
+  </div><!-- container -->
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Action Cable uses Redis by default to administer connections, channels, and sending/receiving messages over the WebSocket.
+production:
+  adapter: postgresql
+  url: postgres://localhost/pgac_prod
+
+development:
+  adapter: postgresql
+  url: postgres://localhost/pgac_dev
+
+test:
+  adapter: postgresql
+  url: postgres://localhost/pgac_test
