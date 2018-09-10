@@ -1,2 +1,49 @@
-<h1>Gadmin#getc</h1>
-<p>Find me in app/views/gadmin/getc.html.erb</p>
+
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th> Alumno</th>
+      <th> Nivel Usuario</th>
+      <th> email</th>
+      <th> codigo</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <%  for   @pro in  @todos      %>
+         <form class="" action="/gadmin/asignar" method="get">
+    <tr>
+
+    <td> <%= @pro["nombre"]  %> </td>
+
+      <td> <%= @pro["nivelu"]  %>
+
+  <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
+
+        <input id="radio1" name="estrellas" value="4" type="radio" style="z-index:3">
+           <label for="radio1">Administrador</label>
+           <input id="radio1" name="nivelu" value="3" type="radio" style="z-index:3">
+          <label for="radio2">Profesor</label>
+           <input id="radio2" name="nivelu" value="2" type="radio">
+            <label for="radio3">Alumno</label>  <hr>
+
+
+</td>
+      <td><%= @pro["email"]  %>   <input type="text" name="email" required</td>
+
+      <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" required</td>
+
+
+                 <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+
+
+
+      <td>
+
+      </td>
+    </tr>
+      </form>
+    <% end %>
+
+  </tbody>
+</table>

@@ -1,50 +1,474 @@
+<!doctype html>
+
+<html lang="en">
 
 
-<table class="table table-striped" >
-  <thead>
-    <tr>
-      <th> Alumno</th>
-      <th> Nivel Usuario</th>
-      <th> email</th>
-      <th> codigo</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <%  for   @pro in  @todos      %>
-         <form class="" action="/gadmin/asignar" method="get">
-    <tr>
+<meta charset="utf-8">
 
-    <td> <%= @pro["nombre"]  %> </td>
+<title>Responsive Header Nav</title>
 
-      <td> <%= @pro["nivelu"]  %>
+<meta name="description" content="Responsive Header Nav">
 
-  <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
+<meta name="author" content="Treehouse">
 
-        <input id="radio1" name="estrellas" value="4" type="radio" style="z-index:3">
-           <label for="radio1">Administrador</label>
-           <input id="radio1" name="nivelu" value="3" type="radio" style="z-index:3">
-          <label for="radio2">Profesor</label>
-           <input id="radio2" name="nivelu" value="2" type="radio">
-            <label for="radio3">Alumno</label>  <hr>
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/mapusuario.css">
+
+<link rel="stylesheet" href="/cssEdw.css">
+
+<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+
+<header>
+
+<a href="#" id="logo">  <img src="/assets/images/Universidad_de_Lima.png" class="logooo"  height="40"></a>
+
+<nav>
+
+<a href="#" id="menu-icon"></a>
+
+
+<ul>
+
+
+  <img src="<%=@imagenxD%>" width="40" height="40"/>
+
+  <li><a href="/usuariomap/mapuser"> Inicio</a></li>
+
+
+
+    <li><a href="/usuariomap/Promociones" >Administrar</a></li>
+    <li><a href="/usuariomap/datosuser">Mi Cuenta</a></li>
+
+  <li><a  onclick="ingresarr()" style="color:#FF0000; text-transform: uppercase "  >Bienvenido <%=@idUsuario%></a></li>
+  <li><a href="/login/index" >Salir</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+
+<style media="screen">
+
+.clasificacion{
+      direction: rtl;/* right to left */
+      unicode-bidi: bidi-override;/* bidi de bidireccional */
+  }
+  input[type = "radio"]:checked ~ label{color:orange;}
+input[type=text] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+    background-color: #3CBC8D;
+    color: white;
+}
+
+.formularios{
+  border-radius: 10px;     background-color: #f2f2f2;  padding: 20px;
+}
+
+#Registrodatos{
+  padding-left:63%; width:100%; margin-top: -1%
+}
+
+
+@media screen and (min-width:300px) and (max-width:800px) {
+#Registrodatos{   padding-left:10%;margin-top:100%; position:static;}
+input[type=text] {}
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <head>
+      <title>Custom Markers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+              padding-top: 600px;
+                 border: 5px solid;
+
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+
+          width:280px;
+          height:600px;
+
+      padding-top: 50px;
+
+
+            }
+      </style>
+    </head>
+    <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">   <!-- Primer contenedor -->
+       <div class="row conborde">     <!-- Primera fila -->
+
+
+         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo"  style="z-index:3">     <!-- Primer bloque de 4 columnas -->
+           <table class="table table-striped" >
+             <thead>
+               <tr>
+                 <th> Alumno</th>
+                 <th> Nivel usuario</th>
+                 <th> Email</th>
+                 <th> Código</th>
+
+               </tr>
+             </thead>
+             <tbody>
+               <%  for   @pro in  @todos      %>
+                    <form class="" action="/gadmin/asignar" method="get">
+               <tr>
+
+               <td> <%= @pro["nombre"]  %> <input type="text"  name="nombre"  </td>
+
+                 <td> <%= @pro["nivelu"]  %>
+
+             <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
+
+                      <input id="radio1" name="nivelu" value="1" type="radio" style="z-index:3">
+
+                      <label for="radio1">Administrador</label>
+
+                      <input id="radio2" name="nivelu" value="2" type="radio" style="z-index:3">
+
+                     <label for="radio2">Profesor</label>
+
+
+                      <input id="radio3" name="nivelu" value="3" type="radio">
+
+                       <label for="radio3">Alumno</label>  <hr>
+
+
+           </td>
+                 <td><%= @pro["email"]  %>   <input type="text" name="email" ></td>
+
+                 <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" >
+
+
+                            <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+                </td>
+
+
+                 <td>
+
+                 </td>
+               </tr>
+                 </form>
+               <% end %>
+
+             </tbody>
+           </table>
+
+
+
+</div>
+
+
+         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" id="Registrodatos" style="position:fixed">      <!-- Segundo bloque de 4 columnas -->
+
+
+
+
+
+
+
+
+                    <div class="formularios">
+
+
+
+                                         <%=   @comentarioser%>
+                                            <table class="table table-striped" >
+                                              <thead>
+                                                <tr>
+                                                  <th> Profesor</th>
+                                                  <th> Sección</th>
+
+
+
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+
+
+
+                                                <td>
+<form class="" action="/gadmin/asignar" method="get">
+
+                                                      <select class="form-control"  name="cursosele"  >
+                                                        <%  for   @tipo  in  @Profesor%>
+                                                            <option><%= @tipo["nombre"]  %>  </option>
+                                                    <% end %>
+                                                              </select>
+
+
+                                                      <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+
+
+                                                </td>
+                                                <td>
+                                                  <select class="form-control"  name="cursosele"  >
+                                                    <%  for   @tipo  in  @Seccion%>
+                                                        <option><%= @tipo["nombre"]  %>  </option>
+                                                <% end %>
+                                                          </select>
+
+                                                  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+
+                                                                              <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+
+                                                </form>
+
+                                                </td>
+
+
+                                              </tbody>
+                                            </table>
+
+
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> Carrera</th>
+                            <th> Semestre</th>
+                            <th> Sección</th>
+                            <th> Curso</th>
+
+                          </tr>
+                        </thead>
+
+  <form method="get" action="crearp">
+
+
+<td>
+
+      <select class="form-control"  name="cursosele"  >
+        <%  for   @tipo  in  @Facultad%>
+            <option><%= @tipo["nombre"]  %>  </option>
+    <% end %>
+              </select>
+
+
+      <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
 
 
 </td>
-      <td><%= @pro["email"]  %>   <input type="text" name="email" required</td>
+<td>
+  <select class="form-control"  name="cursosele"  >
+    <%  for   @tipo  in  @Carrera%>
+        <option><%= @tipo["nombre"]  %>  </option>
+<% end %>
+          </select>
 
-      <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" required</td>
+  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
 
 
-                 <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+</td>
+<td>
+  <select class="form-control"  name="cursosele"  >
+    <%  for   @tipo  in  @Semestre%>
+        <option><%= @tipo["nombre"]  %>  </option>
+<% end %>
+          </select>
 
+
+  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+
+</td>
+<td>
+  <select class="form-control"  name="cursosele"  >
+    <%  for   @tipo  in  @Seccion%>
+        <option><%= @tipo["nombre"]  %>  </option>
+<% end %>
+          </select>
+
+
+  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+
+</td>
+
+</form><!-- form -->
+
+
+
+
+                        </tbody>
+                      </table>
+
+
+
+
+
+                      <table class="table table-striped">
+
+                        <thead>
+                          <tr>
+                            <th> Carrera</th>
+                            <th> Semestre</th>
+                            <th> Sección</th>
+                            <th> Curso</th>
+                          </tr>
+                        </thead>
+
+      <form method="get" action="crearp">
 
 
       <td>
 
-      </td>
-    </tr>
-      </form>
-    <% end %>
 
-  </tbody>
-</table>
+              <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+
+
+      </td>
+      <td>
+
+          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+
+
+
+      </td>
+      <td>
+
+
+          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+
+
+
+      </td>
+      <td>
+
+
+          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+
+      </td>
+
+      </form><!-- form -->
+
+
+
+
+                        </tbody>
+                      </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+          </div>
+
+
+
+
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

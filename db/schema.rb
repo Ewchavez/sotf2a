@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20180903040144) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
+    t.integer  "grupo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

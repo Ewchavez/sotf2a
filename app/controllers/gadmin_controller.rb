@@ -2,7 +2,14 @@ class GadminController < ApplicationController
 
 
   def gusuario
+    #@pp=Servicio.select("servicios.origen","servicios.destino","taxist_id","nombre","id").joins("join taxists on taxists.id=servicios.taxist_id").where(estado:1,finalizado:nil)
     @todos=Usuario.select("codigo","email","nombre","nivelu")
+    @Facultad=Facultad.select("Nombre")
+    @Carrera=Carrera.select("Nombre")
+    @Semestre=Semestre.select("Fecha")
+    @Seccion=Seccion.select("id")
+    @Profesor=Usuario.select("nombre").where("nivelu":2)
+
   end
 
   def  asignar
