@@ -1,6 +1,3 @@
-<h1>Gadmin#gusuario</h1>
-<p>Find me in app/views/gadmin/gusuario.html.erb</p>
-
 
 
 <table class="table table-striped" >
@@ -20,7 +17,7 @@
 
     <td> <%= @pro["nombre"]  %> </td>
 
-      <td> <%= @pro["nivelu"]  %> <hr>
+      <td> <%= @pro["nivelu"]  %>
 
   <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
 
@@ -30,16 +27,15 @@
           <label for="radio2">Profesor</label>
            <input id="radio2" name="nivelu" value="2" type="radio">
             <label for="radio3">Alumno</label>  <hr>
-           <input id="radio3" name="nivelu" value="1" type="radio">
-
-           <button class="btn btn-primary btn-xs" type="submit" name="button" style="padding-left:80px">Aceptar</button>
-
 
 
 </td>
       <td><%= @pro["email"]  %>   <input type="text" name="email" required</td>
 
       <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" required</td>
+
+
+                 <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
 
 
 

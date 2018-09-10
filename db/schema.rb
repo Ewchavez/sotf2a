@@ -89,6 +89,12 @@ ActiveRecord::Schema.define(version: 20180903040144) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profesors", force: :cascade do |t|
     t.string   "especialidad"
     t.integer  "estado"
@@ -124,12 +130,6 @@ ActiveRecord::Schema.define(version: 20180903040144) do
     t.integer  "nivelu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table :messages do |t|
-      t.text :content
-
-      t.timestamps
   end
 
   add_foreign_key "administradors", "usuarios"

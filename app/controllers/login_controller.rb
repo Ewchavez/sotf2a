@@ -12,7 +12,7 @@ class LoginController < ApplicationController
 
          session[:usuario]=cod
 
-         redirect_to('/proyecto/ver')  and return
+         redirect_to('/gadmin/gusuario')  and return
          render 'login/inicio'
 
        else

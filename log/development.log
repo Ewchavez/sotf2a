@@ -7328,3 +7328,430 @@ Started GET "/cable/" [WebSocket] for ::1 at 2018-09-03 08:51:01 -0500
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 RoomChannel is transmitting the subscription confirmation
 RoomChannel is streaming from room_channel
+Started GET "/login/inicio" for ::1 at 2018-09-09 10:30:15 -0500
+  
+PG::ConnectionBad (could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host "localhost" (::1) and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Connection refused (0x0000274D/10061)
+	Is the server running on host "localhost" (127.0.0.1) and accepting
+	TCP/IP connections on port 5432?
+):
+  
+pg-1.1.3-x86 (mingw32) lib/pg.rb:56:in `initialize'
+pg-1.1.3-x86 (mingw32) lib/pg.rb:56:in `new'
+pg-1.1.3-x86 (mingw32) lib/pg.rb:56:in `connect'
+activerecord (5.0.7) lib/active_record/connection_adapters/postgresql_adapter.rb:673:in `connect'
+activerecord (5.0.7) lib/active_record/connection_adapters/postgresql_adapter.rb:217:in `initialize'
+activerecord (5.0.7) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `new'
+activerecord (5.0.7) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:729:in `new_connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:773:in `checkout_new_connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:752:in `try_to_checkout_new_connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:713:in `acquire_connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:490:in `checkout'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:364:in `connection'
+activerecord (5.0.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:883:in `retrieve_connection'
+activerecord (5.0.7) lib/active_record/connection_handling.rb:128:in `retrieve_connection'
+activerecord (5.0.7) lib/active_record/connection_handling.rb:91:in `connection'
+activerecord (5.0.7) lib/active_record/migration.rb:559:in `connection'
+activerecord (5.0.7) lib/active_record/migration.rb:546:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `call'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-5.0.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (765.0ms)
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3500846316109906050);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20160126140632)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.0ms)[0m  [1m[35mCREATE TABLE "messages" ("id" serial primary key, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160126140632"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsuarios (20180903012919)
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "usuarios" ("id" serial primary key, "nombre" character varying, "contrasena" character varying, "email" character varying, "codigo" integer, "nivelu" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903012919"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdministradors (20180903013060)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "administradors" ("id" serial primary key, "foto" character varying, "log" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903013060"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfesors (20180903013560)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "profesors" ("id" serial primary key, "especialidad" character varying, "estado" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903013560"]]
+  [1m[35m (10.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAlumnos (20180903013652)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "alumnos" ("id" serial primary key, "recorda" integer, "estado" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903013652"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSemestres (20180903014315)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.0ms)[0m  [1m[35mCREATE TABLE "semestres" ("id" serial primary key, "fecha" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903014315"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSeccions (20180903014359)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "seccions" ("id" serial primary key, "capacidad" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903014359"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFacultads (20180903015319)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.0ms)[0m  [1m[35mCREATE TABLE "facultads" ("id" serial primary key, "nombre" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903015319"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarreras (20180903015332)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCREATE TABLE "carreras" ("id" serial primary key, "nombre" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903015332"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCursos (20180903015533)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "cursos" ("id" serial primary key, "nombre" character varying, "creditos" integer, "nivel" integer, "nivelusuario" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903015533"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAsesors (20180903024622)
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "asesors" ("id" serial primary key, "dia" integer, "mes" integer, "ano" integer, "horai" integer, "horaf" integer, "lugar" character varying, "ubicacion" character varying, "codl" integer, "disponibilidada" integer, "atendido" integer, "nivelusuario" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903024622"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCitums (20180903025007)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "citums" ("id" serial primary key, "dia" integer, "mes" integer, "ano" integer, "tema" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903025007"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsuarioIdToAdministrador (20180903034213)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "administradors" ADD "usuario_id" integer[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_administradors_on_usuario_id" ON "administradors"  ("usuario_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "administradors" ADD CONSTRAINT "fk_rails_851a0fdb39"
+FOREIGN KEY ("usuario_id")
+  REFERENCES "usuarios" ("id")
+[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903034213"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsuarioIdToProfesor (20180903034602)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "profesors" ADD "usuario_id" integer[0m
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE  INDEX  "index_profesors_on_usuario_id" ON "profesors"  ("usuario_id")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "profesors" ADD CONSTRAINT "fk_rails_d402d36b11"
+FOREIGN KEY ("usuario_id")
+  REFERENCES "usuarios" ("id")
+[0m
+  [1m[35mSQL (9.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903034602"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUsuarioIdToAlumno (20180903034623)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "alumnos" ADD "usuario_id" integer[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_alumnos_on_usuario_id" ON "alumnos"  ("usuario_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "alumnos" ADD CONSTRAINT "fk_rails_7b573e5907"
+FOREIGN KEY ("usuario_id")
+  REFERENCES "usuarios" ("id")
+[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903034623"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddProfesorIdToSeccion (20180903035208)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD "profesor_id" integer[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE  INDEX  "index_seccions_on_profesor_id" ON "seccions"  ("profesor_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD CONSTRAINT "fk_rails_67bcf02afe"
+FOREIGN KEY ("profesor_id")
+  REFERENCES "profesors" ("id")
+[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903035208"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddSemestreIdToSeccion (20180903035259)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD "semestre_id" integer[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_seccions_on_semestre_id" ON "seccions"  ("semestre_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD CONSTRAINT "fk_rails_461e14c03f"
+FOREIGN KEY ("semestre_id")
+  REFERENCES "semestres" ("id")
+[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903035259"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCursoIdToSeccion (20180903035417)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD "curso_id" integer[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_seccions_on_curso_id" ON "seccions"  ("curso_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "seccions" ADD CONSTRAINT "fk_rails_f2892f0a6e"
+FOREIGN KEY ("curso_id")
+  REFERENCES "cursos" ("id")
+[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903035417"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddFacultadIdToCarrera (20180903035619)
+  [1m[35m (6.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "carreras" ADD "facultad_id" integer[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE  INDEX  "index_carreras_on_facultad_id" ON "carreras"  ("facultad_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "carreras" ADD CONSTRAINT "fk_rails_61a6903068"
+FOREIGN KEY ("facultad_id")
+  REFERENCES "facultads" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903035619"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCarreraIdToCurso (20180903035736)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "cursos" ADD "carrera_id" integer[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "index_cursos_on_carrera_id" ON "cursos"  ("carrera_id")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "cursos" ADD CONSTRAINT "fk_rails_816d6e1aa2"
+FOREIGN KEY ("carrera_id")
+  REFERENCES "carreras" ("id")
+[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903035736"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddCursoIdToAsesor (20180903040002)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mALTER TABLE "asesors" ADD "curso_id" integer[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE  INDEX  "index_asesors_on_curso_id" ON "asesors"  ("curso_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "asesors" ADD CONSTRAINT "fk_rails_fb3251a174"
+FOREIGN KEY ("curso_id")
+  REFERENCES "cursos" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903040002"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAsesorIdToCitum (20180903040058)
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "citums" ADD "asesor_id" integer[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_citums_on_asesor_id" ON "citums"  ("asesor_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "citums" ADD CONSTRAINT "fk_rails_63e778f9f4"
+FOREIGN KEY ("asesor_id")
+  REFERENCES "asesors" ("id")
+[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903040058"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAlumnoIdToCitum (20180903040144)
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "citums" ADD "alumno_id" integer[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_citums_on_alumno_id" ON "citums"  ("alumno_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "citums" ADD CONSTRAINT "fk_rails_8150b1d515"
+FOREIGN KEY ("alumno_id")
+  REFERENCES "alumnos" ("id")
+[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180903040144"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-09 17:22:01.205904"], ["updated_at", "2018-09-09 17:22:01.205904"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(3500846316109906050)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/login/inicio" for ::1 at 2018-09-09 12:22:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#inicio as HTML
+  Rendering login/inicio.html.erb within layouts/application
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered login/inicio.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 1618ms (Views: 1592.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/cable" for ::1 at 2018-09-09 12:22:47 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:22:47 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+RoomChannel#speak({"message"=>"dasdas"})
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "dasdas"], ["created_at", "2018-09-09 17:30:20.277449"], ["updated_at", "2018-09-09 17:30:20.277449"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 73da40d6-d889-4785-8323-45134813289b) to Async(default) with arguments: #<GlobalID:0x59867a0 @uri=#<URI::GID gid://pgac-test/Message/1>>
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b] Performing MessageBroadcastJob from Async(default) with arguments: #<GlobalID:0x5739f90 @uri=#<URI::GID gid://pgac-test/Message/1>>
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b]   Rendered messages/_message.html.erb (1.0ms)
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b] [ActionCable] Broadcasting to room_channel: {:message=>"<div class=\"message\">\n  <p> dasdas</p>\n</div>\n"}
+RoomChannel transmitting {"message"=>"<div class=\"message\">\n  <p> dasdas</p>\n</div>\n"} (via streamed from room_channel)
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b]   Rendered messages/_message.html.erb (0.0ms)
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b] [ActionCable] Broadcasting to login_channel: {:message=>"<div class=\"message\">\n  <p> dasdas</p>\n</div>\n"}
+[ActiveJob] [MessageBroadcastJob] [73da40d6-d889-4785-8323-45134813289b] Performed MessageBroadcastJob from Async(default) in 282.02ms
+RoomChannel#speak({"message"=>"sdas"})
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sdas"], ["created_at", "2018-09-09 17:30:20.766477"], ["updated_at", "2018-09-09 17:30:20.766477"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 28443be7-058e-48a6-a882-c455f5b58956) to Async(default) with arguments: #<GlobalID:0x98fb338 @uri=#<URI::GID gid://pgac-test/Message/2>>
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956] Performing MessageBroadcastJob from Async(default) with arguments: #<GlobalID:0x9bfbed8 @uri=#<URI::GID gid://pgac-test/Message/2>>
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956]   Rendered messages/_message.html.erb (1.0ms)
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956] [ActionCable] Broadcasting to room_channel: {:message=>"<div class=\"message\">\n  <p> sdas</p>\n</div>\n"}
+RoomChannel transmitting {"message"=>"<div class=\"message\">\n  <p> sdas</p>\n</div>\n"} (via streamed from room_channel)
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956]   Rendered messages/_message.html.erb (0.0ms)
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956] [ActionCable] Broadcasting to login_channel: {:message=>"<div class=\"message\">\n  <p> sdas</p>\n</div>\n"}
+[ActiveJob] [MessageBroadcastJob] [28443be7-058e-48a6-a882-c455f5b58956] Performed MessageBroadcastJob from Async(default) in 255.01ms
+RoomChannel#speak({"message"=>"dsahola"})
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "dsahola"], ["created_at", "2018-09-09 17:30:22.314565"], ["updated_at", "2018-09-09 17:30:22.314565"]]
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: 371252cc-28ab-4891-be11-bdd41a6c9d7c) to Async(default) with arguments: #<GlobalID:0x98d3b70 @uri=#<URI::GID gid://pgac-test/Message/3>>
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c] Performing MessageBroadcastJob from Async(default) with arguments: #<GlobalID:0x99c4c20 @uri=#<URI::GID gid://pgac-test/Message/3>>
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c]   Rendered messages/_message.html.erb (0.0ms)
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c] [ActionCable] Broadcasting to room_channel: {:message=>"<div class=\"message\">\n  <p> dsahola</p>\n</div>\n"}
+RoomChannel transmitting {"message"=>"<div class=\"message\">\n  <p> dsahola</p>\n</div>\n"} (via streamed from room_channel)
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c]   Rendered messages/_message.html.erb (0.0ms)
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c] [ActionCable] Broadcasting to login_channel: {:message=>"<div class=\"message\">\n  <p> dsahola</p>\n</div>\n"}
+[ActiveJob] [MessageBroadcastJob] [371252cc-28ab-4891-be11-bdd41a6c9d7c] Performed MessageBroadcastJob from Async(default) in 242.01ms
+RoomChannel#speak({"message"=>"perro"})
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "perro"], ["created_at", "2018-09-09 17:30:24.009662"], ["updated_at", "2018-09-09 17:30:24.009662"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued MessageBroadcastJob (Job ID: e0e0bd86-4278-4ad3-a9b1-64952f108f46) to Async(default) with arguments: #<GlobalID:0x9a047f0 @uri=#<URI::GID gid://pgac-test/Message/4>>
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46] Performing MessageBroadcastJob from Async(default) with arguments: #<GlobalID:0x9a55940 @uri=#<URI::GID gid://pgac-test/Message/4>>
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46]   Rendered messages/_message.html.erb (0.0ms)
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46] [ActionCable] Broadcasting to room_channel: {:message=>"<div class=\"message\">\n  <p> perro</p>\n</div>\n"}
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46]   Rendered messages/_message.html.erb (0.0ms)
+RoomChannel transmitting {"message"=>"<div class=\"message\">\n  <p> perro</p>\n</div>\n"} (via streamed from room_channel)
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46] [ActionCable] Broadcasting to login_channel: {:message=>"<div class=\"message\">\n  <p> perro</p>\n</div>\n"}
+[ActiveJob] [MessageBroadcastJob] [e0e0bd86-4278-4ad3-a9b1-64952f108f46] Performed MessageBroadcastJob from Async(default) in 233.01ms
+Started GET "/login/inicio" for ::1 at 2018-09-09 12:33:16 -0500
+Processing by LoginController#inicio as HTML
+  Rendering login/inicio.html.erb within layouts/application
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  Rendered collection of messages/_message.html.erb [4 times] (1.0ms)
+  Rendered login/inicio.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 206ms (Views: 180.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/cable" for ::1 at 2018-09-09 12:33:17 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:33:17 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/login/regis" for ::1 at 2018-09-09 12:33:21 -0500
+Processing by LoginController#regis as HTML
+  Rendering login/regis.html.erb within layouts/application
+  Rendered login/regis.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 151ms (Views: 140.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/regis" for ::1 at 2018-09-09 12:33:32 -0500
+Processing by LoginController#regis as HTML
+  Rendering login/regis.html.erb within layouts/application
+  Rendered login/regis.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 470ms (Views: 433.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/registrar?codigou=20132670&clave=gg" for ::1 at 2018-09-09 12:33:38 -0500
+Processing by LoginController#registrar as HTML
+  Parameters: {"codigou"=>"20132670", "clave"=>"gg"}
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."codigo" = $1 LIMIT $2[0m  [["codigo", 20132670], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("contrasena", "codigo", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["contrasena", "gg"], ["codigo", 20132670], ["created_at", "2018-09-09 17:33:38.941812"], ["updated_at", "2018-09-09 17:33:38.941812"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/login/inicio
+Completed 302 Found in 89ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/login/inicio" for ::1 at 2018-09-09 12:33:38 -0500
+Processing by LoginController#inicio as HTML
+  Rendering login/inicio.html.erb within layouts/application
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  Rendered collection of messages/_message.html.erb [4 times] (1.0ms)
+  Rendered login/inicio.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 133ms (Views: 121.8ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 12:33:39 -0500
+Started GET "/cable" for ::1 at 2018-09-09 12:33:39 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:33:39 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/login/verificar" for ::1 at 2018-09-09 12:33:46 -0500
+Processing by LoginController#verificar as HTML
+  Parameters: {"authenticity_token"=>"pUSuRUlghOva5fv5yPk1XkPWON7D6zw4y/MOlfGo2DowQVui+Banho8lVK7PR0syzniNCQTenLbgw+48gntJkA==", "codigou"=>"20132670", "clave"=>"gg"}
+  [1m[36mUsuario Load (2.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."codigo" = $1 AND "usuarios"."contrasena" = $2 LIMIT $3[0m  [["codigo", 20132670], ["contrasena", "gg"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gadmin/gusuario
+Completed 302 Found in 13ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 12:33:46 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 165ms (Views: 141.4ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 12:33:46 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 12:33:46 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:33:46 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 12:34:38 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (4.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 522ms (Views: 484.8ms | ActiveRecord: 4.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 12:34:38 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 12:34:38 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:34:38 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 12:35:52 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 395ms (Views: 348.5ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 12:35:52 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 12:35:52 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:35:52 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
