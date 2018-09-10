@@ -7755,3 +7755,124 @@ Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 12:35:52 -0500
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 RoomChannel is transmitting the subscription confirmation
 RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:00:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (5.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (9.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 1086ms (Views: 1015.5ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/login/inicio" for ::1 at 2018-09-09 19:01:10 -0500
+Processing by LoginController#inicio as HTML
+  Rendering login/inicio.html.erb within layouts/application
+  [1m[36mMessage Load (3.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+  Rendered collection of messages/_message.html.erb [4 times] (0.0ms)
+  Rendered login/inicio.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 210ms (Views: 186.4ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/cable" for ::1 at 2018-09-09 19:01:12 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:01:12 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/login/verificar" for ::1 at 2018-09-09 19:01:18 -0500
+Processing by LoginController#verificar as HTML
+  Parameters: {"authenticity_token"=>"dKXyWfz40GQg8gQXPVh63v7iUOJsdar25CYbGGewrZzhoAe+TY7zCXUyq0A65gSyc0zlNatACnjPFvuxFGM8Ng==", "codigou"=>"20132670", "clave"=>"gg"}
+  [1m[36mUsuario Load (3.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."codigo" = $1 AND "usuarios"."contrasena" = $2 LIMIT $3[0m  [["codigo", 20132670], ["contrasena", "gg"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/gadmin/gusuario
+Completed 302 Found in 27ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:01:18 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (8.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 247ms (Views: 213.7ms | ActiveRecord: 8.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:01:18 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:01:19 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:01:19 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:04:27 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (3.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 607ms (Views: 543.2ms | ActiveRecord: 3.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:04:28 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:04:28 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:04:28 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:05:25 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (2.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 468ms (Views: 369.4ms | ActiveRecord: 2.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:05:26 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:05:26 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:05:26 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:06:06 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (2.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 371ms (Views: 343.9ms | ActiveRecord: 2.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:06 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:06:06 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:06 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:06:24 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (0.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 515ms (Views: 449.2ms | ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:24 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:06:25 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:25 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/gadmin/gusuario" for ::1 at 2018-09-09 19:06:50 -0500
+Processing by GadminController#gusuario as HTML
+  Rendering gadmin/gusuario.html.erb within layouts/application
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT "usuarios"."codigo", "usuarios"."email", "usuarios"."nombre", "usuarios"."nivelu" FROM "usuarios"[0m
+  Rendered gadmin/gusuario.html.erb within layouts/application (97.0ms)
+Completed 200 OK in 624ms (Views: 577.8ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:50 -0500
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for ::1 at 2018-09-09 19:06:51 -0500
+Started GET "/cable/" [WebSocket] for ::1 at 2018-09-09 19:06:51 -0500
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
