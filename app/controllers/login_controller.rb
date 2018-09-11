@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
   def inicio
     @messages = Message.all
+    @idUsuario="Ingresar"
   end
 
   def verificar
@@ -41,7 +42,7 @@ if buscarU==nil
 
    nuevo.save
    @mensaje = true
-   redirect_to('/login/inicio')
+   redirect_to('/gadmin/gusuario')
  else
    @mensaje = false
      render 'login/regis'

@@ -26,7 +26,7 @@
 
 <header>
 
-<a href="#" id="logo">  <img src="/assets/images/Universidad_de_Lima.png" class="logooo"  height="40"></a>
+<a href="#" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
 
 <nav>
 
@@ -38,15 +38,15 @@
 
   <img src="<%=@imagenxD%>" width="40" height="40"/>
 
-  <li><a href="/usuariomap/mapuser"> Inicio</a></li>
+  <li><a href=""> Inicio</a></li>
 
 
 
-    <li><a href="/usuariomap/Promociones" >Administrar</a></li>
-    <li><a href="/usuariomap/datosuser">Mi Cuenta</a></li>
+    <li><a href="" >Administrar</a></li>
+    <li><a href="">Opciones Avanzadas</a></li>
 
   <li><a  onclick="ingresarr()" style="color:#FF0000; text-transform: uppercase "  >Bienvenido <%=@idUsuario%></a></li>
-  <li><a href="/login/index" >Salir</a></li>
+  <li><a href="/login/inicio" >Salir</a></li>
 </ul>
 
 </nav>
@@ -60,17 +60,18 @@
       direction: rtl;/* right to left */
       unicode-bidi: bidi-override;/* bidi de bidireccional */
   }
-  input[type = "radio"]:checked ~ label{color:orange;}
+  /*input[type = "radio"]:checked ~ label{color:orange;}*/
 input[type=text] {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  width: 75%;
+  height: 2%;
+  padding: 3px 5px;
+  margin: 10px 14px;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   box-sizing: border-box;
-    background-color: #3CBC8D;
-    color: white;
+    background-color: #EBF5FB  ;
+
 }
 
 .formularios{
@@ -78,12 +79,24 @@ input[type=text] {
 }
 
 #Registrodatos{
-  padding-left:63%; width:100%; margin-top: -1%
+  padding-left:63%; width:100%; margin-top: -1%;position:fixed;
 }
 
 
 @media screen and (min-width:300px) and (max-width:800px) {
-#Registrodatos{   padding-left:10%;margin-top:100%; position:static;}
+
+#Registrodatos{
+  padding-left:10%;margin-top:-350%; position:relative;width: 140%;
+}
+#usuarioall{
+width: 100%;
+
+margin-top:220%;
+}
+
+#kikoL{
+  margin-top:100%;
+}
 input[type=text] {}
 }
 </style>
@@ -152,55 +165,53 @@ input[type=text] {}
        <div class="row conborde">     <!-- Primera fila -->
 
 
-         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo"  style="z-index:3">     <!-- Primer bloque de 4 columnas -->
+         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" id="usuarioall" style="z-index:3">     <!-- Primer bloque de 4 columnas -->
            <table class="table table-striped" >
              <thead>
                <tr>
-                 <th> Alumno</th>
-                 <th> Nivel usuario</th>
+                 <th> Usuario</th>
+<th> Nivel usuario</th>
                  <th> Email</th>
                  <th> Código</th>
+
 
                </tr>
              </thead>
              <tbody>
                <%  for   @pro in  @todos      %>
-                    <form class="" action="/gadmin/asignar" method="get">
+                    <form class="" action="/gadmin/asignarU" method="get">
                <tr>
 
-               <td> <%= @pro["nombre"]  %> <input type="text"  name="nombre"  </td>
+               <td> <%= @pro["nombre"]  %> <input type="text"  name="nombre" value= "<%= @pro["nombre"]  %>"   placeholder="_Ingrese nombre"></td>
 
-                 <td> <%= @pro["nivelu"]  %>
+                 <td> ____ <%= @pro["nivelu"] %>_____ <br>
 
-             <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
+                      <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
 
+
+                      <label for="radio1">| Admin </label>
                       <input id="radio1" name="nivelu" value="1" type="radio" style="z-index:3">
 
-                      <label for="radio1">Administrador</label>
-
-                      <input id="radio2" name="nivelu" value="2" type="radio" style="z-index:3">
-
-                     <label for="radio2">Profesor</label>
-
+<br>
+                     <label for="radio2"> | Profesor </label>
+                     <input id="radio2" name="nivelu" value="2" type="radio" style="z-index:3">
+               <label for="radio3">| Alumno</label>
 
                       <input id="radio3" name="nivelu" value="3" type="radio">
 
-                       <label for="radio3">Alumno</label>  <hr>
 
 
            </td>
-                 <td><%= @pro["email"]  %>   <input type="text" name="email" ></td>
+                 <td><%= @pro["email"]  %>   <input type="text" value="<%= @pro["email"]  %>" name="email"placeholder="Ingrese email" ></td>
 
-                 <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" >
+                 <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" value="<%= @pro["codigo"]  %>" placeholder="Ingrese codigo" >
 
 
-                            <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+                            <button class="btn btn-primary btn-xs" type="submit" name="button" >Aceptar</button>
                 </td>
 
 
-                 <td>
 
-                 </td>
                </tr>
                  </form>
                <% end %>
@@ -213,7 +224,7 @@ input[type=text] {}
 </div>
 
 
-         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" id="Registrodatos" style="position:fixed">      <!-- Segundo bloque de 4 columnas -->
+         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" id="Registrodatos" >      <!-- Segundo bloque de 4 columnas -->
 
 
 
@@ -228,6 +239,7 @@ input[type=text] {}
 
                                          <%=   @comentarioser%>
                                             <table class="table table-striped" >
+
                                               <thead>
                                                 <tr>
                                                   <th> Profesor</th>
@@ -240,103 +252,125 @@ input[type=text] {}
                                               <tbody>
 
 
-
+<form class="" action="/gadmin/asignarprofsec" method="get">
                                                 <td>
-<form class="" action="/gadmin/asignar" method="get">
-
-                                                      <select class="form-control"  name="cursosele"  >
-                                                        <%  for   @tipo  in  @Profesor%>
-                                                            <option><%= @tipo["nombre"]  %>  </option>
-                                                    <% end %>
-                                                              </select>
 
 
-                                                      <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+  <% carrera = @Profesor.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+    <%= select_tag("selectedprofe", options_for_select(carrera)) %>
+
 
 
                                                 </td>
                                                 <td>
-                                                  <select class="form-control"  name="cursosele"  >
-                                                    <%  for   @tipo  in  @Seccion%>
-                                                        <option><%= @tipo["nombre"]  %>  </option>
-                                                <% end %>
-                                                          </select>
+                <% secci = @SeccionD.all.map{|x| [ x.idsec.to_s + x.nombre.to_s ] + [x.id.to_s+'_'+x.idsec.to_s]} %>
 
-                                                  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+          <%= select_tag("selectedsecc", options_for_select(secci)) %>
 
-                                                                              <button class="btn btn-primary btn-xs" type="submit" name="button">Aceptar</button>
+                  <button class="btn btn-primary btn-xs" type="submit" name="button">Asignar profesor</button>
 
                                                 </form>
 
                                                 </td>
+
+        </form><!-- form -->
 
 
                                               </tbody>
                                             </table>
 
 
+                                            <table class="table table-striped">
+
+                                              <thead>
+                                                <tr>
+                                                  <th> Carrera</th>
+
+                                                  <th> Curso</th>
+
+                                                </tr>
+                                              </thead>
+
+
+                                            <td>
+                                              <form method="get" action="crearc">
+
+
+
+<!-- <% cursos = Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>-->
+
+    <% carrera = @Carrera.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+      <%= select_tag("selectedCarrera", options_for_select(carrera)) %>
+
+
+
+
+                                  </td>
+
+                                            <td>
+                          <% cursos = @Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+                    <%= select_tag("selectedCurso", options_for_select(cursos)) %>
+
+
+
+
+
+
+                                            <button type="submit" class="btn btn-primary btn-xs">Asignar curso</button>
+
+
+                                            </td>
+
+                                            </form><!-- form -->
+
+
+
+
+                                              </tbody>
+                                            </table>
+
                       <table class="table table-striped">
+
                         <thead>
                           <tr>
-                            <th> Carrera</th>
+                            <th> Curso</th>
                             <th> Semestre</th>
                             <th> Sección</th>
-                            <th> Curso</th>
+
 
                           </tr>
                         </thead>
 
-  <form method="get" action="crearp">
+  <form method="get" action="enlazar">
 
+    <td>
+      <% cursos = @Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+<%= select_tag("selectedCurso", options_for_select(cursos)) %>
+
+
+    </td>
 
 <td>
+  <% semes = @Semestre.all.map{|x| [x.fecha.to_s.capitalize] + [x.id.to_s+'_'+x.fecha.to_s]} %>
 
-      <select class="form-control"  name="cursosele"  >
-        <%  for   @tipo  in  @Facultad%>
-            <option><%= @tipo["nombre"]  %>  </option>
-    <% end %>
-              </select>
-
-
-      <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+<%= select_tag("selectedseme", options_for_select(semes)) %>
 
 
 </td>
 <td>
-  <select class="form-control"  name="cursosele"  >
-    <%  for   @tipo  in  @Carrera%>
-        <option><%= @tipo["nombre"]  %>  </option>
-<% end %>
-          </select>
+  <% secci = @Seccion.all.map{|x| [x.idsec.to_s.capitalize] + [x.id.to_s+'_'+x.idsec.to_s]} %>
 
-  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
+<%= select_tag("selectedsecc", options_for_select(secci)) %>
 
+<button type="submit" class="btn btn-primary btn-xs">Asignar curso</button>
 
 </td>
-<td>
-  <select class="form-control"  name="cursosele"  >
-    <%  for   @tipo  in  @Semestre%>
-        <option><%= @tipo["nombre"]  %>  </option>
-<% end %>
-          </select>
 
 
-  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
-
-</td>
-<td>
-  <select class="form-control"  name="cursosele"  >
-    <%  for   @tipo  in  @Seccion%>
-        <option><%= @tipo["nombre"]  %>  </option>
-<% end %>
-          </select>
-
-
-  <input type="hidden" class="form-control" placeholder="Nombre" value="" id="IdMiUsuario" name="IdMiUsuario">
-  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-
-
-</td>
 
 </form><!-- form -->
 
@@ -361,48 +395,66 @@ input[type=text] {}
                           </tr>
                         </thead>
 
-      <form method="get" action="crearp">
-
 
       <td>
 
+        <form method="get" action="crearcarrera">
 
-              <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
 
-
-      </td>
-      <td>
-
-          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+              <input type="text" class="form-control" placeholder="Carrera" name="crearcarrera" required>
+<button type="submit" class="btn btn-primary"  > <i class="fa fa-check">  </button></i>
+            </form><!-- form -->
 
 
 
       </td>
       <td>
+        <form method="get" action="crearsemestre">
 
 
-          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+          <input type="text" class="form-control" placeholder="Nombre" name="crearsemestre" required>
+
+<button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
+        </form><!-- form -->
 
 
 
       </td>
       <td>
+        <form method="get" action="crearsession">
 
 
-          <input type="text" class="form-control" placeholder="Nombre" name="nombreP">
+
+          <input type="text" class="form-control" placeholder="Nombre" name="crearsession" required>
+
+<button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
 
 
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form><!-- form -->
+
 
 
       </td>
+      <td>
+        <form method="get" action="crearcurso">
 
-      </form><!-- form -->
 
+
+          <input type="text" class="form-control" placeholder="Nombre" name="crearcurso" required>
+
+
+    <button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
+    </form><!-- form -->
+
+
+
+
+      </td>
 
 
 
                         </tbody>
+
                       </table>
 
 
@@ -414,12 +466,14 @@ input[type=text] {}
 
 
 
-
+<a   style="color:#FF0000; text-transform: uppercase "  ><%= @kikoko%></a>
 
 
 
 
                     </div>
+
+
           </div>
 
 
@@ -445,7 +499,9 @@ input[type=text] {}
 
 </div>
 
+<div class="" id="kikoL">
 
+</div>
 
 
 

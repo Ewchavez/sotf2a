@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180903040144) do
+ActiveRecord::Schema.define(version: 20180911040325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20180903040144) do
     t.datetime "updated_at",  null: false
     t.integer  "facultad_id"
     t.index ["facultad_id"], name: "index_carreras_on_facultad_id", using: :btree
+  end
+
+  create_table "carrxcurs", force: :cascade do |t|
+    t.integer  "idcarrera"
+    t.integer  "idcurso"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "citums", force: :cascade do |t|
@@ -107,6 +114,8 @@ ActiveRecord::Schema.define(version: 20180903040144) do
 
   create_table "seccions", force: :cascade do |t|
     t.integer  "capacidad"
+    t.integer  "idsec"
+    t.integer  "estado"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "profesor_id"

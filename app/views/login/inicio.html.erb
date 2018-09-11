@@ -1,15 +1,180 @@
-<!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Asesorias home</title>
 
-    <link rel="stylesheet" type="text/css" href="/login.css">
 
-</head>
-<body>
+
+<meta charset="utf-8">
+
+<title>Responsive Header Nav</title>
+
+<meta name="description" content="Responsive Header Nav">
+
+<meta name="author" content="Treehouse">
+
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/mapusuario.css">
+
+<link rel="stylesheet" href="/cssEdw.css">
+<link rel="stylesheet" type="text/css" href="/login.css">
+
+
+<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+
+<header>
+
+<a href="#" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
+
+<nav>
+
+<a href="#" id="menu-icon"></a>
+
+
+<ul>
+
+
+  <img src="<%=@imagenxD%>" width="40" height="40"/>
+
+  <li><a href=""> Nosotros</a></li>
+
+
+
+    <li><a href="" >Sevicios</a></li>
+    <li><a href="">Actividades</a></li>
+
+  <li><a  onclick="ingresar()" ondblclick="finalR()" style="color:#FF0000 "  > <%=@idUsuario%></a></li>
+  <li><a href="/login/inicio" >Salir</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<script type="text/javascript">
+
+
+
+var clic = 1;
+var clic2 = 1;
+function ingresar(){
+
+if(clic==1){
+   document.getElementById("log1").style.display="block";
+   clic = clic + 1;
+   } else{
+       document.getElementById("log1").style.display="none";
+    clic = 1;
+   }
+
+}
+
+function  registraru(){
+       document.getElementById("log1").style.display="none";
+
+	if(clic2==1){
+	   document.getElementById("regH").style.display="block";
+	   clic2 = clic2 + 1;
+	   } else{
+	       document.getElementById("regH").style.display="none";
+	    clic2 = 1;
+	   }
+}
+
+function finalR(){
+document.getElementById("regH").style.display="none";
+ document.getElementById("log1").style.display="none";
+
+}
+
+</script>
+<style media="screen">
+
+.clasificacion{
+      direction: rtl;/* right to left */
+      unicode-bidi: bidi-override;/* bidi de bidireccional */
+  }
+  /*input[type = "radio"]:checked ~ label{color:orange;}*/
+input[type=text] {
+  width: 75%;
+  height: 2%;
+  padding: 3px 5px;
+  margin: 10px 14px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+    background-color: #EBF5FB  ;
+
+}
+
+.formularios{
+  border-radius: 10px;     background-color: #f2f2f2;  padding: 20px;
+}
+
+#Registrodatos{
+  padding-left:63%; width:100%; margin-top: -1%;position:fixed;
+}
+
+
+@media screen and (min-width:300px) and (max-width:800px) {
+
+#Registrodatos{
+  padding-left:10%;margin-top:-350%; position:relative;width: 140%;
+}
+#usuarioall{
+width: 100%;
+
+margin-top:220%;
+}
+
+#kikoL{
+  margin-top:100%;
+}
+input[type=text] {}
+}
+</style>
+
+
+
+
+
+
+    <head>
+      <title>Custom Markers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+              padding-top: 600px;
+                 border: 5px solid;
+
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+
+          width:280px;
+          height:600px;
+
+      padding-top: 50px;
+
+
+            }
+      </style>
+    </head>
+    <body>
+
+
+
+
+
+      <!--
 
   <div id="messages">
     <%= render @messages %>
@@ -21,7 +186,13 @@
     <input type="text" data-behavior="room_speaker">
   </form>
 
-  <div  id="LoginH">
+-->
+
+<div id="log1" style="display:none">
+
+
+
+  <div  id="LoginH"  >
 
   <div class="container">
 
@@ -54,7 +225,7 @@
 
                   <div >
                     <input class="btn btn-default"  type="submit" value="Login" id="a1"  onmouseover="checkCookie()"  />
-                    <a   class="btn btn-default" href="/login/regis"  id="a2">Register</a>
+                    <a   class="btn btn-default" onclick="registraru()"  id="a2">Register</a>
                   </div>
         </form>
 
@@ -79,6 +250,94 @@
 
   </div>
     </div>
+
+</div>
+<!-- --------------------------------------------rEgistrar------------------------------>
+
+
+
+
+
+
+
+  <div  id="regH" style="display:none">
+    <div  id="LoginH" >
+  <div class="container">
+  <section id="content">
+    <form method="get" action="registrar" name="registro">
+
+
+
+      <h1>Registrese</h1>
+  <div id="inputL">
+
+      <div>
+        <input  class="form-control" type="text" placeholder="codigo usuario" required="" id="username"    name="codigou"/>
+      </div>
+      <hr>
+      <div>
+        <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+      </div>
+<hr>
+
+      <div class="button">
+
+                      <div>
+                        <input type="submit" value="Registrar"   />
+                        <%  if @mensaje==true         %>
+                         <a > "Gracias por registrarse, en un momento el administrador recibira su petición"</a>
+                         <%end%>
+
+                        <%  if @mensaje==false         %>
+
+                        <a > "Su usuario ya existe"</a>
+
+
+                        <%end%>
+                        </div>
+        </div>
+
+
+  </div>
+
+
+
+
+    </form>
+
+  </section><!-- content -->
+  </div><!-- container -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>

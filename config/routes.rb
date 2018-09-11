@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+  #Gadmin
+  get 'gadmin/asignarU'
+
+  get 'gadmin/crearcarrera'
+  get 'gadmin/crearsemestre'
+  get 'gadmin/crearsession'
+  get 'gadmin/crearcurso'
+get 'gadmin/crearc'
+get 'gadmin/enlazar'
+get 'gadmin/asignars'
+get 'gadmin/asignarprofsec'
+  resources :cursos
+
+
+  #------------------------------------------------------------------------
   get 'asesoria_g/alumnosa'
 
   get 'asesoria_g/alumnosb'

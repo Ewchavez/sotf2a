@@ -101,7 +101,6 @@ li {
 }
 
 
-
 h1 {
 
 	font-size: 2em;
@@ -122,7 +121,7 @@ p {
 
 /*MEDIA QUERY*/
 @media only screen and (max-width : 640px) {
-
+/*	#Registrodatos{   padding-left:10%;margin-top:10%; position:static;}*/
 	header {
 
 		position: absolute;
