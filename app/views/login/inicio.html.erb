@@ -108,7 +108,7 @@ document.getElementById("regH").style.display="none";
 @media screen and (min-width:300px) and (max-width:800px) {
 
 #Registrodatos{
-  padding-left:10%;margin-top:-350%; position:relative;width: 140%;
+  padding-left:10%;margin-top:10%; position:relative;width: 140%;
 }
 #usuarioall{
 width: 100%;
@@ -305,21 +305,21 @@ margin-top:220%;
        <div class="row conborde">     <!-- Primera fila -->
 
 
-         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" >     <!-- Primer bloque de 4 columnas -->
+         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" style="padding-left: 80px;">     <!-- Primer bloque de 4 columnas -->
 
 
-           Feedback
+           <·disable socketweb>
 
-           <div style="z-index:1" >
+           <div style="z-index:1;   border-radius: 5px; border-color: blue;border: 1px solid; background-color: #f2f2f2;   margin-left:10px; width:40%" >
 
-             <div id="messages">
+             <div id="messages" style="padding-left: 100px;">
                  <%= render @messages %>
                </div>
 
-               <form>
-                 <label>Escribe algo:</label>
+               <form style="padding-left: 40px;">
+                 <label style="padding-left: 60px;">Escribe algo:</label>
                  <br>
-                 <input type="text" data-behavior="room_speaker" style=" margin-left: -80px; z-index: 20">
+                 <input type="text" data-behavior="room_speaker"  >
                </form>
 
             </div>
