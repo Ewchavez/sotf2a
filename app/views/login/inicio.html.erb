@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/mapusuario.css">
 
 <link rel="stylesheet" href="/cssEdw.css">
-<link rel="stylesheet" type="text/css" href="/login.css">
+<link rel="stylesheet"  href="/loginaaa.css">
 
 
 <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -25,7 +25,7 @@
 
 
 
-<header>
+<header >
 
 <a href="/login/admin" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
 
@@ -53,8 +53,6 @@
 </nav>
 
 </header>
-
-
 
 
 <script type="text/javascript">
@@ -101,22 +99,6 @@ document.getElementById("regH").style.display="none";
       unicode-bidi: bidi-override;/* bidi de bidireccional */
   }
   /*input[type = "radio"]:checked ~ label{color:orange;}*/
-input[type=text] {
-  width: 75%;
-  height: 2%;
-  padding: 3px 5px;
-  margin: 10px 14px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-sizing: border-box;
-    background-color: #EBF5FB  ;
-
-}
-
-.formularios{
-  border-radius: 10px;     background-color: #f2f2f2;  padding: 20px;
-}
 
 #Registrodatos{
   padding-left:63%; width:100%; margin-top: -1%;position:fixed;
@@ -137,7 +119,7 @@ margin-top:220%;
 #kikoL{
   margin-top:100%;
 }
-input[type=text] {}
+
 }
 </style>
 
@@ -145,43 +127,18 @@ input[type=text] {}
 
 
 
-
-    <head>
-      <title>Custom Markers</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-      <meta charset="utf-8">
-      <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-          height: 100%;
-              padding-top: 600px;
-                 border: 5px solid;
-
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-
-          width:280px;
-          height:600px;
-
-      padding-top: 50px;
-
-
-            }
-      </style>
-    </head>
-    <body>
+<body style="padding-top:120px">
 
 
 
 
 
-<div id="log1" style="display:none">
+
+<div id="log1" style="display:none; z-index:10"  class="LoginH1">
 
 
 
-  <div  id="LoginH" class="LoginH"  >
+  <div  id="LoginH1"  >
 
   <div class="container">
 
@@ -272,8 +229,8 @@ input[type=text] {}
 
 
 
-  <div  id="regH" style="display:none">
-    <div  id="LoginH"  class="LoginH">
+  <div  id="regH" style="display:none;z-index:10">
+    <div  id="LoginH2"  class="LoginH2">
   <div class="container">
   <section id="content">
     <form method="get" action="registrar" name="registro">
@@ -351,9 +308,21 @@ input[type=text] {}
          <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" >     <!-- Primer bloque de 4 columnas -->
 
 
+           Feedback
 
+           <div style="z-index:1" >
 
-           <a href="#" id="logo" >  <img src="/banner.png" width="500"  height="300"> </a>
+             <div id="messages">
+                 <%= render @messages %>
+               </div>
+
+               <form>
+                 <label>Escribe algo:</label>
+                 <br>
+                 <input type="text" data-behavior="room_speaker" style=" margin-left: -80px; z-index: 20">
+               </form>
+
+            </div>
 
 
 
@@ -361,21 +330,15 @@ input[type=text] {}
 </div>
 
 
-         <div class=".col-lg-3  col-sm-3 .col-9 fondogris"  >      <!-- Segundo bloque de 4 columnas -->
+         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" style="z-index:1"  >      <!-- Segundo bloque de 4 columnas -->
+
+           <a href="#" id="logo" >  <img src="/banner.png" width="500"  height="300"> </a>
+
+
+           </div>
 
 
 
-          </div>
-
-          <div id="messages">
-              <%= render @messages %>
-            </div>
-
-            <form>
-              <label>Escribe algo:</label>
-              <br>
-              <input type="text" data-behavior="room_speaker">
-            </form>
 
 
 

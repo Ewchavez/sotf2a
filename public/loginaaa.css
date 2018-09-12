@@ -1,0 +1,75 @@
+
+#LoginH1{
+  z-index: 10;
+
+  border: 2px dashed #CCC;
+  background-color:  white;
+
+  top:5%;
+  position: absolute;
+
+  left:59%;
+
+  width:500px;
+
+  margin-left:10%;
+
+  height:300px;
+
+  margin-top:5%;
+
+  padding:5px;
+
+  font-family: "Comic sans MS";
+}
+
+#LoginH2{
+  z-index: 10;
+
+  border: 2px dashed #CCC;
+  background-color:  white;
+
+  top:5%;
+  position: absolute;
+
+  left:59%;
+
+  width:500px;
+
+  margin-left:10%;
+
+  height:300px;
+
+  margin-top:5%;
+
+  padding:5px;
+
+  font-family: "Comic sans MS";
+}
+
+
+#a1{
+    margin-top:80px;
+margin-left:300px;
+}
+#a2{
+    font-family: "Comic sans MS";
+    margin-top:80px;
+}
+#botones{
+    margin-top:150px;
+      font-family: "Comic sans MS";
+}
+
+#ti{
+    font-family: "Comic sans MS";
+    left:50%;
+    margin-left:100px;
+}
+
+#inputL{
+    font-family: "Comic sans MS";
+  width:470px;
+    height:200px;
+  z-index: 10
+}

@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
   def inicio
-    @messages = Message.all
+    @messages = Message.last(5)
     @idUsuario="Ingresar"
 
 
