@@ -27,7 +27,7 @@
 
 <header>
 
-<a href="#" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
+<a href="/login/admin" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
 
 <nav>
 
@@ -54,11 +54,14 @@
 
 </header>
 
+
+
+
 <script type="text/javascript">
 
 
 
-var clic = 1;
+var clic =  1;
 var clic2 = 1;
 function ingresar(){
 
@@ -174,20 +177,6 @@ input[type=text] {}
 
 
 
-      <!--
-
-  <div id="messages">
-    <%= render @messages %>
-  </div>
-
-  <form>
-    <label>Escribe algo:</label>
-    <br>
-    <input type="text" data-behavior="room_speaker">
-  </form>
-
--->
-
 <div id="log1" style="display:none">
 
 
@@ -208,7 +197,7 @@ input[type=text] {}
 
 
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <label for="inputEmail3" class="col-sm-2 control-label">codigo</label>
                     <div class="col-sm-10"  >
                       <input class="form-control" type="codigousuario" placeholder="codigo usuario" required="" id="codigou"    name="codigou"   />
                     </div>
@@ -233,9 +222,32 @@ input[type=text] {}
                 <div class="button">
                   <a>
                     <%  if @mensaje==true         %>
+
+                    <script type="text/javascript">
+                    document.getElementById("log1").style.display="block";
+
+                    </script>
+
                     <a > "Usuario Incorrecto"</a>
                     <%end%>
+
+                    <%  if @mensaje==2        %>
+
+                    <script type="text/javascript">
+                    document.getElementById("log1").style.display="block";
+
+                    </script>
+
+                    <a > "Comuniquese con el administrador para activar su cuenta"</a>
+                    <%end%>
+
                     <%  if @mensaje==false         %>
+
+                                        <script type="text/javascript">
+                                        document.getElementById("log1").style.display="block";
+
+                                        </script>
+
                     <a > "Usuario correcto"</a>
                     <%end%>
                   </a>
@@ -284,11 +296,19 @@ input[type=text] {}
 
                       <div>
                         <input type="submit" value="Registrar"   />
-                        <%  if @mensaje==true         %>
+                        <%  if @mensaje1==true         %>
+                        <script type="text/javascript">
+                        document.getElementById("regH").style.display="block";
+
+                        </script>
                          <a > "Gracias por registrarse, en un momento el administrador recibira su petición"</a>
                          <%end%>
 
-                        <%  if @mensaje==false         %>
+                        <%  if @mensaje1==false         %>
+                        <script type="text/javascript">
+                        document.getElementById("regH").style.display="block";
+
+                        </script>
 
                         <a > "Su usuario ya existe"</a>
 
@@ -312,6 +332,63 @@ input[type=text] {}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">   <!-- Primer contenedor -->
+       <div class="row conborde">     <!-- Primera fila -->
+
+
+         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" >     <!-- Primer bloque de 4 columnas -->
+
+
+
+
+           <a href="#" id="logo" >  <img src="/banner.png" width="500"  height="300"> </a>
+
+
+
+
+</div>
+
+
+         <div class=".col-lg-3  col-sm-3 .col-9 fondogris"  >      <!-- Segundo bloque de 4 columnas -->
+
+
+
+          </div>
+
+
+
+
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
 

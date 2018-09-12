@@ -30,14 +30,13 @@ get 'gadmin/asignarprofsec'
   get 'gadmin/gasesorias'
 
   get 'gadmin/getc'
-
+  get 'login/admin'
   get 'login/inicio'
-  get 'login/regis'
+  get 'login/registrar'
 
   get 'rooms/show'
   post 'login/verificar'
 
-  get 'login/registrar'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

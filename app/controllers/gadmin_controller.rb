@@ -16,6 +16,9 @@ class GadminController < ApplicationController
 
     @Curso=Curso.select("nombre","id")
 
+    currenU=Usuario.find_by(codigo:session[:usuario])
+
+    @idTaxiUser=currenU.codigo
   end
 
   def  asignarU
@@ -31,44 +34,53 @@ class GadminController < ApplicationController
 
     buscarA=Alumno.find_by(usuario_id:params["idser"])
     buscarP=Profesor.find_by(usuario_id:params["idser"])
+    buscarAdmin=Administrador.find_by(usuario_id:params["idser"])
 
     buscarPS=Seccion.find_by(profesor_id:params["idser"])
 
 
-    if buscarA==nil and buscarP==nil
+    if buscarA==nil and buscarP==nil and buscarAdmin==nil
               if ad.to_i==2
                 car=Profesor.new(usuario_id:ser.id)
                 car.save
                 @kikoko="Correctamente agregado"
                 ser.nivelu=params["nivelu"]
-              else
-                if ad.to_i==3
+              elsif  ad.to_i==1
+                car=Administrador.new(usuario_id:ser.id)
+                car.save
+                @kikoko="Correctamente agregado"
+                ser.nivelu=params["nivelu"]
+
+
+
+              elsif ad.to_i==3
                   car=Alumno.new(usuario_id:ser.id)
                   car.save
                   @kikoko="Correctamente agregado"
                   ser.nivelu=params["nivelu"]
-                end
+
               end
     else
 
       if buscarA != nil
         buscarA.destroy
-        ser.nivelu=nil
+
               if ad.to_i==2
                  car=Profesor.new(usuario_id:ser.id)
                  ser.nivelu=params["nivelu"]
                  car.save
                  @kikoko="Se cambio el tipo usuario"
-              else
-                if ad.to_i==3
+              elsif  ad.to_i==3
                   car=Alumno.new(usuario_id:ser.id)
                   ser.nivelu=params["nivelu"]
                   car.save
                   @kikoko="Se cambio el tipo usuario"
 
-                else
-                    ser.nivelu=params["nivelu"]
-                end
+                elsif  ad.to_i==1
+                  car=Administrador.new(usuario_id:ser.id)
+                  ser.nivelu=params["nivelu"]
+                  car.save
+                  @kikoko="Se cambio el tipo usuario"
 
 
               end
@@ -76,27 +88,65 @@ class GadminController < ApplicationController
  begin
       if buscarP !=nil
         buscarP.destroy
-        ser.nivelu=nil
-                if ad.to_i==2
-                  car=Profesor.new(usuario_id:ser.id)
-                  ser.nivelu=params["nivelu"]
-                  car.save
-                  @kikoko="Correctamente agregado"
-                else
-                  if ad.to_i==3
-                    car=Alumno.new(usuario_id:ser.id)
-                    ser.nivelu=params["nivelu"]
-                    car.save
-                    @kikoko="Correctamente agregado"
-                  else
-                    ser.nivelu=params["nivelu"]
-                  end
-                end
-      @kikoko="Se cambio el tipo usuario"
-      end
+
+          if ad.to_i==2
+             car=Profesor.new(usuario_id:ser.id)
+             ser.nivelu=params["nivelu"]
+             car.save
+             @kikoko="Se cambio el tipo usuario"
+          elsif  ad.to_i==3
+              car=Alumno.new(usuario_id:ser.id)
+              ser.nivelu=params["nivelu"]
+              car.save
+              @kikoko="Se cambio el tipo usuario"
+
+            elsif  ad.to_i==1
+              car=Administrador.new(usuario_id:ser.id)
+              ser.nivelu=params["nivelu"]
+              car.save
+              @kikoko="Se cambio el tipo usuario"
+
+
+            end
+        end
     rescue
             @kikoko="El usuario ya tiene una funcion, porfavor dirigase a configuraciones avanzadas"
     end
+
+
+        if buscarAdmin != nil
+          buscarAdmin.destroy
+
+                if ad.to_i==2
+                   car=Profesor.new(usuario_id:ser.id)
+                   ser.nivelu=params["nivelu"]
+                   car.save
+                   @kikoko="Se cambio el tipo usuario"
+                elsif  ad.to_i==3
+                    car=Alumno.new(usuario_id:ser.id)
+                    ser.nivelu=params["nivelu"]
+                    car.save
+                    @kikoko="Se cambio el tipo usuario"
+
+                  elsif  ad.to_i==1
+                    car=Administrador.new(usuario_id:ser.id)
+                    ser.nivelu=params["nivelu"]
+                    car.save
+                    @kikoko="Se cambio el tipo usuario"
+
+
+                end
+        end
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -6,6 +6,15 @@ class AsesoriaGController < ApplicationController
   end
 
   def profesoresa
+
+
+ @todos=Seccion.select("idsec","id","cursos.nombre").joins("join cursos on cursos.id=seccions.curso_id")
+
+
+
+
+
+
   end
 
   def profesoresb
