@@ -181,7 +181,7 @@ input[type=text] {}
 
 
 
-  <div  id="LoginH"  >
+  <div  id="LoginH" class="LoginH"  >
 
   <div class="container">
 
@@ -273,7 +273,7 @@ input[type=text] {}
 
 
   <div  id="regH" style="display:none">
-    <div  id="LoginH" >
+    <div  id="LoginH"  class="LoginH">
   <div class="container">
   <section id="content">
     <form method="get" action="registrar" name="registro">
@@ -367,6 +367,15 @@ input[type=text] {}
 
           </div>
 
+          <div id="messages">
+              <%= render @messages %>
+            </div>
+
+            <form>
+              <label>Escribe algo:</label>
+              <br>
+              <input type="text" data-behavior="room_speaker">
+            </form>
 
 
 
