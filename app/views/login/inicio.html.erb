@@ -1,349 +1,366 @@
+<!DOCTYPE html>
+<html>
 
-<html lang="en">
-
-
-
-<meta charset="utf-8">
-
-<title>Responsive Header Nav</title>
-
-<meta name="description" content="Responsive Header Nav">
-
-<meta name="author" content="Treehouse">
-
-<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
-
-<link rel="stylesheet" href="/fonts.css">
-<link rel="stylesheet" href="/mapusuario.css">
-
-<link rel="stylesheet" href="/cssEdw.css">
-<link rel="stylesheet"  href="/loginaaa.css">
-
-
-<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/theme.css" type="text/css"> </head>
 
 
 
 
-<header >
-
-<a href="/login/admin" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
-
-<nav>
-
-<a href="#" id="menu-icon"></a>
+  <link rel="stylesheet"  href="/loginaaa.css">
 
 
-<ul>
-
-
-  <img src="<%=@imagenxD%>" width="40" height="40"/>
-
-  <li><a href=""> Nosotros</a></li>
+  <script type="text/javascript">
 
 
 
-    <li><a href="" >Sevicios</a></li>
-    <li><a href="">Actividades</a></li>
+  var clic =  1;
+  var clic2 = 1;
 
-  <li><a  onclick="ingresar()" ondblclick="finalR()" style="color:#FF0000 "  > <%=@idUsuario%></a></li>
-  <li><a href="/login/inicio" >Salir</a></li>
-</ul>
+  function cerrar() {
+document.getElementById("log1").style.display="none";
+ document.getElementById("regH").style.display="none";
 
-</nav>
-
-</header>
-
-
-<script type="text/javascript">
-
-
-
-var clic =  1;
-var clic2 = 1;
-function ingresar(){
-
-if(clic==1){
-   document.getElementById("log1").style.display="block";
-   clic = clic + 1;
-   } else{
-       document.getElementById("log1").style.display="none";
-    clic = 1;
-   }
-
-}
-
-function  registraru(){
-       document.getElementById("log1").style.display="none";
-
-	if(clic2==1){
-	   document.getElementById("regH").style.display="block";
-	   clic2 = clic2 + 1;
-	   } else{
-	       document.getElementById("regH").style.display="none";
-	    clic2 = 1;
-	   }
-}
-
-function finalR(){
-document.getElementById("regH").style.display="none";
- document.getElementById("log1").style.display="none";
-
-}
-
-</script>
-<style media="screen">
-
-.clasificacion{
-      direction: rtl;/* right to left */
-      unicode-bidi: bidi-override;/* bidi de bidireccional */
   }
-  /*input[type = "radio"]:checked ~ label{color:orange;}*/
+  function ingresar(){
 
-#Registrodatos{
-  padding-left:63%; width:100%; margin-top: -1%;position:fixed;
-}
+  if(clic==1){
+     document.getElementById("log1").style.display="block";
+     clic = clic + 1;
+     } else{
+         document.getElementById("log1").style.display="none";
+      clic = 1;
+     }
 
+  }
 
-@media screen and (min-width:300px) and (max-width:800px) {
+  function  registraru(){
+         document.getElementById("log1").style.display="none";
 
-#Registrodatos{
-  padding-left:10%;margin-top:10%; position:relative;width: 140%;
-}
-#usuarioall{
-width: 100%;
+  	if(clic2==1){
+  	   document.getElementById("regH").style.display="block";
+  	   clic2 = clic2 + 1;
+  	   } else{
+  	       document.getElementById("regH").style.display="none";
+  	    clic2 = 1;
+  	   }
+  }
 
-margin-top:220%;
-}
+  function finalR(){
+  document.getElementById("regH").style.display="none";
+   document.getElementById("log1").style.display="none";
 
-#kikoL{
-  margin-top:100%;
-}
+  }
 
-}
-</style>
-
-
-
-
-
-<body style="padding-top:120px">
-
-
-
+  </script>
 
 
 
-<div id="log1" style="display:none; z-index:10"  class="LoginH1">
+  <style media="screen">
+  #titulon1{
+
+    margin-top:5px;
+  margin-left:10px;
+  }
+
+  @media screen and (min-width:100px) and (max-width:900px) {
+    #titulon1{
+
+      margin-top:5px;
+    margin-right:10px;
+    }
+  #LoginH1{
+
+
+      left:auto;
+
+      width:320px;
+
+      margin-left:1%;
+
+      height:300px;
+
+      margin-top:5%;
+
+      padding:5px;
+
+  }
+
+  #a1{
+      margin-top:20px;
+  margin-left:100px;
+  }
+
+  #a3{
+      margin-top:-30px;
+  margin-right:10px;
+  }
+
+  #a2{
+      font-family: "Comic sans MS";
+      margin-top:20px;
+  }
+
+  #inputL{
+      font-family: "Comic sans MS";
+    width:250px;
+      height:100px;
+    z-index: 10
+  }
+  #LoginH2{
+    left:auto;
+
+    width:320px;
+
+    margin-left:1%;
+
+    height:300px;
+
+    margin-top:5%;
+
+    padding:5px;
+
+
+  }
+
+  }
+  </style>
+<body>
 
 
 
-  <div  id="LoginH1"  >
 
-  <div class="container">
-
-
-    <section id="content"   >
-
-      <form method="post" action="verificar">
-
-        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"  >
-
-        <h1  id="ti">Asesorias Ulima</h1>
-        <div id="inputL">
+  <div id="log1" style="display:none; z-index:10"  class="LoginH1">
 
 
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">codigo</label>
-                    <div class="col-sm-10"  >
-                      <input class="form-control" type="codigousuario" placeholder="codigo usuario" required="" id="codigou"    name="codigou"   />
-                    </div>
+
+    <div  id="LoginH1"  >
+
+    <div class="container">
+
+
+      <section id="content"   >
+
+        <form method="post" action="verificar">
+
+          <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"  >
+
+              <a id="a3"  onclick="cerrar() ">X</a>
+          <h1  id="ti">Asesorias Ulima</h1>
+          <div id="inputL">
+
+
                     <div class="form-group">
-                      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                      <div class="col-sm-10">
-                        <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+                      <label for="inputEmail3" class="col-sm-2 control-label">codigo</label>
+                      <div class="col-sm-10"  >
+                        <input class="form-control" type="codigousuario" placeholder="codigo usuario" required="" id="codigou"    name="codigou"   />
+                      </div>
+                      <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                        <div class="col-sm-10">
+                          <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
 
 
 
-                  <div >
-                    <input class="btn btn-default"  type="submit" value="Login" id="a1"  onmouseover="checkCookie()"  />
-                    <a   class="btn btn-default" onclick="registraru()"  id="a2">Register</a>
-                  </div>
-        </form>
+                    <div >
+                      <input class="btn btn-default"  type="submit" value="Login" id="a1"  onmouseover="checkCookie()"  />
+                      <a   class="btn btn-default" onclick="registraru()"  id="a2">Register</a>
+                    </div>
+          </form>
 
 
-                <div class="button">
-                  <a>
-                    <%  if @mensaje==true         %>
+                  <div class="button">
+                    <a>
+                      <%  if @mensaje==true         %>
 
-                    <script type="text/javascript">
-                    document.getElementById("log1").style.display="block";
+                      <script type="text/javascript">
+                      document.getElementById("log1").style.display="block";
 
-                    </script>
+                      </script>
 
-                    <a > "Usuario Incorrecto"</a>
-                    <%end%>
+                      <a > "Usuario Incorrecto"</a>
+                      <%end%>
 
-                    <%  if @mensaje==2        %>
+                      <%  if @mensaje==2        %>
 
-                    <script type="text/javascript">
-                    document.getElementById("log1").style.display="block";
+                      <script type="text/javascript">
+                      document.getElementById("log1").style.display="block";
 
-                    </script>
+                      </script>
 
-                    <a > "Comuniquese con el administrador para activar su cuenta"</a>
-                    <%end%>
+                      <a > "Comuniquese con el administrador para activar su cuenta"</a>
+                      <%end%>
 
-                    <%  if @mensaje==false         %>
+                      <%  if @mensaje==false         %>
 
-                                        <script type="text/javascript">
-                                        document.getElementById("log1").style.display="block";
+                                          <script type="text/javascript">
+                                          document.getElementById("log1").style.display="block";
 
-                                        </script>
+                                          </script>
 
-                    <a > "Usuario correcto"</a>
-                    <%end%>
-                  </a>
-                </div><!-- button --   >
-
-
-      </section><!-- content -->
+                      <a > "Usuario correcto"</a>
+                      <%end%>
+                    </a>
+                  </div><!-- button --   >
 
 
+        </section><!-- content -->
 
-      </div><!-- container -->
+
+
+        </div><!-- container -->
+
+    </div>
+      </div>
 
   </div>
+  <!-- --------------------------------------------rEgistrar------------------------------>
+
+
+
+
+
+
+
+    <div  id="regH" style="display:none;z-index:10">
+      <div  id="LoginH2"  class="LoginH2">
+    <div class="container">
+    <section id="content">
+      <form method="get" action="registrar" name="registro">
+
+<a id="a3"  onclick="cerrar() ">X</a>
+
+        <h1>Registrese</h1>
+    <div id="inputL">
+
+        <div>
+          <input  class="form-control" type="text" placeholder="codigo usuario" required="" id="username"    name="codigou"/>
+        </div>
+        <hr>
+        <div>
+          <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
+        </div>
+  <hr>
+
+        <div class="button">
+
+                        <div>
+                          <input type="submit" value="Registrar"   />
+                          <%  if @mensaje1==true         %>
+                          <script type="text/javascript">
+                          document.getElementById("regH").style.display="block";
+
+                          </script>
+                           <a > "Gracias por registrarse, en un momento el administrador recibira su petición"</a>
+                           <%end%>
+
+                          <%  if @mensaje1==false         %>
+                          <script type="text/javascript">
+                          document.getElementById("regH").style.display="block";
+
+                          </script>
+
+                          <a > "Su usuario ya existe"</a>
+
+
+                          <%end%>
+                          </div>
+          </div>
+
+
     </div>
 
-</div>
-<!-- --------------------------------------------rEgistrar------------------------------>
 
 
 
+      </form>
 
-
-
-
-  <div  id="regH" style="display:none;z-index:10">
-    <div  id="LoginH2"  class="LoginH2">
-  <div class="container">
-  <section id="content">
-    <form method="get" action="registrar" name="registro">
-
-
-
-      <h1>Registrese</h1>
-  <div id="inputL">
-
-      <div>
-        <input  class="form-control" type="text" placeholder="codigo usuario" required="" id="username"    name="codigou"/>
-      </div>
-      <hr>
-      <div>
-        <input  class="form-control" type="password" placeholder="clave" required="" id="password"   name="clave"/>
-      </div>
-<hr>
-
-      <div class="button">
-
-                      <div>
-                        <input type="submit" value="Registrar"   />
-                        <%  if @mensaje1==true         %>
-                        <script type="text/javascript">
-                        document.getElementById("regH").style.display="block";
-
-                        </script>
-                         <a > "Gracias por registrarse, en un momento el administrador recibira su petición"</a>
-                         <%end%>
-
-                        <%  if @mensaje1==false         %>
-                        <script type="text/javascript">
-                        document.getElementById("regH").style.display="block";
-
-                        </script>
-
-                        <a > "Su usuario ya existe"</a>
-
-
-                        <%end%>
-                        </div>
-        </div>
-
-
+    </section><!-- content -->
+    </div><!-- container -->
+    </div>
   </div>
 
 
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container">
+      <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60">
+      <a class="navbar-brand" href="/login/admin" id="titulon1" class="titulon1">Ulima Asesorias</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav" >
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-envelope-o"></i> Contactars</a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn btn-primary ml-2 text-white"  onclick="ingresar()" ondblclick="finalR()">
+          <i class="fa d-inline fa-lg fa-user-circle-o"   ></i >  <%=@idUsuario%></a>
+      </div>
+    </div>
+  </nav>
 
 
-    </form>
-
-  </section><!-- content -->
-  </div><!-- container -->
-  </div>
-</div>
 
 
 
 
 
 
+  <div class="py-5" >
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-md-5 order-2 order-md-1">
+            <img class="img-fluid d-block" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
+
+          </div>
 
 
 
+          <div class="col-md-7 order-1 order-md-2">
 
-
-
-
-
-
-<div class="container">   <!-- Primer contenedor -->
-       <div class="row conborde">     <!-- Primera fila -->
-
-
-         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" style="padding-left: 80px;">     <!-- Primer bloque de 4 columnas -->
-
-
-           <·disable socketweb>
-
-           <div style="z-index:1;   border-radius: 5px; border-color: blue;border: 1px solid; background-color: #f2f2f2;   margin-left:10px; width:40%" >
-
-             <div id="messages" style="padding-left: 100px;">
-                 <%= render @messages %>
-               </div>
-
-               <form style="padding-left: 40px;">
-                 <label style="padding-left: 60px;">Escribe algo:</label>
-                 <br>
-                 <input type="text" data-behavior="room_speaker"  >
-               </form>
-
+            <div class="col-md-12">
+              <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group</h5>
+                    <small>3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small>Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group </h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                  <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+              </div>
             </div>
+<hr>
+          </div>
 
 
 
-
-</div>
-
-
-         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" style="z-index:1"  >      <!-- Segundo bloque de 4 columnas -->
-
-           <a href="#" id="logo" >  <img src="/banner.png" width="500"  height="300"> </a>
-
-
-           </div>
-
-
-
-
-
-
-
-       </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -358,36 +375,40 @@ margin-top:220%;
 
 
 
+  <div class="py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <p class="lead">Sign up to our newsletter for the latest news</p>
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your e-mail here"> </div>
+            <button type="submit" class="btn btn-primary ml-3">Subscribe</button>
+          </form>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.facebook.com" target="_blank">
+            <i class="fa fa-fw fa-facebook fa-3x text-white"></i>
+          </a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://twitter.com" target="_blank">
+            <i class="fa fa-fw fa-twitter fa-3x text-white"></i>
+          </a>
+        </div>
+        <div class="col-4 col-md-1 align-self-center">
+          <a href="https://www.instagram.com" target="_blank">
+            <i class="fa fa-fw fa-instagram text-white fa-3x"></i>
+          </a>
+        </div>
+      </div>
 
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

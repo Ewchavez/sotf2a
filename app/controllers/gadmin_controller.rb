@@ -4,9 +4,11 @@ class GadminController < ApplicationController
     UsurioN="sdasd"
   end
 
+
   def gusuario
     #@pp=Servicio.select("servicios.origen","servicios.destino","taxist_id","nombre","id").joins("join taxists on taxists.id=servicios.taxist_id").where(estado:1,finalizado:nil)
-    @todos=Usuario.select("id","codigo","email","nombre","nivelu")
+    @todos=Usuario.select("id","codigo","email","nombre","nivelu","contrasena","activo").where(activo:1)
+    @todos2=Usuario.select("id","codigo","email","nombre","nivelu","contrasena","activo").where(activo:nil)
     @Facultad=Facultad.select("Nombre","id")
     @Carrera=Carrera.select("Nombre","id")
     @Semestre=Semestre.select("Fecha","id")
@@ -21,11 +23,16 @@ class GadminController < ApplicationController
     @idTaxiUser=currenU.codigo
   end
 
+  def opcionesavanzad
+    gusuario()
+  end
+
   def  asignarU
       gusuario()
 
     ser=Usuario.find_by(id:params["idser"])
     ser.nombre=params["nombre"]
+    ser.activo=1
 
 
     ad=params["nivelu"]

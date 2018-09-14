@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20180911040325) do
     t.string   "email"
     t.integer  "codigo"
     t.integer  "nivelu"
+    t.integer  "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

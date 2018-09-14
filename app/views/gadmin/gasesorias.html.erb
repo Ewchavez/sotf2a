@@ -1,2 +1,530 @@
-<h1>Gadmin#gasesorias</h1>
-<p>Find me in app/views/gadmin/gasesorias.html.erb</p>
+<!doctype html>
+
+<html lang="en">
+
+
+
+<meta charset="utf-8">
+
+<title>Responsive Header Nav</title>
+
+<meta name="description" content="Responsive Header Nav">
+
+<meta name="author" content="Treehouse">
+
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/mapusuario.css">
+
+<link rel="stylesheet" href="/cssEdw.css">
+
+<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+
+<header>
+
+<a href="#" id="logo" >  <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60"> UlimaAsesorias  </a>
+
+<nav>
+
+<a href="#" id="menu-icon"></a>
+
+
+<ul>
+
+
+  <img src="<%=@imagenxD%>" width="40" height="40"/>
+
+  <li><a href=""> Inicio</a></li>
+
+
+
+    <li><a href="" >Administrar</a></li>
+    <li><a href="">Opciones Avanzadas</a></li>
+
+  <li><a  onclick="ingresarr()" style="color:#FF0000;  "  >Bienvenido <%=@idTaxiUser%></a></li>
+  <li><a href="/login/inicio" >Salir</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+
+<style media="screen">
+
+.clasificacion{
+      direction: rtl;/* right to left */
+      unicode-bidi: bidi-override;/* bidi de bidireccional */
+  }
+  /*input[type = "radio"]:checked ~ label{color:orange;}*/
+input[type=text] {
+  width: 75%;
+  height: 2%;
+  padding: 3px 5px;
+  margin: 10px 14px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+    background-color: #EBF5FB  ;
+
+}
+
+.formularios{
+  border-radius: 10px;     background-color: #f2f2f2;  padding: 20px;
+}
+
+#Registrodatos{
+  padding-left:63%; width:100%; margin-top: -1%;position:fixed;
+}
+
+
+@media screen and (min-width:300px) and (max-width:800px) {
+
+#Registrodatos{
+  padding-left:10%;margin-top:-920%; position:relative;width: 140%;
+}
+#usuarioall{
+width: 100%;
+
+margin-top:220%;
+}
+
+#kikoL{
+  margin-top:100%;
+}
+input[type=text] {}
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <head>
+      <title>Custom Markers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+              padding-top: 600px;
+                 border: 5px solid;
+
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+
+          width:280px;
+          height:600px;
+
+      padding-top: 50px;
+
+
+            }
+      </style>
+    </head>
+    <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">   <!-- Primer contenedor -->
+       <div class="row conborde">     <!-- Primera fila -->
+
+
+         <div class=".col-lg-9  col-sm-9 .col-3 fondorojo" id="usuarioall" style="z-index:3">     <!-- Primer bloque de 4 columnas -->
+           <table class="table table-striped" >
+             <thead>
+               <tr>
+                 <th> Usuario</th>
+                 <th> Nivel usuario</th>
+                 <th> Email</th>
+                 <th> Código</th>
+
+
+               </tr>
+             </thead>
+             <tbody>
+               <%  for   @pro in  @todos      %>
+                    <form class="" action="/gadmin/asignarU" method="get">
+               <tr>
+
+               <td> <%= @pro["nombre"]  %> <input type="text"  name="nombre" value= "<%= @pro["nombre"]  %>"   placeholder="_Ingrese nombre"></td>
+
+                 <td>
+
+                      <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
+
+
+                      <label for="radio1"> Admin </label>
+                      <input id="radio1" name="nivelu" value="1" type="radio" style="z-index:3">
+
+<br>
+                     <label for="radio2">  Profesor </label>
+                     <input id="radio2" name="nivelu" value="2" type="radio" style="z-index:3">
+               <label for="radio3"> Alumno</label>
+
+                      <input id="radio3" name="nivelu" value="3" type="radio">
+
+
+
+           </td>
+                 <td><%= @pro["email"]  %>   <input type="text" value="<%= @pro["email"]  %>" name="email"placeholder="Ingrese email" ></td>
+
+                 <td>   <%= @pro["codigo"]%>   <input type="text" name="codigo" value="<%= @pro["codigo"]  %>" placeholder="Ingrese codigo" >
+
+
+                            <button class="btn btn-primary btn-xs" type="submit" name="button" >Aceptar</button>
+                </td>
+
+
+
+               </tr>
+                 </form>
+               <% end %>
+
+             </tbody>
+           </table>
+
+
+
+</div>
+
+
+         <div class=".col-lg-3  col-sm-3 .col-9 fondogris" id="Registrodatos" >      <!-- Segundo bloque de 4 columnas -->
+
+
+
+
+
+
+
+
+                    <div class="formularios">
+
+
+
+                                         <%=   @comentarioser%>
+                                            <table class="table table-striped" >
+
+                                              <thead>
+                                                <tr>
+                                                  <th> Profesor</th>
+                                                  <th> Sección</th>
+
+
+
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+
+
+<form class="" action="/gadmin/asignarprofsec" method="get">
+                                                <td>
+
+
+  <% carrera = @Profesor.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+    <%= select_tag("selectedprofe", options_for_select(carrera)) %>
+
+
+
+                                                </td>
+                                                <td>
+                <% secci = @SeccionD.all.map{|x| [ x.idsec.to_s + x.nombre.to_s ] + [x.id.to_s+'_'+x.idsec.to_s]} %>
+
+          <%= select_tag("selectedsecc", options_for_select(secci)) %>
+
+                  <button class="btn btn-primary btn-xs" type="submit" name="button">Asignar profesor</button>
+
+                                                </form>
+
+                                                </td>
+
+        </form><!-- form -->
+
+
+                                              </tbody>
+                                            </table>
+
+
+                                            <table class="table table-striped">
+
+                                              <thead>
+                                                <tr>
+                                                  <th> Carrera</th>
+
+                                                  <th> Curso</th>
+
+                                                </tr>
+                                              </thead>
+
+
+                                            <td>
+                                              <form method="get" action="crearc">
+
+
+
+<!-- <% cursos = Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>-->
+
+    <% carrera = @Carrera.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+      <%= select_tag("selectedCarrera", options_for_select(carrera)) %>
+
+
+
+
+                                  </td>
+
+                                            <td>
+                          <% cursos = @Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+                    <%= select_tag("selectedCurso", options_for_select(cursos)) %>
+
+
+
+
+
+
+                                            <button type="submit" class="btn btn-primary btn-xs">Asignar curso</button>
+
+
+                                            </td>
+
+                                            </form><!-- form -->
+
+
+
+
+                                              </tbody>
+                                            </table>
+
+                      <table class="table table-striped">
+
+                        <thead>
+                          <tr>
+                            <th> Curso</th>
+                            <th> Semestre</th>
+                            <th> Sección</th>
+
+
+                          </tr>
+                        </thead>
+
+  <form method="get" action="enlazar">
+
+    <td>
+      <% cursos = @Curso.all.map{|x| [x.nombre.to_s.capitalize] + [x.id.to_s+'_'+x.nombre.to_s]} %>
+
+<%= select_tag("selectedCurso", options_for_select(cursos)) %>
+
+
+    </td>
+
+<td>
+  <% semes = @Semestre.all.map{|x| [x.fecha.to_s.capitalize] + [x.id.to_s+'_'+x.fecha.to_s]} %>
+
+<%= select_tag("selectedseme", options_for_select(semes)) %>
+
+
+</td>
+<td>
+  <% secci = @Seccion.all.map{|x| [x.idsec.to_s.capitalize] + [x.id.to_s+'_'+x.idsec.to_s]} %>
+
+<%= select_tag("selectedsecc", options_for_select(secci)) %>
+
+<button type="submit" class="btn btn-primary btn-xs">Asignar curso</button>
+
+</td>
+
+
+
+</form><!-- form -->
+
+
+
+
+                        </tbody>
+                      </table>
+
+
+
+
+
+                      <table class="table table-striped">
+
+                        <thead>
+                          <tr>
+                            <th> Carrera</th>
+                            <th> Semestre</th>
+                            <th> Sección</th>
+                            <th> Curso</th>
+                          </tr>
+                        </thead>
+
+
+      <td>
+
+        <form method="get" action="crearcarrera">
+
+
+              <input type="text" class="form-control" placeholder="Carrera" name="crearcarrera" required>
+<button type="submit" class="btn btn-primary"  > <i class="fa fa-check">  </button></i>
+            </form><!-- form -->
+
+
+
+      </td>
+      <td>
+        <form method="get" action="crearsemestre">
+
+
+          <input type="text" class="form-control" placeholder="Nombre" name="crearsemestre" required>
+
+<button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
+        </form><!-- form -->
+
+
+
+      </td>
+      <td>
+        <form method="get" action="crearsession">
+
+
+
+          <input type="text" class="form-control" placeholder="Nombre" name="crearsession" required>
+
+<button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
+
+
+        </form><!-- form -->
+
+
+
+      </td>
+      <td>
+        <form method="get" action="crearcurso">
+
+
+
+          <input type="text" class="form-control" placeholder="Nombre" name="crearcurso" required>
+
+
+    <button type="submit" class="btn btn-primary" > <i class="fa fa-check">  </button></i>
+    </form><!-- form -->
+
+
+
+
+      </td>
+
+
+
+                        </tbody>
+
+                      </table>
+
+
+
+
+
+
+
+
+
+
+<a   style="color:#FF0000; text-transform: uppercase "  ><%= @kikoko%></a>
+
+
+
+
+                    </div>
+
+
+          </div>
+
+
+
+
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="" id="kikoL">
+
+</div>
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

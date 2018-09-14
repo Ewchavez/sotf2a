@@ -11,6 +11,7 @@ get 'gadmin/crearc'
 get 'gadmin/enlazar'
 get 'gadmin/asignars'
 get 'gadmin/asignarprofsec'
+get 'gadmin/opcionesavanzad'
   resources :cursos
 
 
