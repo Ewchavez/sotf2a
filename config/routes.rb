@@ -12,6 +12,11 @@ get 'gadmin/enlazar'
 get 'gadmin/asignars'
 get 'gadmin/asignarprofsec'
 get 'gadmin/opcionesavanzad'
+
+get 'asesoria_g/cursoselec'
+
+get 'crearasesoria'=>'asesoria_g/crearasesoria'
+get 'asesoria_g/crearasesoria'
   resources :cursos
 
 

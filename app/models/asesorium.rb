@@ -1,2 +1,0 @@
-class Asesorium < ApplicationRecord
-end

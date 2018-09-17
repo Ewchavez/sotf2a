@@ -31,11 +31,22 @@ class GadminController < ApplicationController
       gusuario()
 
     ser=Usuario.find_by(id:params["idser"])
-    ser.nombre=params["nombre"]
-    ser.activo=1
-
-
     ad=params["nivelu"]
+    rr=params["tipof"]
+
+    if rr=="1"
+      ser.contrasena=params["contra"]
+
+    elsif  rr=="2"
+
+
+      ser.nombre=params["nombre"]
+      ser.activo=1
+      ser.email=params["email"]
+      ser.codigo=params["codigo"]
+
+
+    end
 
 
 
@@ -158,8 +169,7 @@ class GadminController < ApplicationController
 
 
     end
-    ser.email=params["email"]
-    ser.codigo=params["codigo"]
+
     ser.save
     render 'gadmin/gusuario'
 

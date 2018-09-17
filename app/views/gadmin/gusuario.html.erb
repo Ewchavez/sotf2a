@@ -117,7 +117,7 @@ border:1px ;
 
 
                   <th><span class="text">Cambiar Foto</span></th>
-                
+
 
 
                 </tr>
@@ -135,7 +135,7 @@ border:1px ;
                 </td>
 
                   <td>
-
+                       <input type="hidden" name="tipof" value=1 >
 
                        <input type="hidden" name="idser" value="<%= @pro["id"] %>" >
 
@@ -157,7 +157,7 @@ border:1px ;
 
                   <td>
 
-                    <input type="text" value="<%= @pro["contrasena"]  %>" name="email"placeholder="Ingrese email" >
+                    <input type="text" value="<%= @pro["contrasena"]  %>" name="contra"placeholder="Contraseña" >
 
                   </td>
 
@@ -511,7 +511,7 @@ border:1px ;
 
                                             </td>
                                                   <td>  <input type="text" value="<%= @pro["email"]  %>" name="email"placeholder="Ingrese email" ></td>
-
+                                                    <input type="hidden" name="tipof" value=2 >
                                                   <td>     <input type="text" name="codigo" value="<%= @pro["codigo"]  %>" placeholder="Ingrese codigo" >
 
 

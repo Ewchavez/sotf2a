@@ -1,0 +1,2 @@
+class Asesor < ApplicationRecord
+end
