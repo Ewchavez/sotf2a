@@ -1,5 +1,11 @@
 class AsesoriaGController < ApplicationController
   def alumnosa
+    profesoresa()
+  #  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id ")
+    @carrera=Carrera.select("id","nombre")
+  #  @cursot=Curso.select("nombre","id")
+  #  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
+
   end
 
   def alumnosb
@@ -48,6 +54,68 @@ end
 
   end
 
+
+
+
+
+
+
+def carreraelecta
+  alumnosa()
+  @asesoria1=true
+  ll=params["carrera"]
+  @filacarrera=ll
+  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+  @mensajecurso=true
+  @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+
+
+
+  render 'alumnosa'
+
+
+
+end
+
+
+def cursoselec
+  alumnosa()
+  @asesoria2=true
+  ll=params["cursoelec"]
+  gg=params["idcarrera"]
+  @filacarrera=gg
+  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
+  @mensajecurso=true
+  @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
+  @mensaje222=true
+
+  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll)
+
+
+ render 'alumnosa'
+
+
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   def profesoresb
+
   end
 end

@@ -283,6 +283,7 @@ class GadminController < ApplicationController
   end
 
   def gasesorias
+     gusuario()
   end
 
   def getc

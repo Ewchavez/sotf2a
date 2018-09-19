@@ -15,8 +15,11 @@ get 'gadmin/opcionesavanzad'
 
 get 'asesoria_g/cursoselec'
 
+
+get 'asesoria_g/cursoselec'
 get 'crearasesoria'=>'asesoria_g/crearasesoria'
 get 'asesoria_g/crearasesoria'
+get 'asesoria_g/carreraelecta'
   resources :cursos
 
 
