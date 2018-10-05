@@ -20,6 +20,9 @@ get 'asesoria_g/cursoselec'
 get 'crearasesoria'=>'asesoria_g/crearasesoria'
 get 'asesoria_g/crearasesoria'
 get 'asesoria_g/carreraelecta'
+get 'asesoria_g/cursopselec'
+get 'asesoria_g/buscador'
+
   resources :cursos
 
 
@@ -40,8 +43,9 @@ get 'asesoria_g/carreraelecta'
 
   get 'gadmin/getc'
   get 'login/admin'
-  get 'login/inicio'
+  root to: 'login#inicio'
   get 'login/registrar'
+  get 'login/inicio'
 
   get 'rooms/show'
   post 'login/verificar'

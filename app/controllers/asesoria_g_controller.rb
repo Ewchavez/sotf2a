@@ -7,6 +7,18 @@ class AsesoriaGController < ApplicationController
   #  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
 
   end
+  def buscador
+    alumnosa()
+    @dsds=true
+    palabra= "%#{params[:keyboard]}%"
+    palbra2=2
+    @resultados=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("lower(nombre) LIKE ?",palabra.downcase )
+
+
+
+
+    render 'alumnosa'
+  end
 
   def alumnosb
   end
@@ -22,7 +34,7 @@ class AsesoriaGController < ApplicationController
   @horaactual=t.strftime("%Y").to_i
 
 end
-  def cursoselec
+  def cursopselec
 
     profesoresa()
     @mensaje1 = true
@@ -116,6 +128,7 @@ end
 
 
   def profesoresb
+
 
   end
 end

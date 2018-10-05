@@ -29,7 +29,7 @@
                 <i class="fa d-inline fa-lg fa-envelope-o"></i> Contactars</a>
               </li>
             </ul>
-            <a class="btn navbar-btn btn-primary ml-2 text-white"  onclick="ingresar()" ondblclick="finalR()">
+            <a class="btn navbar-btn btn-primary ml-2 text-white" href="/login/inicio" onclick="ingresar()" ondblclick="finalR()">
               <i class="fa d-inline fa-lg fa-user-circle-o"   ></i >  <%=@idUsuario%></a>
               </div>
             </div>
@@ -86,8 +86,43 @@
         </style>
 
 
+
         <div class="py-5" >
           <div class="container">
+
+            <div class="row">
+              <div class="col-md-6">
+
+
+                <form class="form-inline m-0" action="/asesoria_g/buscador">
+                  <input class="form-control mr-2" name="keyboard" type="text" placeholder="Buscar profesor" style="padding-right:200px">
+                  <button class="btn btn-primary" type="submit">Buscar </button>
+                </form>
+
+
+                            <!----------------------------
+
+
+
+
+                <%= form_tag "/asesoria_g/buscador", method: :get do %>
+                <%=text_field_tag :keyboard, nil, placeholder: "Busqueda especifica" %>
+                <%=content_tag :button, type: :submit do %>
+                Buscar
+                <%end%>
+                  <%end%>
+
+------------------------------>
+              </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-3"  >
+
+            </div>
+            </div>
+
+
+        <hr>
+
             <div class="row">
 
 
@@ -205,6 +240,7 @@
 
 
 <!------------------------------------------------------------------------------------>
+
           <%  if @mensaje==true         %>
             <script type="text/javascript">
             document.getElementById("crearasesorispanel").style.display="block";
@@ -227,7 +263,7 @@
 
 
 
-              <a id="<%=@pro["id"]%>" href= "/asesoria_g/cursoselec?cursoselec=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+              <a id="<%=@pro["id"]%>" href= "/asesoria_g/profeselec?cursoselec=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
                   <small class="text-muted">3 days ago</small>
@@ -241,6 +277,28 @@
 
             </div>
             <%  end        %>
+
+
+
+            <%  if @dsds==true         %>
+
+          <%  for   @pro in  @resultados      %>
+
+
+
+          <a id="<%=@pro["id"]%>" href= "/asesoria_g/carreraelecta?carrera=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Universidad_de_Lima</p>
+            <small class="text-muted">Seleccione carrera</small>
+          </a>
+          <br>
+
+          <% end    %>
+
+          <% end    %>
           </div>
 
 
