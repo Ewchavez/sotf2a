@@ -7,6 +7,7 @@ class AsesoriaGController < ApplicationController
   #  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
 
   end
+
   def buscador
     alumnosa()
     @dsds=true
@@ -19,15 +20,82 @@ class AsesoriaGController < ApplicationController
 
     render 'alumnosa'
   end
-
   def alumnosb
+    alumnosa()
+     @citas=Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id ").distinct
+
+  end
+
+  def vercita
+    alumnosb()
+    @citamensaje=true
+    cita=params["citaselecto"]
+
+    gg=Citar.find_by(id:cita)
+
+    @asesorias=gg.id
+    @fecha=gg.dia
+    if gg.tema==nil
+         @tema1=true
+          @mensajep=  "En proceso"
+    else
+         @tema2=true
+@mensajep="Cita confirmada"
+      @temaCita=gg.tema
+    end
+
+
+
+
+
+
+    render 'alumnosb'
+  end
+  def eliminaraseso
+    alumnosb()
+    cita=params["asesorias"]
+    gg=Citar.find_by(id:cita)
+    gg.destroy
+
+    render 'alumnosb'
+
+
+  end
+
+  def asignartema
+    alumnosb()
+    @citamensaje=true
+
+    gg=Citar.find_by(id:params["idasesoria"])
+    gg.tema=params["temap"]
+    gg.save
+
+    @asesorias=gg.id
+    @fecha=gg.dia
+    if gg.tema==nil
+         @tema1=true
+    else
+         @tema2=true
+
+      @temaCita=gg.tema
+    end
+    render 'alumnosb'
+
+
+
+
+
+
   end
 
   def profesoresa
 
   currenU=Usuario.find_by(codigo:session[:usuario])
+  profe=Profesor.find_by(usuario_id:currenU.id)
   @idUsuario="Bienvenido #{currenU.codigo}"
   @todos=Seccion.select("idsec","id","cursos.nombre","capacidad").joins("join cursos on cursos.id=seccions.curso_id join profesors on seccions.profesor_id=profesors.id where profesors.usuario_id=#{currenU.id}")
+
+  @citasxaten= Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").distinct
 
   t = Time.now
 
@@ -38,7 +106,7 @@ end
 
     profesoresa()
     @mensaje1 = true
-      @mensaje2 = true
+    @mensaje2 = true
     gg=Seccion.find_by(idsec:params["cursoselecto"])
     @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
     @curso="para el curso   #{gg.id}"
@@ -78,7 +146,7 @@ def carreraelecta
   ll=params["carrera"]
   @filacarrera=ll
   @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
-  @mensajecurso=true
+  @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
 
 
@@ -95,11 +163,12 @@ def cursoselec
   @asesoria2=true
   ll=params["cursoelec"]
   gg=params["idcarrera"]
+  @filacursosec=ll
   @filacarrera=gg
   @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
-  @mensajecurso=true
+  @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
-  @mensaje222=true
+  @busquedaprofesores=true
 
   @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll)
 
@@ -117,18 +186,42 @@ end
 
 
 
+def profeselec
+
+  alumnosa()
+  @asesoria3=true
+  idpro=params["profselec"]
+  ww=params["idcursosec"]
+  gg=params["idcarrera"]
+  @filacursosec=ww
+  @filacarrera=gg
+  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
+
+  @busquedacursos=true
+  @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
+  @busquedaprofesores=true
+
+  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ww)
+
+
+render 'alumnosa'
+
+
+end
+def solicitarase
+  alumnosa()
+  dd=params["cursoselecto"]
+  currenU=Usuario.find_by(codigo:session[:usuario])
+  alumno=Alumno.find_by(usuario_id:currenU.id)
+
+  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd)
+  secc.save
+
+  redirect_to('/asesoria_g/alumnosb')
 
 
 
+end
 
 
-
-
-
-
-
-  def profesoresb
-
-
-  end
 end

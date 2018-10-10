@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180917054230) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "citums", force: :cascade do |t|
+  create_table "citars", force: :cascade do |t|
     t.integer  "dia"
     t.integer  "mes"
     t.integer  "ano"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20180917054230) do
     t.datetime "updated_at", null: false
     t.integer  "asesor_id"
     t.integer  "alumno_id"
-    t.index ["alumno_id"], name: "index_citums_on_alumno_id", using: :btree
-    t.index ["asesor_id"], name: "index_citums_on_asesor_id", using: :btree
+    t.index ["alumno_id"], name: "index_citars_on_alumno_id", using: :btree
+    t.index ["asesor_id"], name: "index_citars_on_asesor_id", using: :btree
   end
 
   create_table "cursos", force: :cascade do |t|
@@ -147,8 +147,8 @@ ActiveRecord::Schema.define(version: 20180917054230) do
   add_foreign_key "alumnos", "usuarios"
   add_foreign_key "asesors", "seccions"
   add_foreign_key "carreras", "facultads"
-  add_foreign_key "citums", "alumnos"
-  add_foreign_key "citums", "asesors"
+  add_foreign_key "citars", "alumnos"
+  add_foreign_key "citars", "asesors"
   add_foreign_key "cursos", "carreras"
   add_foreign_key "profesors", "usuarios"
   add_foreign_key "seccions", "cursos"
