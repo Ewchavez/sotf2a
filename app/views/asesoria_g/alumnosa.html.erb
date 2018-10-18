@@ -1,137 +1,393 @@
-<!doctype html>
 
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/themepingento.css" type="text/css">
+</head>
 
+<body>
 
-<meta charset="utf-8">
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <div class="container">
+      <img src="/assets/images/Universidad_de_Lima.png" width="60"  height="60">
+      <a class="navbar-brand" href="/login/admin" id="titulon1" class="titulon1">Ulima Asesorias</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav" >
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa d-inline fa-lg fa-envelope-o"></i> Contactars</a>
+              </li>
+            </ul>
+            <a class="btn navbar-btn btn-primary ml-2 text-white" href="/login/inicio" onclick="ingresar()" ondblclick="finalR()">
+              <i class="fa d-inline fa-lg fa-user-circle-o"   ></i >  <%=@idUsuario%></a>
+              </div>
+            </div>
+          </nav>
 
-<title>Responsive Header Nav</title>
+          <style media="screen">
 
-<meta name="description" content="Responsive Header Nav">
-
-<meta name="author" content="Treehouse">
-
-<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
-
-<link rel="stylesheet" href="/fonts.css">
-<link rel="stylesheet" href="/mapusuario.css">
-
-<link rel="stylesheet" href="/cssEdw.css">
-
-<!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-
-
-
-<header>
-
-<a href="#" id="logo">  <img src="/assets/images/Universidad_de_Lima.png" class="logooo"  height="40"></a>
-
-<nav>
-
-<a href="#" id="menu-icon"></a>
-
-
-<ul>
-
-
-  <img src="<%=@imagenxD%>" width="40" height="40"/>
-
-  <li><a href="/login/inicio"> Inicio</a></li>
-
-
-
-    <li><a href="" >Buscar Asesorias</a></li>
-    <li><a href="">Mi Cuenta</a></li>
-
-  <li><a  onclick="" style="color:#FF0000; text-transform: uppercase "  >Bienvenido <%=@idUsuario%></a></li>
-  <li><a href="/login/inicio" >Salir</a></li>
-</ul>
-
-</nav>
-
-</header>
+          .formularios{
+            border-radius: 10px;  width:400px;   background-color: #f2f2f2;  padding: 20px;z-index: 3;
+          }
 
 
-<style media="screen">
-
-.clasificacion{
-      direction: rtl;/* right to left */
-      unicode-bidi: bidi-override;/* bidi de bidireccional */
-  }
-  input[type = "radio"]:checked ~ label{color:orange;}
-input[type=text] {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-    background-color: #3CBC8D;
-    color: white;
-}
-
-.formularios{
-  border-radius: 10px;     background-color: #f2f2f2;  padding: 20px;
-}
-
-#Registrodatos{
-  padding-left:63%; width:100%; margin-top: -1%
-}
-
-
-@media screen and (min-width:300px) and (max-width:800px) {
-#Registrodatos{   padding-left:10%;margin-top:100%; position:static;}
-input[type=text] {}
-}
-</style>
+          #Registrodatos{
+            padding-left:1%; width:350px; margin-top: -1%;position:fixed;z-index: 3;
+          }
 
 
 
+          #table-wrapper {
+            position:relative;
+          }
+          #table-scroll {
+            height:150px;
+            overflow:auto;
+            margin-top:20px;
+          }
+          #table-wrapper table {
+            width:100%;
+
+          }
+
+          #table-wrapper table thead th .text {
+            position:absolute;
+            top:-20px;
+            z-index:2;
+            height:20px;
+            width:35%;
+            border:1px ;
+          }
 
 
+          @media screen and (min-width:100px) and (max-width:900px) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <head>
-      <title>Custom Markers</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-      <meta charset="utf-8">
-      <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-          height: 100%;
-              padding-top: 600px;
-                 border: 5px solid;
-
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-
-          width:280px;
-          height:600px;
-
-      padding-top: 50px;
-
-
+            .formularios{
+              border-radius: 10px;  width:400px;   background-color: #f2f2f2;  padding: 20px;z-index: 3;
             }
-      </style>
-    </head>
-    <body>
+
+
+            #Registrodatos{
+              padding-left:1%; width:350px; margin-top: -1%;position:relative;z-index: 3;
+            }
+
+          }
+        </style>
+
+
+
+        <div class="py-5" >
+          <div class="container">
+
+            <div class="row">
+              <div class="col-md-6">
+
+
+                <form class="form-inline m-0" action="/asesoria_g/buscador">
+                  <input class="form-control mr-2" name="keyboard" type="text" placeholder="Buscar profesor" style="padding-right:200px">
+                  <button class="btn btn-primary" type="submit">Buscar </button>
+                </form>
+
+
+                            <!----------------------------
+
+
+
+
+                <%= form_tag "/asesoria_g/buscador", method: :get do %>
+                <%=text_field_tag :keyboard, nil, placeholder: "Busqueda especifica" %>
+                <%=content_tag :button, type: :submit do %>
+                Buscar
+                <%end%>
+                  <%end%>
+
+------------------------------>
+              </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-3"  >
+
+            </div>
+            </div>
+
+
+        <hr>
+
+            <div class="row">
+
+
+              <div class="col-md-3">
+                <h1>Carrera</h1>
+                <div class="list-group">
+                  <%  for   @pro in  @carrera      %>
+
+
+
+                  <a id="<%=@pro["id"]%>" href= "/asesoria_g/carreraelecta?carrera=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+                      <small class="text-muted">3 days ago</small>
+                    </div>
+                    <p class="mb-1">Universidad_de_Lima</p>
+                    <small class="text-muted">Seleccione carrera</small>
+                  </a>
+                  <br>
+
+                  <% end    %>
+
+
+
+                </div>
+              </div>
+
+
+
+
+
+              <script type="text/javascript">
+
+
+
+              function crearasesori(){
+
+                document.getElementById("idases").style.display="none";
+
+
+              }
+
+              function horasc(){
+                ad=document.getElementById("dateoo").value
+
+
+                var aa = parseInt(ad)+2
+
+                document.getElementById("ddd").innerHTML = ad +"-"+aa + " "+ "horas"
+
+
+              }
+
+              function fechasc(){
+                document.getElementById("dateoo").value=0
+
+
+
+                document.getElementById("ddd").innerHTML = " "
+
+
+              }
+
+
+
+
+            </script>
+
+
+            <!---------------------------------------------------------->
+
+
+
+            <div class="col-md-3">
+
+
+
+              <h1>Curso</h1>
+              <%  if @mensajecurso==true         %>
+
+              <div class="list-group">
+
+                <%  for   @pro in  @cursot      %>
+
+
+
+                <a id="<%=@pro["id"]%>" href= "/asesoria_g/cursoselec?cursoelec=<%=@pro["id"]%>&idcarrera=<%=@filacarrera%>" class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+                    <small class="text-muted">3 days ago</small>
+                  </div>
+                  <p class="mb-1">Universidad_de_Lima</p>
+                  <small class="text-muted">Seleccione carrera</small>
+                </a>
+
+                <% end    %>
+
+
+
+
+
+
+              </div>
+
+              <%  end        %>
+            </div>
+
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------>
+
+          <%  if @mensaje==true         %>
+            <script type="text/javascript">
+            document.getElementById("crearasesorispanel").style.display="block";
+            document.getElementById("<%=@idaseroriaaa%>").style.boxShadow = "10px 10px 30px lightblue";
+
+
+          </script>
+
+          <%end%>
+
+
+          <div class="col-md-3">
+
+            <h1>Profesor</h1>
+            <%  if @mensaje222==true         %>
+
+            <div class="list-group">
+
+              <%  for   @pro in  @Profesor    %>
+
+
+
+              <a id="<%=@pro["id"]%>" href= "/asesoria_g/profeselec?cursoselec=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+                  <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Universidad_de_Lima</p>
+                <small class="text-muted">Seleccione carrera</small>
+              </a>
+
+              <% end    %>
+
+
+            </div>
+            <%  end        %>
+
+
+
+            <%  if @dsds==true         %>
+
+          <%  for   @pro in  @resultados      %>
+
+
+
+          <a id="<%=@pro["id"]%>" href= "/asesoria_g/carreraelecta?carrera=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+              <small class="text-muted">3 days ago</small>
+            </div>
+            <p class="mb-1">Universidad_de_Lima</p>
+            <small class="text-muted">Seleccione carrera</small>
+          </a>
+          <br>
+
+          <% end    %>
+
+          <% end    %>
+          </div>
+
+
+          <!---------------------------------------------------------->
+
+
+
+          <div class="col-md-3">
+
+            <h1>Asesorias</h1>
+
+            <%  if @asesoria1==true         %>
+
+            <div class="list-group">
+              <%  for   @pro in  @asesoria      %>
+
+              <ul class="list-group">
+                <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
+
+                    <span class="badge badge-primary badge-pill">4/4</span>
+                  </li>
+
+                </ul>
+                <br>
+
+
+                <% end    %>
+
+              </div>
+
+              <% end    %>
+
+              <%  if @asesoria2==true         %>
+
+              <div class="list-group">
+                <%  for   @pro in  @asesoria      %>
+
+                <ul class="list-group">
+                  <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
+
+                      <span class="badge badge-primary badge-pill">4/4</span>
+                    </li>
+
+                  </ul>
+                  <br>
+
+
+                  <% end    %>
+
+                </div>
+
+                <% end    %>
+
+                <%  if @asesoria3==true         %>
+
+                <div class="list-group">
+                  <%  for   @pro in  @asesoria      %>
+
+                  <ul class="list-group">
+                    <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+
+                      <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
+
+                        <span class="badge badge-primary badge-pill">4/4</span>
+                      </li>
+
+                    </ul>
+                    <br>
+
+
+                    <% end    %>
+
+                  </div>
+
+                  <% end    %>
+
+
+            </div>
+
+
+
+            <!---------------------------------------------------------->
 
 
 
@@ -144,6 +400,9 @@ input[type=text] {}
 
 
 
+          </div>
+        </div>
+      </div>
 
 
 
@@ -153,28 +412,18 @@ input[type=text] {}
 
 
 
+      <div id="espacio">
+
+      </div>
 
 
 
 
 
 
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </html>
+    </html>

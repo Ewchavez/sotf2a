@@ -6,7 +6,8 @@ class CreateUsuarios < ActiveRecord::Migration[5.0]
       t.string :email
       t.integer :codigo
       t.integer :nivelu
-    
+      t.integer :activo
+
 
 
       t.timestamps

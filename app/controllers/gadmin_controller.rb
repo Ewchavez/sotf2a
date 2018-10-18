@@ -4,9 +4,11 @@ class GadminController < ApplicationController
     UsurioN="sdasd"
   end
 
+
   def gusuario
     #@pp=Servicio.select("servicios.origen","servicios.destino","taxist_id","nombre","id").joins("join taxists on taxists.id=servicios.taxist_id").where(estado:1,finalizado:nil)
-    @todos=Usuario.select("id","codigo","email","nombre","nivelu")
+    @todos=Usuario.select("id","codigo","email","nombre","nivelu","contrasena","activo").where(activo:1)
+    @todos2=Usuario.select("id","codigo","email","nombre","nivelu","contrasena","activo").where(activo:nil)
     @Facultad=Facultad.select("Nombre","id")
     @Carrera=Carrera.select("Nombre","id")
     @Semestre=Semestre.select("Fecha","id")
@@ -21,14 +23,30 @@ class GadminController < ApplicationController
     @idTaxiUser=currenU.codigo
   end
 
+  def opcionesavanzad
+    gusuario()
+  end
+
   def  asignarU
       gusuario()
 
     ser=Usuario.find_by(id:params["idser"])
-    ser.nombre=params["nombre"]
-
-
     ad=params["nivelu"]
+    rr=params["tipof"]
+
+    if rr=="1"
+      ser.contrasena=params["contra"]
+
+    elsif  rr=="2"
+
+
+      ser.nombre=params["nombre"]
+      ser.activo=1
+      ser.email=params["email"]
+      ser.codigo=params["codigo"]
+
+
+    end
 
 
 
@@ -151,8 +169,7 @@ class GadminController < ApplicationController
 
 
     end
-    ser.email=params["email"]
-    ser.codigo=params["codigo"]
+
     ser.save
     render 'gadmin/gusuario'
 
@@ -262,10 +279,12 @@ class GadminController < ApplicationController
 
 
   def gfacultad
+    @profecur=Curso.select("cursos.nombre, profesors.id").joins("join seccions on cursos.id=seccions.curso_id join profesors on profesors.id=seccions.profesor_id")
 
   end
 
   def gasesorias
+     gusuario()
   end
 
   def getc

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911040325) do
+ActiveRecord::Schema.define(version: 20180917054230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20180911040325) do
     t.integer  "nivelusuario"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "curso_id"
-    t.index ["curso_id"], name: "index_asesors_on_curso_id", using: :btree
+    t.integer  "seccion_id"
+    t.index ["seccion_id"], name: "index_asesors_on_seccion_id", using: :btree
   end
 
   create_table "carreras", force: :cascade do |t|
@@ -138,13 +138,14 @@ ActiveRecord::Schema.define(version: 20180911040325) do
     t.string   "email"
     t.integer  "codigo"
     t.integer  "nivelu"
+    t.integer  "activo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "administradors", "usuarios"
   add_foreign_key "alumnos", "usuarios"
-  add_foreign_key "asesors", "cursos"
+  add_foreign_key "asesors", "seccions"
   add_foreign_key "carreras", "facultads"
   add_foreign_key "citums", "alumnos"
   add_foreign_key "citums", "asesors"
