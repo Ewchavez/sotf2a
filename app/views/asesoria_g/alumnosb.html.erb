@@ -145,7 +145,8 @@
 
                 <ul class="list-group" >
            <li class="list-group-item d-flex justify-content-between align-items-center"> <a href="/asesoria_g/vercita?citaselecto=<%=@pro["id"]%>"> <%=@pro["nombre"]%>  |   <%=@pro["lugar"]%> </a>
-             <span class="badge badge-primary badge-pill">14</span>
+
+             <span class="badge badge-primary badge-pill">#</span>
            </li>
 
            <br>
@@ -214,13 +215,13 @@
          <%  if @tema1==true         %>
 
          <h5 class="modal-title">
-            <form class="" action="/asesoria_g/asignartema" method="get">
+            <form class="" action="/asesoria_g/asignartema" id="usrform" method="get">
             <input type="hidden" name="idasesoria" value="<%=@asesorias%>" >
 
             <input type="text" name="temap" value="sin asignar tema" placeholder="Asignar tema">
 
             <button type="submit" name="button">✔ Confirmar Cita</button>
-          </form>
+
 
           </h5>
            <% end     %>
@@ -233,17 +234,26 @@
        </div>
        <div class="modal-body">
          <label for="">Fecha</label>
+         <p><%=@fecha%></p>
          <h1>Resumen</h1>
+        
          <div class="container" style="text-align:center">
-           <textarea rows="4" cols="50">
+           <%  if @tema1==true         %>
+
+         <textarea rows="4" cols="50" name="resumen" form="usrform">
+
+             </textarea>
+          <% end     %>
+            <%  if @tema2==true         %>
+            ><%=@resumen%>
+              <% end     %>
 
 
-
-         </textarea>
           </div>
          <br>
-         <p><%=@fecha%></p>
+
        </div>
+        </form>
        <div class="modal-footer">
         <p><%=@mensajep%></p>
 

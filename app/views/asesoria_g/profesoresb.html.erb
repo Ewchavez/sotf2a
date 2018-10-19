@@ -175,13 +175,15 @@
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
+         <form class="" action="/asesoria_g/realizareport" id="usrform" method="get">
 
          <h5 class="modal-title">
-        <form class="" action="/asesoria_g/realizareport" method="get">
+          <input type="hidden" name="idasesoria" value="<%=@citaid%>" >
 
             <input style="position:left" type="text" name="temap" value="<%=@temaCita%>" placeholder="renombrar tema">
 
 
+            <button type="submit"  name="button">✔ Realizar reporte</button>
 
           </h5>
 
@@ -191,28 +193,29 @@
        </div>
        <div class="modal-body">
          <label for="">Fecha</label>
+          <p><%=@fecha%></p>
          <br>
-         <label>Resumen- alumno</label>
-         <h1>Reporte</h1>
+         <label>Resumen del alumno</label>
+           <p><%=@resumen%></p>
+         <label>Reporte</label>
          <div class="container" style="text-align:center">
-           <textarea rows="4" cols="50">
-
-
-
-         </textarea>
+           <textarea rows="4" cols="50" name="reporte" form="usrform">
+<%=@reporte%>
+            </textarea>
           </div>
 
          <br>
-         <p><%=@fecha%></p>
+
        </div>
        <div class="modal-footer">
         <p><%=@mensajep%></p>
-        <button type="submit" class="close" data-dismiss="modal" name="button">✔ Realizar reporte</button>
+
 
        </div>
      </div>
    </div>
  </div>
+
   </form>
 
         <% end     %>

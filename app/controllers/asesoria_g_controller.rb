@@ -24,7 +24,7 @@ class AsesoriaGController < ApplicationController
     alumnosa()
     currenU=Usuario.find_by(codigo:session[:usuario])
     alum=Alumno.find_by(usuario_id:currenU.id)
-     @citas=Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where citars.alumno_id=#{alum.id} ")
+     @citas=Citar.select("asesors.lugar,citars.fecha as fc,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where citars.alumno_id=#{alum.id} ")
 
   end
 
@@ -36,13 +36,14 @@ class AsesoriaGController < ApplicationController
     gg=Citar.find_by(id:cita)
 
     @asesorias=gg.id
-    @fecha=gg.dia
+    @fecha=gg.fecha
     if gg.tema==nil
          @tema1=true
           @mensajep=  "En proceso"
     else
          @tema2=true
 @mensajep="Cita confirmada"
+@resumen=gg.resumen
       @temaCita=gg.tema
     end
 
@@ -66,20 +67,24 @@ class AsesoriaGController < ApplicationController
 
   def asignartema
     alumnosb()
+
     @citamensaje=true
 
     gg=Citar.find_by(id:params["idasesoria"])
     gg.tema=params["temap"]
-    gg.save
+    gg.resumen=params["resumen"]
 
+    gg.save
+    @resumen=gg.resumen
     @asesorias=gg.id
-    @fecha=gg.dia
+    @fecha=gg.fecha
     if gg.tema==nil
          @tema1=true
     else
          @tema2=true
 
       @temaCita=gg.tema
+      @mensajep="Acaba de confirmar la cita"
     end
     render 'alumnosb'
 
@@ -128,7 +133,7 @@ end
     @mensaje1 = true
     @mensaje2 = true
     gg=Seccion.find_by(idsec:params["cursoselecto"])
-    @asesoria=Asesor.select("id","dia","lugar","idsec", "horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
+    @asesoria=Asesor.select("id","dia","fecha","lugar","idsec", "horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
     @curso="para el curso   #{gg.id}"
     vv=params["cursoselecto"]
     @idaseroriaaa=vv
@@ -141,10 +146,10 @@ end
     gg1=Profesor.find_by(usuario_id:session[:usuario])
 
     ll=Seccion.find_by(idsec:params["cursoesco"])
-    ases=Asesor.new(seccion_id:ll.id,dia:params["calendario"],horai:params["hora"],lugar:params["lugar"])
+    ases=Asesor.new(seccion_id:ll.id,fecha:params["calendario"],horai:params["hora"],lugar:params["lugar"])
 
     ases.save
-    @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{ll.idsec} ")
+    @asesoria=Asesor.select("id","fecha","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{ll.idsec} ")
 
     @mensaje2 = true
 
@@ -165,7 +170,7 @@ def carreraelecta
   @asesoria1=true
   ll=params["carrera"]
   @filacarrera=ll
-  @asesoria=Asesor.select("id","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
 
@@ -185,7 +190,7 @@ def cursoselec
   gg=params["idcarrera"]
   @filacursosec=ll
   @filacarrera=gg
-  @asesoria=Asesor.select("id","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
@@ -215,7 +220,7 @@ def profeselec
   gg=params["idcarrera"]
   @filacursosec=ww
   @filacarrera=gg
-  @asesoria=Asesor.select("id","dia","idsec","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
+  @asesoria=Asesor.select("id","fecha","dia","idsec","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
 
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
@@ -231,10 +236,11 @@ end
 def solicitarase
   alumnosa()
   dd=params["cursoselecto"]
+  go=Asesor.find_by(id:dd)
   currenU=Usuario.find_by(codigo:session[:usuario])
   alumno=Alumno.find_by(usuario_id:currenU.id)
 
-  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd)
+  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,fecha:go.fecha)
   secc.save
 
   redirect_to('/asesoria_g/alumnosb')
@@ -258,8 +264,11 @@ def gcita
   aa=params["citaselecto"]
   @citamensaje=true
   dd=Citar.find_by(id:aa)
+  @citaid=dd.id
+  @resumen=dd.resumen
   @temaCita=dd.tema
-  @fecha=dd.dia
+  @fecha=dd.fecha.to_formatted_s(:short)
+  @reporte=dd.reporte
 
 render 'profesoresb'
 
@@ -267,5 +276,17 @@ render 'profesoresb'
 
 end
 
+def realizareport
+  profesoresb()
+  aa=params["temap"]
+  bb=params["reporte"]
+  dd=Citar.find_by(id:params["idasesoria"])
+  dd.tema=aa
+  dd.reporte=bb
+  dd.save
+  @reporte=dd.reporte
 
+  render 'profesoresb'
+
+end
 end
