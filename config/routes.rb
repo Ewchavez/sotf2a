@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'gadmin/opcionesavanzad'
 
   get 'asesoria_g/cursoselec'
+  get 'asesoria_g/eliminarasesoriaprof'
 
 
   get 'asesoria_g/cursoselec'

@@ -1,6 +1,6 @@
 class AsesoriaGController < ApplicationController
   def alumnosa
-    profesoresa()
+
   #  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id ")
     @carrera=Carrera.select("id","nombre")
   #  @cursot=Curso.select("nombre","id")
@@ -22,7 +22,9 @@ class AsesoriaGController < ApplicationController
   end
   def alumnosb
     alumnosa()
-     @citas=Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id ").distinct
+    currenU=Usuario.find_by(codigo:session[:usuario])
+    alum=Alumno.find_by(usuario_id:currenU.id)
+     @citas=Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where citars.alumno_id=#{alum.id} ")
 
   end
 
@@ -87,15 +89,33 @@ class AsesoriaGController < ApplicationController
 
 
   end
+  def eliminarasesoriaprof
+    profesoresa()
+    cita=params["asesorias"]
+    ase=params["asesorias"]
+    cita=Citar.find_by(asesor_id:cita)
+    if cita==nil
+    else
+        Citar.find_each do |cita|
+          cita.asesor_id=nil
+          cita.save
+        end
 
+    end
+
+    gg=Asesor.find_by(id:ase.to_i)
+    gg.destroy
+    render 'profesoresa'
+
+  end
   def profesoresa
 
   currenU=Usuario.find_by(codigo:session[:usuario])
   profe=Profesor.find_by(usuario_id:currenU.id)
   @idUsuario="Bienvenido #{currenU.codigo}"
   @todos=Seccion.select("idsec","id","cursos.nombre","capacidad").joins("join cursos on cursos.id=seccions.curso_id join profesors on seccions.profesor_id=profesors.id where profesors.usuario_id=#{currenU.id}")
-
-  @citasxaten= Citar.select("asesors.lugar,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").distinct
+  @Citasco=Citar.where(asesor_id: 7).count
+  @citasxaten= Citar.select("cursos.nombre,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").group("citars.asesor_id,cursos.nombre,seccions.idsec").distinct
 
   t = Time.now
 
@@ -108,7 +128,7 @@ end
     @mensaje1 = true
     @mensaje2 = true
     gg=Seccion.find_by(idsec:params["cursoselecto"])
-    @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
+    @asesoria=Asesor.select("id","dia","lugar","idsec", "horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
     @curso="para el curso   #{gg.id}"
     vv=params["cursoselecto"]
     @idaseroriaaa=vv
@@ -145,7 +165,7 @@ def carreraelecta
   @asesoria1=true
   ll=params["carrera"]
   @filacarrera=ll
-  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+  @asesoria=Asesor.select("id","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
 
@@ -165,12 +185,12 @@ def cursoselec
   gg=params["idcarrera"]
   @filacursosec=ll
   @filacarrera=gg
-  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
+  @asesoria=Asesor.select("id","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
 
-  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll)
+  @Profesor=Usuario.select("usuarios.nombre","profesors.id","seccions.idsec","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll)
 
 
  render 'alumnosa'
@@ -195,13 +215,13 @@ def profeselec
   gg=params["idcarrera"]
   @filacursosec=ww
   @filacarrera=gg
-  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
+  @asesoria=Asesor.select("id","dia","idsec","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
 
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
 
-  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ww)
+  @Profesor=Usuario.select("usuarios.nombre","idsec","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ww)
 
 
 render 'alumnosa'
