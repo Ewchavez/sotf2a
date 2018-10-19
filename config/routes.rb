@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 
   get 'asesoria_g/cursoselec'
+  get 'asesoria_g/gcita'
   get 'crearasesoria'=>'asesoria_g/crearasesoria'
   get 'asesoria_g/crearasesoria'
   get 'asesoria_g/carreraelecta'

@@ -115,7 +115,7 @@ class AsesoriaGController < ApplicationController
   @idUsuario="Bienvenido #{currenU.codigo}"
   @todos=Seccion.select("idsec","id","cursos.nombre","capacidad").joins("join cursos on cursos.id=seccions.curso_id join profesors on seccions.profesor_id=profesors.id where profesors.usuario_id=#{currenU.id}")
   @Citasco=Citar.where(asesor_id: 7).count
-  @citasxaten= Citar.select("cursos.nombre,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").group("citars.asesor_id,cursos.nombre,seccions.idsec").distinct
+  @citasxaten= Citar.select("cursos.nombre,asesors.id,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").group("citars.asesor_id,cursos.nombre,seccions.idsec,asesors.id").distinct
 
   t = Time.now
 
@@ -238,6 +238,30 @@ def solicitarase
   secc.save
 
   redirect_to('/asesoria_g/alumnosb')
+
+
+
+end
+
+
+def profesoresb
+  bb=params["asesoria"]
+  currenU=Usuario.find_by(codigo:session[:usuario])
+  profe=Profesor.find_by(usuario_id:currenU.id)
+  @citas=Citar.select("citars.tema,citars.id as cid,seccions.idsec,usuarios.codigo,cursos.nombre as c,asesors.id,seccions.idsec,usuarios.nombre as u").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id join alumnos on  citars.alumno_id=alumnos.id join usuarios on usuarios.id=alumnos.usuario_id where seccions.profesor_id=#{profe.id}")
+
+
+
+end
+def gcita
+  profesoresb()
+  aa=params["citaselecto"]
+  @citamensaje=true
+  dd=Citar.find_by(id:aa)
+  @temaCita=dd.tema
+  @fecha=dd.dia
+
+render 'profesoresb'
 
 
 
