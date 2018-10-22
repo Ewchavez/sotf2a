@@ -1,13 +1,59 @@
 class AsesoriaGController < ApplicationController
   def alumnosa
-
+    currenU=Usuario.find_by(codigo:session[:usuario])
+    alum=Alumno.find_by(usuario_id:currenU.id)
+    @idUsuario="Bienvenido #{currenU.codigo}"
   #  @asesoria=Asesor.select("id","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id ")
     @carrera=Carrera.select("id","nombre")
   #  @cursot=Curso.select("nombre","id")
   #  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
 
   end
+  def chat
+      alumnosa()
 
+       @books = Usuario.all
+
+
+
+
+  end
+
+  def comunicar
+    chat()
+    currenU=Usuario.find_by(codigo:session[:usuario])
+
+
+    friend=params["friend"]
+    @topic=Usuario.find_by(id:friend)
+    @messages1 = Message.select("content").where(origen:friend)
+    if  friend==nil
+
+    else
+      @mensaje2=true
+
+    end
+    d=["online","busy"]
+    state = 2
+    render 'chat'
+  end
+
+
+
+  def estado_reporte
+
+    currenU=Usuario.find_by(codigo:session[:usuario])
+    profe=Profesor.find_by(usuario_id:currenU.id)
+
+
+    @all=Usuario.select("usuarios.nombre, citars.tema,citars.reporte,citars.fecha,citars.resumen").joins("join alumnos on usuarios.id=alumnos.usuario_id join citars on citars.alumno_id=alumnos.id where citars.profesorid=#{profe.id}")
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template:'asesoria_g/reporte',pdf:'Reporte',layout:'pdf.html'}
+    end
+
+  end
   def buscador
     alumnosa()
     @dsds=true
@@ -115,6 +161,7 @@ class AsesoriaGController < ApplicationController
   end
   def profesoresa
 
+
   currenU=Usuario.find_by(codigo:session[:usuario])
   profe=Profesor.find_by(usuario_id:currenU.id)
   @idUsuario="Bienvenido #{currenU.codigo}"
@@ -125,6 +172,7 @@ class AsesoriaGController < ApplicationController
   t = Time.now
 
   @horaactual=t.strftime("%Y").to_i
+
 
 end
   def cursopselec
@@ -238,9 +286,10 @@ def solicitarase
   dd=params["cursoselecto"]
   go=Asesor.find_by(id:dd)
   currenU=Usuario.find_by(codigo:session[:usuario])
+  jj=Seccion.find_by(id:go.seccion_id)
   alumno=Alumno.find_by(usuario_id:currenU.id)
 
-  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,fecha:go.fecha)
+  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,fecha:go.fecha,profesorid:jj.profesor_id)
   secc.save
 
   redirect_to('/asesoria_g/alumnosb')
