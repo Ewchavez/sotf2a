@@ -267,14 +267,7 @@ class GadminController < ApplicationController
         render 'gadmin/gusuario'
   end
 
-  def crearcurso
-      gusuario()
-      curs=Curso.new(nombre:params["crearcurso"])
-      curs.save
-      @kikoko="Curso creado"
-        render 'gadmin/gusuario'
 
-  end
 
 
 
@@ -286,6 +279,29 @@ class GadminController < ApplicationController
      gusuario()
   end
 
-  def getc
+  def crearcurso
+      gusuario()
+      curs=Curso.new(nombre:params["crearcurso"])
+      curs.save
+      @kikoko="Curso creado"
+        render 'gadmin/gusuario'
+
   end
+
+  def editarcurso
+    cur=Curso.find_by(id:params["idcurso"])
+    # en construccion...
+  end
+
+  def vercurso
+    cur=Curso.find_by(id:params["idcurso"])
+    @nombre=cur.nombre
+    @nivel=cur.nivel
+  end
+
+  def eliminarcurso
+    cur=Curso.find_by(id:params["idcurso"])
+    cur.destroy
+  end
+
 end

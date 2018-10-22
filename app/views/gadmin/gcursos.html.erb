@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Custom Markers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+          padding-top: 600px;
+             border: 5px solid;
+
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+
+      width:280px;
+      height:600px;
+
+  padding-top: 50px;
+
+
+        }
+  </style>
+
+  <meta charset="utf-8">
+
+  <title>Responsive Header Nav</title>
+
+  <meta name="description" content="Responsive Header Nav">
+
+  <meta name="author" content="Treehouse">
+
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <link rel="stylesheet" href="/fonts.css">
+  <link rel="stylesheet" href="/mapusuario.css">
+
+  <link rel="stylesheet" href="/cssEdw.css">
+
+  <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+
+
+
+
+
+  <style media="screen">
+  input[type = "radio"]{ display:none;}
+  .clasificacion{
+        direction: rtl;/* right to left */
+        unicode-bidi: bidi-override;/* bidi de bidireccional */
+    }
+    input[type = "radio"]:checked ~ label{color:orange;}
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+      background-color: #3CBC8D;
+      color: white;
+  }
+
+  .formularios{
+    border-radius: 5px;     background-color: #f2f2f2;  padding: 20px;
+  }
+
+  #Registrodatos{
+    padding-left:56%; width:90%; margin-top: -1%
+  }
+
+
+  @media screen and (min-width:300px) and (max-width:800px) {
+  #Registrodatos{   padding-left:10%;margin-top:100%; position:static;}
+  input[type=text] {}
+  }
+  </style>
+
+</head>
+
+
+
+    <body>
+
+      <header>
+
+      <a href="#" id="logo">  <img src="/assets/images/Logo_taxi_h.png" class="logooo"></a>
+
+      <nav>
+
+      <a href="#" id="menu-icon"></a>
+
+
+      <ul>
+
+
+        <img src="<%=@imagenxD%>" width="40" height="40"/>
+
+        <li><a href="/usuariomap/mapuser"> Inicio</a></li>
+
+
+        <li><a href="/usuariomap/mapuser" >Reservar Taxi</a></li>
+          <li><a href="/usuariomap/Promociones" >Pago de Servicios</a></li>
+          <li><a href="/usuariomap/datosuser">Mi Cuenta</a></li>
+        <li><a href="">Contactenos</a></li>
+        <li><a  onclick="ingresarr()" style="color:#FF0000; text-transform: uppercase "  >Bienvenido <%=@idUsuario%></a></li>
+        <li><a href="/login/index" >Salir</a></li>
+      </ul>
+
+      </nav>
+
+      </header>
+
+<!--      ----------------------------  inicio    -----------------------------------  -->
+      <h1>Lista de Cursos</h1><br>
+      <form class="" action="crearCurso" method="get">
+                       <button type="submit" class="btn btn-primary">Añadir Curso</button>
+      </form><br>
+      <table class="table table-striped">
+         <thead>
+  <tr>
+    <th>Curso</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%  for   @pro in  @cursos        %>
+  <tr>
+    <td> <%= @pro["nombre"]  %> </td>
+    <td>
+      <form class="" action="verCurso" method="get">
+                       <button type="submit" class="btn btn-primary">Ver curso</button>
+      </form>
+      <form class="" action="editarCurso" method="post">
+                       <button type="submit" class="btn btn-primary">Editar curso</button>
+      </form>
+      <form class="" action="eliminarCurso" method="get">
+                       <button type="submit" class="btn btn-primary">Eliminar curso</button>
+      </form>
+
+    </td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+<!--    ------------------------    fin  -------------------------------------------------------    -->
+
+    </body>
+
+
+
+
+</html>

@@ -91,7 +91,21 @@
           <div class="container">
 
             <div class="row">
-              <div class="col-md-6">
+
+              <div class="col-md-3">
+                <div>
+                  <a href="/asesoria_g/alumnosb">Mis Asesorias</a>  |  <a href="#">Mis datos</a> |  <a href="#">Mensajes</a>
+                  </div>
+
+              </div>
+
+
+           <div class="col-md-3"  >
+
+
+          </div>
+
+          <div class="col-md-6">
 
 
                 <form class="form-inline m-0" action="/asesoria_g/buscador">
@@ -114,11 +128,10 @@
 
 ------------------------------>
               </div>
-              <div class="col-md-3"></div>
-              <div class="col-md-3"  >
 
-            </div>
-            </div>
+
+
+        </div>
 
 
         <hr>
@@ -201,7 +214,7 @@
 
 
               <h1>Curso</h1>
-              <%  if @mensajecurso==true         %>
+              <%  if @busquedacursos==true         %>
 
               <div class="list-group">
 
@@ -217,7 +230,7 @@
                   <p class="mb-1">Universidad_de_Lima</p>
                   <small class="text-muted">Seleccione carrera</small>
                 </a>
-
+<br>
                 <% end    %>
 
 
@@ -255,7 +268,7 @@
           <div class="col-md-3">
 
             <h1>Profesor</h1>
-            <%  if @mensaje222==true         %>
+            <%  if @busquedaprofesores==true         %>
 
             <div class="list-group">
 
@@ -263,9 +276,9 @@
 
 
 
-              <a id="<%=@pro["id"]%>" href= "/asesoria_g/profeselec?cursoselec=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+              <a id="<%=@pro["id"]%>" href= "/asesoria_g/profeselec?profselec=<%=@pro["id"]%>&idcarrera=<%=@filacarrera%>&idcursosec=<%=@filacursosec%>" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+                  <h5 class="mb-1"><%= @pro["nombre"] %> / <%= @pro["idsec"] %></h5>
                   <small class="text-muted">3 days ago</small>
                 </div>
                 <p class="mb-1">Universidad_de_Lima</p>
@@ -316,15 +329,19 @@
               <%  for   @pro in  @asesoria      %>
 
               <ul class="list-group">
-                <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+                <a  href= "/asesoria_g/solicitarase?cursoselecto=<%=@pro["id"]%>" >
 
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
+                    <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
 
-                    <span class="badge badge-primary badge-pill">4/4</span>
+                  <br>
+                 <small class="text-muted"><%= @pro["fecha"] %></small>
+                 <span class="badge badge-primary badge-pill">#/4</span>
+
                   </li>
 
                 </ul>
+
                 <br>
 
 
@@ -340,13 +357,15 @@
                 <%  for   @pro in  @asesoria      %>
 
                 <ul class="list-group">
-                  <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+                  <a  href= "/asesoria_g/solicitarase?cursoselecto=<%=@pro["id"]%>" >
 
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
+                      <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
+                      <br>
+                     <small class="text-muted"><%= @pro["fecha"] %></small>
+                     <span class="badge badge-primary badge-pill">#/4</span>
 
-                      <span class="badge badge-primary badge-pill">4/4</span>
-                    </li>
+                      </li>
 
                   </ul>
                   <br>
@@ -364,13 +383,14 @@
                   <%  for   @pro in  @asesoria      %>
 
                   <ul class="list-group">
-                    <a  href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" >
+                    <a  href= "/asesoria_g/solicitarase?cursoselecto=<%=@pro["id"]%>" >
 
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <%= @pro["lugar"] %>/<%=@pro["nombre"]%>
-
-                        <span class="badge badge-primary badge-pill">4/4</span>
-                      </li>
+                      <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
+                      <br>
+                     <small class="text-muted"><%= @pro["fecha"] %></small>
+                     <span class="badge badge-primary badge-pill">#/4</span>
+  </li>
 
                     </ul>
                     <br>

@@ -57,9 +57,9 @@ class LoginController < ApplicationController
 
   def registrar
     inicio()
-  userReg=params[:codigou]
-  contrasenia =params[:clave]
-  buscarU=Usuario.find_by(codigo:userReg)
+    userReg=params[:codigou]
+    contrasenia =params[:clave]
+    buscarU=Usuario.find_by(codigo:userReg)
 
       if buscarU==nil
         nuevo=Usuario.create(codigo: params[:codigou] , contrasena:params[:clave])

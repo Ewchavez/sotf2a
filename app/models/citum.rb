@@ -1,2 +1,0 @@
-class Citum < ApplicationRecord
-end

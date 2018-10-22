@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180917054230) do
+ActiveRecord::Schema.define(version: 20181019164458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180917054230) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "seccion_id"
+    t.date     "fecha"
     t.index ["seccion_id"], name: "index_asesors_on_seccion_id", using: :btree
   end
 
@@ -66,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180917054230) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "citums", force: :cascade do |t|
+  create_table "citars", force: :cascade do |t|
     t.integer  "dia"
     t.integer  "mes"
     t.integer  "ano"
@@ -75,8 +76,11 @@ ActiveRecord::Schema.define(version: 20180917054230) do
     t.datetime "updated_at", null: false
     t.integer  "asesor_id"
     t.integer  "alumno_id"
-    t.index ["alumno_id"], name: "index_citums_on_alumno_id", using: :btree
-    t.index ["asesor_id"], name: "index_citums_on_asesor_id", using: :btree
+    t.date     "fecha"
+    t.string   "resumen"
+    t.string   "reporte"
+    t.index ["alumno_id"], name: "index_citars_on_alumno_id", using: :btree
+    t.index ["asesor_id"], name: "index_citars_on_asesor_id", using: :btree
   end
 
   create_table "cursos", force: :cascade do |t|
@@ -147,8 +151,8 @@ ActiveRecord::Schema.define(version: 20180917054230) do
   add_foreign_key "alumnos", "usuarios"
   add_foreign_key "asesors", "seccions"
   add_foreign_key "carreras", "facultads"
-  add_foreign_key "citums", "alumnos"
-  add_foreign_key "citums", "asesors"
+  add_foreign_key "citars", "alumnos"
+  add_foreign_key "citars", "asesors"
   add_foreign_key "cursos", "carreras"
   add_foreign_key "profesors", "usuarios"
   add_foreign_key "seccions", "cursos"

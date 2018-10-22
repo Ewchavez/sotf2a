@@ -3,26 +3,36 @@ Rails.application.routes.draw do
   #Gadmin
   get 'gadmin/asignarU'
 
+  get 'gadmin/crearcurso'
+  get 'gadmin/vercurso'
+  post 'gadmin/editarcurso'
+  get 'gadmin/eliminarcurso'
   get 'gadmin/crearcarrera'
   get 'gadmin/crearsemestre'
   get 'gadmin/crearsession'
-  get 'gadmin/crearcurso'
-get 'gadmin/crearc'
-get 'gadmin/enlazar'
-get 'gadmin/asignars'
-get 'gadmin/asignarprofsec'
-get 'gadmin/opcionesavanzad'
+  get 'gadmin/crearc'
+  get 'gadmin/enlazar'
+  get 'gadmin/asignars'
+  get 'gadmin/asignarprofsec'
+  get 'gadmin/opcionesavanzad'
 
-get 'asesoria_g/cursoselec'
+  get 'asesoria_g/cursoselec'
+  get 'asesoria_g/eliminarasesoriaprof'
 
 
-get 'asesoria_g/cursoselec'
-get 'crearasesoria'=>'asesoria_g/crearasesoria'
-get 'asesoria_g/crearasesoria'
-get 'asesoria_g/carreraelecta'
-get 'asesoria_g/cursopselec'
-get 'asesoria_g/buscador'
-
+  get 'asesoria_g/cursoselec'
+  get "asesoria_g/realizareport"
+  get 'asesoria_g/gcita'
+  get 'crearasesoria'=>'asesoria_g/crearasesoria'
+  get 'asesoria_g/crearasesoria'
+  get 'asesoria_g/carreraelecta'
+  get 'asesoria_g/cursopselec'
+  get 'asesoria_g/buscador'
+  get 'asesoria_g/profeselec'
+  get 'asesoria_g/solicitarase'
+  get 'asesoria_g/vercita'
+  get 'asesoria_g/asignartema'
+    get 'asesoria_g/eliminaraseso'
   resources :cursos
 
 
@@ -49,6 +59,8 @@ get 'asesoria_g/buscador'
 
   get 'rooms/show'
   post 'login/verificar'
+
+
 
 
 

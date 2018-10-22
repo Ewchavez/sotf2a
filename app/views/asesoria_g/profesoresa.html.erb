@@ -88,25 +88,36 @@ border:1px ;
 
 <div class="py-5" >
   <div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+        <div>
+    <a href="/asesoria_g/alumnosb">Reporte Asesorias</a>  |    <a href="#">Mensajes</a>
+
+      </div>
+
+    </div>
+  <hr>
+    </div>
     <div class="row">
 
 
       <div class="col-md-3">
+
     <h1>Mis Cursos</h1>
         <div class="list-group">
           <%  for   @pro in  @todos      %>
 
 
-
           <a id="<%=@pro["idsec"]%>" href= "/asesoria_g/cursopselec?cursoselecto=<%=@pro["idsec"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
-              <small class="text-muted">3 days ago</small>
+              <h5 class="mb-1"><%= @pro["nombre"] %> / <%= @pro["idsec"] %></h5>
+              <small class="text-muted"># days ago</small>
             </div>
             <p class="mb-1">El salon cuenta con <%= @pro["capacidad"] %>  alumnos</p>
             <small class="text-muted">Donec id elit non mi porta.</small>
           </a>
-
+          <br>
           <% end    %>
 
 
@@ -116,44 +127,6 @@ border:1px ;
 
 
 
-
-
-<script type="text/javascript">
-
-
-
-function crearasesori(){
-
-document.getElementById("idases").style.display="none";
-
-
- }
-
-function horasc(){
-  ad=document.getElementById("dateoo").value
-
-
-  var aa = parseInt(ad)+2
-
-  document.getElementById("ddd").innerHTML = ad +"-"+aa + " "+ "horas"
-
-
-}
-
-function fechasc(){
-  document.getElementById("dateoo").value=0
-
-
-
-  document.getElementById("ddd").innerHTML = " "
-
-
-}
-
-
-
-
-</script>
 
 
 <!---------------------------------------------------------->
@@ -171,18 +144,28 @@ function fechasc(){
         <a id="<%=@pro["id"]%>" href= "/asesoria_g/cursoselec?cursoselecto=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start active">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"><%= @pro["lugar"] %> </h5>
-            <small class="text-muted">3 days ago - <%= @horaactual%></small>
+            <small class="text-muted">~# days ago - <%= @horaactual%></small>
           </div>
-          <p class="mb-1">La asesoria es el dia <%= @pro["dia"] %> para el curso <%=@pro["nombre"]%> </p>
+          <p
+
+          class="mb-1">La asesoria es el dia <%= @pro["fecha"] %> para el curso <%=@pro["nombre"]%>
+
+
+
+           </p>
           <small class="text-muted">Donec id elit non mi porta.</small>
+          <a href="/asesoria_g/eliminarasesoriaprof?asesorias= <%= @pro["id"] %>">Cancelar Asesorias</a>
+
         </a>
         <br>
+
+
         <% end    %>
 
 
 
       </div>
-
+<br>
 
 <%  end      %>
       </div>
@@ -255,30 +238,32 @@ Lugar
 
         <h1>Herramintas</h1>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Cras justo odio
-            <span class="badge badge-primary badge-pill">14</span>
+          <li class="list-group-item d-flex justify-content-between align-items-center"> Administrar Citas
+            <span class="badge badge-primary badge-pill">#</span>
+
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Dapibus ac facilisis in
-            <span class="badge badge-primary badge-pill">2</span>
+          <br>
+          <li class="list-group-item d-flex justify-content-between align-items-center"> Ver Reporte
+
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Morbi leo risus
-            <span class="badge badge-primary badge-pill">1</span>
-          </li>
+
         </ul>
 
         <hr>
 
                 <h1>Citas por atender</h1>
+
                 <ul class="list-group">
-                  <li class="list-group-item d-flex justify-content-between align-items-center"> Cras justo odio
-                    <span class="badge badge-primary badge-pill">14</span>
+
+                  <%  for   @pro in  @citasxaten      %>
+    <a href="/asesoria_g/profesoresb?asesoria=<%=@pro["id"] %>">
+                  <li class="list-group-item d-flex justify-content-between align-items-center"> <%=@pro["nombre"] %> | <%=@pro["idsec"] %>
+                    <span class="badge badge-primary badge-pill">Por atender  <%=@pro["d"] %>/4</span>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center"> Dapibus ac facilisis in
-                    <span class="badge badge-primary badge-pill">2</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center"> Morbi leo risus
-                    <span class="badge badge-primary badge-pill">1</span>
-                  </li>
+                  <br>
+    </a>
+                  <%  end      %>
+                  <br>
                 </ul>
 
 
@@ -294,6 +279,20 @@ Lugar
 
 
 
+      <script type="text/javascript">
+      function crearasesori(){
+      document.getElementById("idases").style.display="none";
+       }
+      function horasc(){
+        ad=document.getElementById("dateoo").value
+        var aa = parseInt(ad)+2
+        document.getElementById("ddd").innerHTML = ad +"-"+aa + " "+ "horas"
+      }
+      function fechasc(){
+        document.getElementById("dateoo").value=0
+        document.getElementById("ddd").innerHTML = " "
+      }
+      </script>
 
 
 
