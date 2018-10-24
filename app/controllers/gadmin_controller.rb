@@ -291,6 +291,8 @@ class GadminController < ApplicationController
 
 
     @all=Usuario.select("nombre")
+    respond_to do |format|
+      format.html
       format.json
       format.pdf {render template:'gadmin/reporteall',pdf:'Reporte',layout:'pdf.html'}
     end
