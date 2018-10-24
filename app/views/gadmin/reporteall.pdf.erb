@@ -1,0 +1,26 @@
+<div class="container" >
+  <h1>Reporte de asesorias</h1>
+  <hr>
+  <br>
+
+  <%  for   @pro in  @all      %>
+  <div class="list-group" style="border-style: ridge">
+    <table class="table table-hover table-dark">
+
+      <div class="d-flex w-100 justify-content-between">
+        <small class="text-muted" style="border-style: ridge"><%= @pro["fecha"] %> </small>
+        <p><%=@pro["idsec"]%></p>
+        <h5>Nombre del alumno- Tema</h5>
+        <p class="mb-1"><%= @pro["nombre"] %> - <%= @pro["tema"] %></p>
+      </div>
+      <h5>Resumen</h5>
+      <p class="mb-1"> <%= @pro["resumen"] %>  </p>
+      <h5>Mi reporte</h5>
+      <p class="mb-1"> <%= @pro["reporte"] %>  </p>
+    </a>
+
+    </table>
+</div>
+<br>
+<% end    %>
+</div>

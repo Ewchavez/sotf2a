@@ -16,7 +16,7 @@ class GadminController < ApplicationController
     @SeccionD=Seccion.select("idsec","id","cursos.nombre").joins("join cursos on cursos.id=seccions.curso_id").where("estado":0)
     @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
 
-    @Curso=Curso.select("nombre","id")
+    @Curso=Curso.select("nombre","id").where(nivelusuario:1)
 
     currenU=Usuario.find_by(codigo:session[:usuario])
 
@@ -279,6 +279,23 @@ class GadminController < ApplicationController
 
 
   def gfacultad
+    @asesoria=Curso.select("cursos.nombre as cur,usuarios.nombre as profe, usuarios.id as idu").joins("join seccions on cursos.id=seccions.curso_id join profesors on profesors.id=seccions.profesor_id join usuarios on usuarios.id=profesors.usuario_id").distinct
+    render 'gadmin/gfacultad'
+
+  end
+  def modipdf
+
+
+    a=params["profe"]
+    profe=Profesor.find_by(usuario_id:a)
+
+
+    @all=Usuario.select("usuarios.nombre, citars.tema,citars.reporte,citars.fecha,citars.resumen").joins("join alumnos on usuarios.id=alumnos.usuario_id join citars on citars.alumno_id=alumnos.id where citars.profesorid=#{profe.id}")
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template:'gadmin/reporteall',pdf:'Reporte',layout:'pdf.html'}
+    end
 
   end
 
@@ -286,6 +303,46 @@ class GadminController < ApplicationController
      gusuario()
   end
 
-  def getc
+  def cambiarnombre
+    getc()
+    cursoid=params["idc"]
+    nombrec=params["nombre"]
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nombre=nombrec
+    buscaC.save
+    render 'gadmin/getc'
   end
+  def deshabilitar
+    getc()
+    cursoid=params["idc"]
+
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nivelusuario=0
+    buscaC.save
+    @mensaje="Curso #{buscaC.nombre} desabilitado"
+
+    render 'gadmin/getc'
+
+  end
+
+  def habilitar
+    getc()
+    cursoid=params["idc"]
+
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nivelusuario=1
+    buscaC.save
+    @mensaje="Curso #{buscaC.nombre} habilitado"
+
+    render 'gadmin/getc'
+
+  end
+  def getc
+    @Curso=Curso.select("nombre","id","nivelusuario")
+
+
+
+  end
+
+
 end
