@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     get 'asesoria_g/eliminaraseso'
   resources :cursos
 
-
+get 'gadmin/modipdf'
   #------------------------------------------------------------------------
   get 'asesoria_g/alumnosa'
 

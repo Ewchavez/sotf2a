@@ -279,6 +279,23 @@ class GadminController < ApplicationController
 
 
   def gfacultad
+    @asesoria=Curso.select("cursos.nombre as cur,usuarios.nombre as profe, usuarios.id as idu").joins("join seccions on cursos.id=seccions.curso_id join profesors on profesors.id=seccions.profesor_id join usuarios on usuarios.id=profesors.usuario_id").distinct
+    render 'gadmin/gfacultad'
+
+  end
+  def modipdf
+
+
+    a=params["profe"]
+    profe=Profesor.find_by(usuario_id:a)
+
+
+    @all=Usuario.select("usuarios.nombre, citars.tema,citars.reporte,citars.fecha,citars.resumen").joins("join alumnos on usuarios.id=alumnos.usuario_id join citars on citars.alumno_id=alumnos.id where citars.profesorid=#{profe.id}")
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template:'gadmin/reporteall',pdf:'Reporte',layout:'pdf.html'}
+    end
 
   end
 
