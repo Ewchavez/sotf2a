@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'gadmin/asignars'
   get 'gadmin/asignarprofsec'
   get 'gadmin/opcionesavanzad'
+  get 'gadmin/cambiarnombre'
+  get 'gadmin/deshabilitar'
 
   get 'asesoria_g/cursoselec'
   get 'asesoria_g/eliminarasesoriaprof'

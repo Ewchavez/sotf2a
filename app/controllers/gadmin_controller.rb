@@ -304,4 +304,37 @@ class GadminController < ApplicationController
     cur.destroy
   end
 
+  def gasesorias
+     gusuario()
+  end
+  def cambiarnombre
+    getc()
+    cursoid=params["idc"]
+    nombrec=params["nombre"]
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nombre=nombrec
+    buscaC.save
+    render 'gadmin/getc'
+  end
+  def deshabilitar
+    getc()
+    cursoid=params["idc"]
+
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nivelusuario=0
+    buscaC.save
+    render 'gadmin/getc'
+
+
+  end
+  def getc
+    @Curso=Curso.select("nombre","id")
+
+
+  end
+
+
+
+
+
 end

@@ -47,3 +47,41 @@
 
   </tbody>
 </table>
+<br>
+
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th> Curso</th>
+      <th> Modificar</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <%  for   @pro in   @Curso     %>
+         <form class="" action="/gadmin/cambiarnombre" method="get">
+    <tr>
+
+    <td> <%= @pro["nombre"]  %> </td>
+
+      <td>
+        <input  id="renom" type="hidden" name="idc" value="<%= @pro["id"]  %> ">
+        <input  id="renom"  name="nombre" value=""> |
+        <button type="none" id="renom2" onclick="ren()">Renombrar</button> |
+
+        <a id="desha" href="/gadmin/deshabilitar?idc=<%= @pro["id"]  %>">deshabilitar</a>
+
+
+</td>
+
+
+
+    </tr>
+      </form>
+    <% end %>
+
+  </tbody>
+</table>
+
+<script type="text/javascript">
