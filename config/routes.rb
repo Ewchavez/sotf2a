@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   get 'asesoria_g/cursoselec'
   get 'asesoria_g/eliminarasesoriaprof'
 
+  get 'gadmin/cambiarnombre'
+  get 'gadmin/deshabilitar'
+  get 'gadmin/habilitar'
+
+
+
+
 
   get 'asesoria_g/cursoselec'
   get 'asesoria_g/chat'

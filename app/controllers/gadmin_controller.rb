@@ -16,7 +16,7 @@ class GadminController < ApplicationController
     @SeccionD=Seccion.select("idsec","id","cursos.nombre").joins("join cursos on cursos.id=seccions.curso_id").where("estado":0)
     @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
 
-    @Curso=Curso.select("nombre","id")
+    @Curso=Curso.select("nombre","id").where(nivelusuario:1)
 
     currenU=Usuario.find_by(codigo:session[:usuario])
 
@@ -286,6 +286,46 @@ class GadminController < ApplicationController
      gusuario()
   end
 
-  def getc
+  def cambiarnombre
+    getc()
+    cursoid=params["idc"]
+    nombrec=params["nombre"]
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nombre=nombrec
+    buscaC.save
+    render 'gadmin/getc'
   end
+  def deshabilitar
+    getc()
+    cursoid=params["idc"]
+
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nivelusuario=0
+    buscaC.save
+    @mensaje="Curso #{buscaC.nombre} desabilitado"
+
+    render 'gadmin/getc'
+
+  end
+
+  def habilitar
+    getc()
+    cursoid=params["idc"]
+
+    buscaC=Curso.find_by(id:cursoid)
+    buscaC.nivelusuario=1
+    buscaC.save
+    @mensaje="Curso #{buscaC.nombre} habilitado"
+
+    render 'gadmin/getc'
+
+  end
+  def getc
+    @Curso=Curso.select("nombre","id","nivelusuario")
+
+
+
+  end
+
+
 end
