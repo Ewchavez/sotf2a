@@ -1,0 +1,196 @@
+
+<%= render template: "layouts/profesores" %>
+<div class="py-5" >
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-3">
+
+          <a href="/asesoria_g/alumnosb">Mis Asesorias</a>  |  <a href="#">Mis datos</a> |  <a href="/asesoria_g/alumnosa">Inicio</a>
+
+        </div>
+
+
+        <div class="col-md-3"  >
+
+
+       </div>
+
+       <div class="col-md-6">
+
+
+
+       </div>
+
+      </div>
+
+
+    </div>
+
+    </div>
+    <div class="py-5" >
+      <div class="container">
+
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+<script type="text/javascript">
+  document.querySelector('body').dataset.topicId
+  console.log(document.querySelector('body').dataset.topicId)
+</script>
+              <%  if @mensaje2==true         %>
+
+              <body data-topic-id="<%= @topic.id %>">
+
+                <% end       %>
+
+            </div>
+            <div class="modal-body">
+
+              <div class="row">
+
+
+                <div class="col-md-4" >
+
+                <h5 style="padding-left:30px">Contactos</h5>
+                  <div id="contacts">
+                    <ul>
+
+                      <%  for   @pro in   @books      %>
+
+                      <li class="contact">
+                        <div class="wrap">
+                          <img src="https://icon-icons.com/icons2/827/PNG/512/user_icon-icons.com_66546.png" alt="" width="25"  height="25" />
+
+                          <span class="contact-status <%=@pro["state"]%>"></span>
+                          <div class="meta" style="padding-left:30px;margin-top:-6%">
+                            <a  href= "/asesoria_g/comunicar?friend=<%=@pro["id"]%>">
+                            <p class="name"> <%=@pro["nombre"]%>- <%=@pro["codigo"]%></p>
+                            <p class="preview">ultimo mensaje</p>
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <%  end     %>
+
+
+
+                    </ul>
+                  </div>
+
+
+                </div>
+
+
+
+
+
+                  <div class="col-md-6" >
+                    <div class="container">
+
+                      <div class="row">
+
+
+                        <div class="col-md-6"  >
+
+
+                          <div class="messages">
+
+
+                            <ul>
+                              <%  if @mensaje2==true         %>
+
+
+                              <div id="messages">
+                                <%= render @messages1 %>
+                              </div>
+
+                              <%  end    %>
+
+
+
+                            </ul>
+                          </div>
+
+
+
+                        </div>
+
+                        <div class="col-md-6">
+
+
+                          <div class="messages">
+
+
+                            <ul>
+                              <%  if @mensaje2==true         %>
+
+
+                              <%  end    %>
+
+
+
+                            </ul>
+                          </div>
+
+
+
+
+                        </div>
+
+                      </div>
+
+
+
+                    </div>
+
+                  </div>
+
+
+
+
+
+
+
+
+
+
+                  </div>
+
+
+
+
+
+
+
+            </div>
+
+            <div class="modal-footer">
+
+                      <%  if @mensaje2==true         %>
+
+                      <div class="message-input">
+
+                        <div class="wrap">
+                          <input type="text" data-behavior="room_speaker">
+                          <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                          </div>
+                      </div>
+
+                      <%  end    %>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>

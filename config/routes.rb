@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
 
   get 'asesoria_g/cursoselec'
+  get 'asesoria_g/chat'
+    get 'asesoria_g/comunicar'
   get "asesoria_g/realizareport"
   get 'asesoria_g/gcita'
   get 'crearasesoria'=>'asesoria_g/crearasesoria'
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
   get 'asesoria_g/cursopselec'
   get 'asesoria_g/buscador'
   get 'asesoria_g/profeselec'
+    get 'asesoria_g/estado_reporte'
   get 'asesoria_g/solicitarase'
   get 'asesoria_g/vercita'
   get 'asesoria_g/asignartema'

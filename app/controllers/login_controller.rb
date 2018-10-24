@@ -75,23 +75,8 @@ class LoginController < ApplicationController
         end
 
   def admin
-        adminis= Usuario.find_by(codigo:1111)
 
-        if adminis==nil
-
-          nuevo=Usuario.create(codigo: 1111 , contrasena:"admin",nivelu:1)
-          nuevo.save
-          redirect_to('/login/inicio')  and return
-          render 'login/inicio'
-
-        else
-          redirect_to('/login/inicio')  and return
-          render 'login/inicio'
-
-
-
-
-        end
+  render 'login/inicio'      
 
   end
 
