@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   #Gadmin
+  
   get 'gadmin/asignarU'
 
   get 'gadmin/crearcarrera'
