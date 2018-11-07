@@ -6,11 +6,12 @@ Rails.application.routes.draw do
       resources :citasa
       resources :citasp
       resources :asesos
+      resources :aseso2
     end
   end
 
   #Gadmin
-  
+
   get 'gadmin/asignarU'
 
   get 'gadmin/crearcarrera'
