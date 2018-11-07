@@ -157,8 +157,21 @@ Lugar
 
           </li>
           <br>
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Ver Reporte
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Disponibilidad
 
+            <%  if  @dispo  ==1        %>
+
+    <a id="desha" href="/asesoria_g/habilitarp">
+habilitar
+                        </a>
+
+            <% else %>
+            <a id="desha" href="/asesoria_g/deshabilitarp">
+            deshabilitar
+
+                        </a>
+            <%  end    %>
           </li>
 
         </ul>

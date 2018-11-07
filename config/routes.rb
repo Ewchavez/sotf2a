@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :usuarios
+      resources :citasa
+      resources :citasp
+      resources :asesos
+      resources :aseso2
+    end
+  end
+
   #Gadmin
+
   get 'gadmin/asignarU'
 
   get 'gadmin/crearcarrera'
@@ -20,7 +31,8 @@ Rails.application.routes.draw do
   get 'gadmin/deshabilitar'
   get 'gadmin/habilitar'
 
-
+  get 'asesoria_g/deshabilitarp'
+  get 'asesoria_g/habilitarp'
 
 
 
