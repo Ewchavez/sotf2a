@@ -1,196 +1,167 @@
 
 <%= render template: "layouts/profesores" %>
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+
+
+<%= render template: "layouts/chat" %>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<script type="text/javascript">
+$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+var user_id;
+function newMessage() {
+
+  message = $(".message-input input").val();
+  if($.trim(message) == '') {
+    return false;
+  }
+  writeUserData(message);
+};
+$('.submit').click(function() {
+  newMessage();
+});
+$(window).on('keydown', function(e) {
+  if (e.which == 13) {
+    newMessage();
+    return false;
+  }
+});
+
+<!-- Firebase -->
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBM7Beeq_W9_B3994WeSovbPuabLbnbKLc",
+     authDomain: "chat-b4c0d.firebaseapp.com",
+     databaseURL: "https://chat-b4c0d.firebaseio.com",
+     projectId: "chat-b4c0d",
+     storageBucket: "chat-b4c0d.appspot.com",
+     messagingSenderId: "859953914016"
+  };
+  firebase.initializeApp(config);
+  var user = firebase.auth().signInAnonymously();
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      var isAnonymous = user.isAnonymous;
+      user_id = "<%=@user_id%>";
+
+    } else {
+      // User is signed out.
+    }
+  });
+
+
+
+// get firebase database reference...
+var db_ref = firebase.database().ref('/');
+
+db_ref.on('child_added', function (data) {
+
+
+  var type;
+  if((data.val().canal=="<%=@room_id%>") && (data.val().user_id == "<%=@user_id%>"  )){
+    type="sent";
+    $('<li class="'+type+'"><p>' + data.val().message + '</p></li>').appendTo($('.messages ul'));
+
+
+  }
+  else{
+
+  if((data.val().canal=="<%=@room_id%>") &&  (data.val().destino == "<%=@user_id%>")){
+        type="replies";
+        $('<li class="'+type+'"><p>' + data.val().message + '</p></li>').appendTo($('.messages ul'));
+
+
+  }
+
+  }
+  $('.message-input input').val(null);
+
+  $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight }, 0);
+
+
+});
+
+function writeUserData(message) {
+    db_ref.push({
+        user_id: "<%=@user_id%>",
+        message: message,
+        destino:"<%=@destino_id%>",
+        canal: "<%=@room_id%>"
+    });
+}
+
+</script>
 <div class="py-5" >
   <div class="container">
 
     <div class="row">
 
-      <div class="col-md-3">
+      <div class="col-md-5">
 
-          <a href="/asesoria_g/alumnosb">Mis Asesorias</a>  |  <a href="#">Mis datos</a> |  <a href="/asesoria_g/alumnosa">Inicio</a>
+        <p style="margin-left: 50%;"> Amigos  </p>
+
+        <br>
+        <hr>
+        <br>
+
+
+          <%  for   @pro in  @amigos      %>
+
+
+
+          <a id="<%=@pro["id"]%>" href= "/asesoria_g/comunicar?amigo=<%=@pro["codigo"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
+              <small class="text-muted"><%= @pro["updated_at"] %></small>
+            </div>
+            <p class="mb-1">Universidad_de_Lima</p>
+
+          </a>
+          <br>
+
+          <% end    %>
 
         </div>
 
 
-        <div class="col-md-3"  >
 
+   <div class="col-md-2"  >
 
-       </div>
 
-       <div class="col-md-6">
+               <%  if @chatacti==true         %>
+               <div id="frame">
+               	<div class="content">
+               		<div class="contact-profile">
+               			<p style="margin-left: 20%;"> Conectado con: <%=@mensaje2%>  ROOM <%=@room_id%> </p>
 
+               		</div>
+               		<div class="messages" id="chatBox">
+               			<ul>
 
+               			</ul>
+               		</div>
+               		<div class="message-input">
+               			<div class="wrap">
+               			<input type="text" placeholder="Write your message..." />
+               			  </div>
+               		</div>
+               	</div>
 
-       </div>
 
-      </div>
+               </div>
 
+                         <%  end         %>
 
-    </div>
 
-    </div>
-    <div class="py-5" >
-      <div class="container">
+  </div>
 
 
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-<script type="text/javascript">
-  document.querySelector('body').dataset.topicId
-  console.log(document.querySelector('body').dataset.topicId)
-</script>
-              <%  if @mensaje2==true         %>
+        </div>
 
-              <body data-topic-id="<%= @topic.id %>">
 
-                <% end       %>
-
-            </div>
-            <div class="modal-body">
-
-              <div class="row">
-
-
-                <div class="col-md-4" >
-
-                <h5 style="padding-left:30px">Contactos</h5>
-                  <div id="contacts">
-                    <ul>
-
-                      <%  for   @pro in   @books      %>
-
-                      <li class="contact">
-                        <div class="wrap">
-                          <img src="https://icon-icons.com/icons2/827/PNG/512/user_icon-icons.com_66546.png" alt="" width="25"  height="25" />
-
-                          <span class="contact-status <%=@pro["state"]%>"></span>
-                          <div class="meta" style="padding-left:30px;margin-top:-6%">
-                            <a  href= "/asesoria_g/comunicar?friend=<%=@pro["id"]%>">
-                            <p class="name"> <%=@pro["nombre"]%>- <%=@pro["codigo"]%></p>
-                            <p class="preview">ultimo mensaje</p>
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <%  end     %>
-
-
-
-                    </ul>
-                  </div>
-
-
-                </div>
-
-
-
-
-
-                  <div class="col-md-6" >
-                    <div class="container">
-
-                      <div class="row">
-
-
-                        <div class="col-md-6"  >
-
-
-                          <div class="messages">
-
-
-                            <ul>
-                              <%  if @mensaje2==true         %>
-
-
-                              <div id="messages">
-                                <%= render @messages1 %>
-                              </div>
-
-                              <%  end    %>
-
-
-
-                            </ul>
-                          </div>
-
-
-
-                        </div>
-
-                        <div class="col-md-6">
-
-
-                          <div class="messages">
-
-
-                            <ul>
-                              <%  if @mensaje2==true         %>
-
-
-                              <%  end    %>
-
-
-
-                            </ul>
-                          </div>
-
-
-
-
-                        </div>
-
-                      </div>
-
-
+              </div>
 
                     </div>
-
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                  </div>
-
-
-
-
-
-
-
-            </div>
-
-            <div class="modal-footer">
-
-                      <%  if @mensaje2==true         %>
-
-                      <div class="message-input">
-
-                        <div class="wrap">
-                          <input type="text" data-behavior="room_speaker">
-                          <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
-                          </div>
-                      </div>
-
-                      <%  end    %>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-  </div>
-
-  </div>

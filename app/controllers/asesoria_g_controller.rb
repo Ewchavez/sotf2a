@@ -10,33 +10,55 @@ class AsesoriaGController < ApplicationController
 
   end
   def chat
-      alumnosa()
-
-       @books = Usuario.all
-
-
-
-
-  end
-
-  def comunicar
-    chat()
-    currenU=Usuario.find_by(codigo:session[:usuario])
+      currenU=Usuario.find_by(codigo:session[:usuario])
+        alumnosa()
+        @user_id=currenU.codigo
+        @amigos =Usuario.where.not( nombre:currenU.nombre)
 
 
-    friend=params["friend"]
-    @topic=Usuario.find_by(id:friend)
-    @messages1 = Message.select("content").where(origen:friend)
-    if  friend==nil
 
-    else
-      @mensaje2=true
 
     end
-    d=["online","busy"]
-    state = 2
-    render 'chat'
-  end
+
+    def comunicar
+      currenU=Usuario.find_by(codigo:session[:usuario])
+      chat()
+      amigo=params["amigo"]
+      amigoc=Usuario.find_by(codigo:amigo)
+
+
+      @mensaje2=amigoc.nombre
+      @destino_id=amigoc.codigo
+
+
+
+            if  Chat.find_by(origen: currenU.codigo  , destino:amigoc.codigo)==nil and Chat.find_by(origen: amigoc.codigo  , destino:currenU.codigo)==nil
+              nuevo=Chat.create(origen: currenU.codigo  , destino:amigoc.codigo)
+              nuevo.save
+              buscara=Chat.find_by(origen: currenU.codigo  , destino:amigoc.codigo)
+              @room_id=buscara.id
+            else
+              buscara=Chat.find_by(origen: currenU.codigo  , destino:amigoc.codigo)
+              if buscara==nil
+              buscara=Chat.find_by(origen: amigoc.codigo  , destino:currenU.codigo)
+              @room_id=buscara.id
+              else
+
+              @room_id=buscara.id
+
+
+              end
+
+
+
+
+            end
+
+     @chatacti=true
+
+
+     render 'chat'
+    end
 
 
 
@@ -168,12 +190,32 @@ class AsesoriaGController < ApplicationController
   @todos=Seccion.select("idsec","id","cursos.nombre","capacidad").joins("join cursos on cursos.id=seccions.curso_id join profesors on seccions.profesor_id=profesors.id where profesors.usuario_id=#{currenU.id}")
   @Citasco=Citar.where(asesor_id: 7).count
   @citasxaten= Citar.select("cursos.nombre,asesors.id,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").group("citars.asesor_id,cursos.nombre,seccions.idsec,asesors.id").distinct
-
+  @dispo=profe.estado
   t = Time.now
 
   @horaactual=t.strftime("%Y").to_i
 
 
+end
+
+def deshabilitarp
+  profesoresa()
+  currenU=Usuario.find_by(codigo:session[:usuario])
+  profe=Profesor.find_by(usuario_id:currenU.id)
+  profe.estado=1
+  profe.save
+  render 'profesoresa'
+end
+
+
+def habilitarp
+
+  profesoresa()
+  currenU=Usuario.find_by(codigo:session[:usuario])
+  profe=Profesor.find_by(usuario_id:currenU.id)
+  profe.estado=0
+  profe.save
+  render 'profesoresa'
 end
   def cursopselec
 
