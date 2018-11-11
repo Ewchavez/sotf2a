@@ -112,7 +112,7 @@ function writeUserData(message) {
 
 
 
-          <a id="<%=@pro["id"]%>" href= "/asesoria_g/comunicar?amigo=<%=@pro["codigo"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a target="_self " id="<%=@pro["id"]%>" href= "/asesoria_g/comunicar?amigo=<%=@pro["codigo"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
               <small class="text-muted"><%= @pro["updated_at"] %></small>
