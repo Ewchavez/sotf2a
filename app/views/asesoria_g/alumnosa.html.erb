@@ -23,7 +23,7 @@
 
 
                 <form class="form-inline m-0" action="/asesoria_g/buscador">
-                  <input class="form-control mr-2"name="nombre" id="Nombre"  onkeyup="myFunction()"  onkeypress="eliminar()" type="text" placeholder="Buscar profesor" style="padding-right:200px">
+                  <input class="form-control mr-2"name="keyboard" id="Nombre"  onkeyup="myFunction()"  onkeypress="eliminar()" type="text" placeholder="Buscar profesor" style="padding-right:200px">
 
                   <button class="btn btn-primary" type="submit">Buscar </button>
             </form>
@@ -50,7 +50,7 @@
             <thead>
               <tr>
 
-                <br>   <a id="id_depS"></a></br>
+                <br>   <a id="id_depS" style="color:#FF0000"></a></br>
               </tr>
             </thead>
             <tbody >
@@ -119,6 +119,7 @@
 
             elemTDNombre.appendChild(textNodeNombre);
             elemTDNombre.setAttribute("id",depa.id)
+            elemTDNombre.setAttribute("style","color:red;")
 
 
             elemTR.appendChild(elemTDNombre);
@@ -354,7 +355,7 @@
 
 
 
-          <a id="<%=@pro["id"]%>" href= "/asesoria_g/carreraelecta?carrera=<%=@pro["id"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a id="<%=@pro["id"]%>" href= "/asesoria_g/profebusca?profselec=<%=@pro["id"]%>&idcarrera=<%=@filacarrera%>&idcursosec=<%=@filacursosec%>" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
               <small class="text-muted">3 days ago</small>

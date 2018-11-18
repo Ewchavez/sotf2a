@@ -107,10 +107,10 @@ class AsesoriaGController < ApplicationController
     @resultados=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("lower(nombre) LIKE ?",palabra.downcase ).distinct()
 
 
-
-
     render 'alumnosa'
   end
+
+
   def alumnosb
     alumnosa()
     currenU=Usuario.find_by(codigo:session[:usuario])
@@ -366,6 +366,23 @@ def cursoselec
 end
 
 
+def profebusca
+
+  alumnosa()
+  @asesoria3=true
+  idpro=params["profselec"]
+
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","ubicacion","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}    and asesors.disponibilidada=1")
+
+@dsds=true
+
+  @resultados=Usuario.select("usuarios.nombre","profesors.id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.profesor_id":idpro).distinct()
+
+
+render 'alumnosa'
+
+
+end
 
 
 

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'gadmin/crearc'
   get 'gadmin/enlazar'
   get 'gadmin/asignars'
+  get 'asesoria_g/profebusca'
   get 'gadmin/asignarprofsec'
   get 'gadmin/opcionesavanzad'
 
