@@ -104,7 +104,7 @@ class AsesoriaGController < ApplicationController
     @dsds=true
     palabra= "%#{params[:keyboard]}%"
     palbra2=2
-    @resultados=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("lower(nombre) LIKE ?",palabra.downcase )
+    @resultados=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("lower(nombre) LIKE ?",palabra.downcase ).distinct()
 
 
 
@@ -335,9 +335,6 @@ def carreraelecta
   asesoriasshow(ll)
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
-  @Profesor=Usuario.select("usuarios.nombre,profesors.id,seccions.idsec").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso    ").where("nivelu":2, "carrxcurs.idcarrera":ll).distinct("usuarios.nombre ")
-
-  @busquedaprofesores=true
 
 
   render 'alumnosa'
@@ -359,7 +356,7 @@ def cursoselec
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
 
-  @Profesor=Usuario.select("usuarios.nombre","profesors.id","seccions.idsec","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll)
+  @Profesor=Usuario.select("usuarios.nombre","profesors.id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ll).distinct()
 
 
  render 'alumnosa'

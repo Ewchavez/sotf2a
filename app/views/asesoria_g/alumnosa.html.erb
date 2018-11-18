@@ -23,9 +23,10 @@
 
 
                 <form class="form-inline m-0" action="/asesoria_g/buscador">
-                  <input class="form-control mr-2" name="keyboard" type="text" placeholder="Buscar profesor" style="padding-right:200px">
+                  <input class="form-control mr-2"name="nombre" id="Nombre"  onkeyup="myFunction()"  onkeypress="eliminar()" type="text" placeholder="Buscar profesor" style="padding-right:200px">
+
                   <button class="btn btn-primary" type="submit">Buscar </button>
-                </form>
+            </form>
 
 
                             <!----------------------------
@@ -43,9 +44,148 @@
 ------------------------------>
               </div>
 
+          <ul id="coincidencias"></ul>
 
+          <table class="table"  >
+            <thead>
+              <tr>
+
+                <br>   <a id="id_depS"></a></br>
+              </tr>
+            </thead>
+            <tbody >
+            </tbody>
+          </table>
 
         </div>
+
+
+
+        <script type="text/javascript">
+
+
+
+
+          function evto(depa){
+            var element = document.getElementsByTagName("td")
+            for (i = 0; i< element.length; i++) {
+              element[i].onclick=function(evt){
+                console.log(evt.target)
+               var aa=evt.target;
+                document.getElementById('id_depS').innerHTML=aa.id;
+                document.getElementById('Nombre').value=aa.innerHTML;
+
+              }
+            }
+            return element;
+          }
+
+
+
+          function eliminar(){
+            var cell = document.getElementById("cuerpo_tabla");
+
+            if ( cell.hasChildNodes() )
+            {
+              while ( cell.childNodes.length >= 1 )
+              {
+                cell.removeChild( cell.firstChild );
+              }
+            }
+
+          }
+
+
+          function verificar (){
+          if(document.getElementById("Nombre").value=="")  {
+            eliminar();
+          }
+
+
+          }
+
+
+
+          var obtener_fila_pokemon = function(depa){
+            // Esta funcion creará una fila en la tabla
+            // de pokemones.
+
+            var elemTR = document.createElement("tr");
+            var elemTDNombre = document.createElement("td");
+
+            var textNodeNombre = document.createTextNode(depa.nombre);
+
+
+
+            elemTDNombre.appendChild(textNodeNombre);
+            elemTDNombre.setAttribute("id",depa.id)
+
+
+            elemTR.appendChild(elemTDNombre);
+
+
+            return elemTR;
+
+
+
+          };
+
+
+        function myFunction() {
+
+          var oReq = new XMLHttpRequest();
+          oReq.open('GET', '/api/v1/usuarios/'+ document.getElementById("Nombre").value);
+          oReq.addEventListener('load', function(evt){
+
+            var canal = evt.target;
+            var jsonListaPokemones = JSON.parse(canal.responseText);
+            var le=jsonListaPokemones.data;
+            for (var i =0; i< le.length; i++){
+              var depa = le[i];
+              console.log(depa);
+              var fila = obtener_fila_pokemon(depa);
+
+
+
+              var cuerpo_tabla = document.getElementById('cuerpo_tabla');
+              cuerpo_tabla.appendChild(fila);
+              evto(depa);
+              verificar();
+
+
+
+            }
+
+          }
+
+
+
+
+
+
+        );
+        oReq.send();
+
+
+
+
+
+        };
+
+
+
+
+
+
+
+
+
+        function actualizar()
+        {
+          setTimeout("location.reload(true);",2000);
+        }
+
+        </script>
 
 
         <hr>
@@ -181,10 +321,11 @@
 
           <div class="col-md-3">
 
-            <h1>Profesor</h1>
+            <h1 >Profesor</h1>
+            <a id="cuerpo_tabla"></a>
             <%  if @busquedaprofesores==true         %>
 
-            <div class="list-group">
+            <div class="list-group" >
 
               <%  for   @pro in  @Profesor    %>
 
@@ -192,7 +333,7 @@
 
               <a id="<%=@pro["id"]%>" href= "/asesoria_g/profeselec?profselec=<%=@pro["id"]%>&idcarrera=<%=@filacarrera%>&idcursosec=<%=@filacursosec%>" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1"><%= @pro["nombre"] %> / <%= @pro["idsec"] %></h5>
+                  <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
                   <small class="text-muted">3 days ago</small>
                 </div>
                 <p class="mb-1">Universidad_de_Lima</p>

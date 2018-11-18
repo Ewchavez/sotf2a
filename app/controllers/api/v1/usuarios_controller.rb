@@ -9,11 +9,12 @@ module Api
 
         end
         def show
-          alumnos=Usuario.select("usuarios.nombre","alumnos.id","usuario_id").joins("join alumnos on alumnos.usuario_id=usuarios.id").where("alumnos.id":params[:id])
-          profe=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("profesors.id":params[:id])
+
+            palabra= "%#{params[:id]}%"
+          profe=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("lower(usuarios.nombre) LIKE  ? ",palabra.downcase )
 
 
-          render json: {status: 'SUCCESS', message: 'Usuarios cargados', data: ["Alumnos",alumnos,"Profesores",profe] },status: :ok
+          render json: {status: 'SUCCESS', message: 'Usuarios cargados', data: profe },status: :ok
 
         end
         def create
