@@ -198,7 +198,7 @@
                 <p class="mb-1">Universidad_de_Lima</p>
                 <small class="text-muted">Seleccione carrera</small>
               </a>
-
+<br>
               <% end    %>
 
 
@@ -222,10 +222,11 @@
             <small class="text-muted">Seleccione carrera</small>
           </a>
           <br>
-
+  <br>
           <% end    %>
 
           <% end    %>
+
           </div>
 
 
@@ -241,7 +242,6 @@
 
             <div class="list-group">
               <%  for   @pro in  @asesoria      %>
-
               <ul class="list-group">
                 <a  href= "/asesoria_g/solicitarase?cursoselecto=<%=@pro["id"]%>" >
 
@@ -249,8 +249,8 @@
                     <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
 
                   <br>
-                 <small class="text-muted"><%= @pro["fecha"] %></small>
-                 <span class="badge badge-primary badge-pill">#/4</span>
+                 <small class="text-muted"><%= @pro["fecha"] %> <%= @pro["ubicacion"] %></small>
+                 <span class="badge badge-primary badge-pill"><%= @pro["horai"] %>- <%= @pro["horai"]+2 %>  hrs</span>
 
                   </li>
 
@@ -275,11 +275,12 @@
 
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                       <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
-                      <br>
-                     <small class="text-muted"><%= @pro["fecha"] %></small>
-                     <span class="badge badge-primary badge-pill">#/4</span>
 
-                      </li>
+                    <br>
+                   <small class="text-muted"><%= @pro["fecha"] %> <%= @pro["ubicacion"] %></small>
+                   <span class="badge badge-primary badge-pill"><%= @pro["horai"] %>- <%= @pro["horai"]+2 %>  hrs</span>
+
+                    </li>
 
                   </ul>
                   <br>
@@ -300,11 +301,13 @@
                     <a  href= "/asesoria_g/solicitarase?cursoselecto=<%=@pro["id"]%>" >
 
                       <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
+                        <%= @pro["lugar"] %>/<%=@pro["nombre"]%>/<%=@pro["idsec"]%>
+
                       <br>
-                     <small class="text-muted"><%= @pro["fecha"] %></small>
-                     <span class="badge badge-primary badge-pill">#/4</span>
-  </li>
+                     <small class="text-muted"><%= @pro["fecha"] %> <%= @pro["ubicacion"] %></small>
+                     <span class="badge badge-primary badge-pill"><%= @pro["horai"] %>- <%= @pro["horai"]+2 %>  hrs</span>
+
+                      </li>
 
                     </ul>
                     <br>

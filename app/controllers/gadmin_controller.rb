@@ -35,7 +35,7 @@ class GadminController < ApplicationController
     rr=params["tipof"]
 
     if rr=="1"
-      ser.contrasena=params["contra"]
+      ser.nombre=params["nick"]
 
     elsif  rr=="2"
 
@@ -269,7 +269,8 @@ class GadminController < ApplicationController
 
   def crearcurso
       gusuario()
-      curs=Curso.new(nombre:params["crearcurso"])
+      curs=Curso.new(nombre:params["crearcurso"],nivelusuario:1)
+
       curs.save
       @kikoko="Curso creado"
         render 'gadmin/gusuario'

@@ -14,12 +14,31 @@ class AsesoriaGController < ApplicationController
         alumnosa()
         @user_id=currenU.codigo
         @amigos =Usuario.where.not( nombre:currenU.nombre)
+        if currenU.nivelu==1
+
+          @direccion=1
+
+        elsif currenU.nivelu==2
+          @direccion=2
 
 
+        elsif currenU.nivelu==3
+          @direccion=3
+
+
+        elsif currenU.nivelu==nil
+          @direccion=4
+
+
+
+
+
+
+
+         end
 
 
     end
-
     def comunicar
       currenU=Usuario.find_by(codigo:session[:usuario])
       chat()
@@ -181,6 +200,14 @@ class AsesoriaGController < ApplicationController
     render 'profesoresa'
 
   end
+  def controlasesori
+    for i in Asesor.where("fecha < ?", Time.now)
+       a=Asesor.find_by("fecha < ?", Time.now)
+
+       a.disponibilidada=0
+       a.save
+     end
+  end
   def profesoresa
 
 
@@ -196,6 +223,7 @@ class AsesoriaGController < ApplicationController
   @horaactual=t.strftime("%Y").to_i
 
 
+
 end
 
 def deshabilitarp
@@ -204,6 +232,8 @@ def deshabilitarp
   profe=Profesor.find_by(usuario_id:currenU.id)
   profe.estado=1
   profe.save
+
+
   render 'profesoresa'
 end
 
@@ -220,13 +250,15 @@ end
   def cursopselec
 
     profesoresa()
+
     @mensaje1 = true
     @mensaje2 = true
     gg=Seccion.find_by(idsec:params["cursoselecto"])
-    @asesoria=Asesor.select("id","dia","fecha","lugar","idsec", "horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} ")
+    @asesoria=Asesor.select("id","ubicacion","fecha","lugar","idsec", "horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{gg.idsec} and asesors.disponibilidada=1 " )
     @curso="para el curso   #{gg.id}"
     vv=params["cursoselecto"]
     @idaseroriaaa=vv
+
     render 'profesoresa'
   end
 
@@ -236,14 +268,35 @@ end
     gg1=Profesor.find_by(usuario_id:session[:usuario])
 
     ll=Seccion.find_by(idsec:params["cursoesco"])
-    ases=Asesor.new(seccion_id:ll.id,fecha:params["calendario"],horai:params["hora"],lugar:params["lugar"])
+    modo=params["calendario"]
+    if  modo=="otro"
+
+      if params["calendario2"]==""
+
+        @kikoko="Error, Seleccione fecha exacta"
+
+      else
+          ases=Asesor.new(seccion_id:ll.id,fecha:params["calendario2"],horai:params["hora"],lugar:params["lugar"],disponibilidada:1)
+
+          ases.save
+          @kikoko="Correcto, asesoria creada hasta el dia #{params["calendario2"]}"
+
+      end
+
+  else
+
+    ases=Asesor.new(seccion_id:ll.id,ubicacion:params["calendario"],horai:params["hora"],lugar:params["lugar"],disponibilidada:1)
 
     ases.save
-    @asesoria=Asesor.select("id","fecha","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{ll.idsec} ")
+    @kikoko="Correcto, asesoria creada hasta fin de ciclo"
+
+
+
+  end
+    @asesoria=Asesor.select("id","fecha","ubicacion","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{ll.idsec} and asesors.disponibilidada=1 ")
 
     @mensaje2 = true
 
-    @kikoko="Se creo la asesoria para la sección #{ll.idsec}"
 
     render 'profesoresa'
 
@@ -252,7 +305,10 @@ end
 
 
 
+def asesoriasshow(ll)
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","ubicacion","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll} and asesors.disponibilidada=1")
 
+end
 
 
 def carreraelecta
@@ -260,10 +316,12 @@ def carreraelecta
   @asesoria1=true
   ll=params["carrera"]
   @filacarrera=ll
-  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+  asesoriasshow(ll)
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{ll}")
+  @Profesor=Usuario.select("usuarios.nombre,profesors.id,seccions.idsec").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id join cursos on seccions.curso_id=cursos.id join carrxcurs  on  cursos.id=carrxcurs.idcurso    ").where("nivelu":2, "carrxcurs.idcarrera":ll).distinct("usuarios.nombre ")
 
+  @busquedaprofesores=true
 
 
   render 'alumnosa'
@@ -280,7 +338,7 @@ def cursoselec
   gg=params["idcarrera"]
   @filacursosec=ll
   @filacarrera=gg
-  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll}")
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","ubicacion","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.curso_id=#{ll} and asesors.disponibilidada=1")
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
@@ -310,7 +368,7 @@ def profeselec
   gg=params["idcarrera"]
   @filacursosec=ww
   @filacarrera=gg
-  @asesoria=Asesor.select("id","fecha","dia","idsec","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww}")
+  @asesoria=Asesor.select("id","fecha","idsec","dia","lugar","ubicacion","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.profesor_id=#{idpro}   and seccions.curso_id=#{ww} and asesors.disponibilidada=1")
 
   @busquedacursos=true
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")

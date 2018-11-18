@@ -6,11 +6,14 @@
     <div class="row">
       <div class="col-md-3">
         <div>
-    <a href="/asesoria_g/estado_reporte.pdf">Reporte Asesorias</a>  |    <a href="#">Mensajes</a>
+    <a href="/asesoria_g/estado_reporte.pdf">Reporte Asesorias</a>  |    <a href="/asesoria_g/chat">Mensajes</a>
 
       </div>
 
     </div>
+    <a   style="color:#FF0000; text-transform: uppercase "  ><%= @kikoko%></a>
+
+
   <hr>
     </div>
     <div class="row">
@@ -26,7 +29,7 @@
           <a id="<%=@pro["idsec"]%>" href= "/asesoria_g/cursopselec?cursoselecto=<%=@pro["idsec"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><%= @pro["nombre"] %> / <%= @pro["idsec"] %></h5>
-              <small class="text-muted"># days ago</small>
+              <small class="text-muted">4 days ago</small>
             </div>
             <p class="mb-1">El salon cuenta con <%= @pro["capacidad"] %>  alumnos</p>
             <small class="text-muted">Donec id elit non mi porta.</small>
@@ -62,7 +65,7 @@
           </div>
           <p
 
-          class="mb-1">La asesoria es el dia <%= @pro["fecha"] %> para el curso <%=@pro["nombre"]%>
+          class="mb-1">La asesoria es el dia <%= @pro["fecha"] %> <%= @pro["ubicacion"] %> para el curso <%=@pro["nombre"]%>
 
 
 
@@ -95,6 +98,23 @@ document.getElementById("<%=@idaseroriaaa%>").style.boxShadow = "10px 10px 30px 
 
  <%end%>
 
+ <script>
+   document.getElementById("date").style.display= "none";
+   document.getElementById("myDIV").style.display= "none";
+ function myFunction() {
+     var x = document.getElementById("myDIV");
+     if (x.style.display === "none") {
+         x.style.display = "block";
+         document.getElementById("botonera").innerHTML = "Fecha exacta";
+         document.getElementById("date").style.display= "none";
+     } else {
+         x.style.display = "none";
+            document.getElementById("botonera").innerHTML = "Fecha diaria";
+         document.getElementById("date").style.display= "block";
+
+     }
+ }
+ </script>
 
 <div class="col-md-3">
 
@@ -108,10 +128,25 @@ document.getElementById("<%=@idaseroriaaa%>").style.boxShadow = "10px 10px 30px 
 
 
       <input type="hidden" id="generalcurso" name="cursoesco" value="<%=@idaseroriaaa%>">
+      <button id="botonera" onclick="myFunction()">Fecha diaria</button>
+
       <br>
-      Fecha:
-      <input id="date" type="date" name="calendario" onchange="fechasc()">
-      <br>
+      <select name="calendario" id="myDIV">
+        <option value="otro">-</option>
+        <option value="Lunes">Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miercoles">Miercoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+        <option value="Sabado">Sábado</option>
+      </select>
+<br>
+
+    
+      <input id="date" type="date" name="calendario2" onchange="fechasc()" >
+<br>
+
+
       Hora:
       <input type="range" min="7" max="20" id="dateoo"  name="hora" onchange="horasc()">
       <a href="#" id="ddd" ></a>
@@ -123,6 +158,9 @@ Lugar
   <option value="PabellonS">Pabellon-S</option>
   <option value="PabellonTA">Pabellon-TA</option>
   <option value="PabellonTB">Pabellon-TB</option>
+  <option value="PabellonV">Pabellon-V</option>
+  <option value="PabellonC">Pabellon-C</option>
+  <option value="PabellonG">Pabellon-G</option>
 </select>
 
 <br>
@@ -131,8 +169,6 @@ Lugar
 
 <br>
 <button type="submit" class="btn btn-primary" >  Crear </button>
-<a   style="color:#FF0000; text-transform: uppercase "  ><%= @kikoko%></a>
-
 
 
     </form>
@@ -152,8 +188,10 @@ Lugar
 
         <h1>Herramintas</h1>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center"> Administrar Citas
-            <span class="badge badge-primary badge-pill">#</span>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+
+            Recuerde que hay dos opciones para crear asesorias, por "Fecha diaria" la asesoria permanecera hasta fin de ciclo y por "Fecha exacta" la asesoria permanecera hasta dicho dia
+            <span class="badge badge-primary badge-pill"></span>
 
           </li>
           <br>

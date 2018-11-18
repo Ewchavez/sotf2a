@@ -103,7 +103,25 @@ function writeUserData(message) {
 
               <div class="col-md-3">
                 <div>
-                <a href="/asesoria_g/alumnosa">Buscar asesorias</a> |<a href="/asesoria_g/alumnosb">Historial Asesorias</a>
+
+                              <%  if  @direccion  ==1        %>
+
+  <a href="/gadmin/gusuario">Vista rápida</a> |<a href="/gadmin/gfacultad">Reportes</a>
+
+
+                           <%  end         %>
+
+                              <% if  @direccion  ==2  %>
+                              <a href="/asesoria_g/profesoresa">Inicio</a>   |<a href="/asesoria_g/profesoresb">Reporte Asesorias</a>
+
+                                     <%  end         %>
+
+                              <% if  @direccion  ==3  %>
+                              <a href="/asesoria_g/alumnosa">Buscar asesorias</a> |<a href="/asesoria_g/alumnosb">Mis Asesorias</a>
+
+
+                              <%  end    %>
+
                   </div>
 
               </div>
@@ -141,16 +159,12 @@ function writeUserData(message) {
 
 
 
-<<<<<<< HEAD
-          <a  target="_self" id="<%=@pro["id"]%>" href= "/asesoria_g/comunicar?amigo=<%=@pro["codigo"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
-=======
           <a target="_self " id="<%=@pro["id"]%>" href= "/asesoria_g/comunicar?amigo=<%=@pro["codigo"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
->>>>>>> 2ab3fa93d1982acb840f34420ee19a122e996553
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><%= @pro["nombre"] %> </h5>
               <small class="text-muted"><%= @pro["updated_at"] %></small>
             </div>
-            <p class="mb-1">Universidad_de_Lima</p>
+
 
           </a>
           <br>
