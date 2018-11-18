@@ -7,7 +7,11 @@ class AsesoriaGController < ApplicationController
     @carrera=Carrera.select("id","nombre")
   #  @cursot=Curso.select("nombre","id")
   #  @Profesor=Usuario.select("usuarios.nombre","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id").where("nivelu":2)
+  for i in Asesor.where("fecha < ?", Time.now)
 
+     i.disponibilidada=0
+     i.save
+   end
   end
   def chat
       currenU=Usuario.find_by(codigo:session[:usuario])
@@ -222,7 +226,11 @@ class AsesoriaGController < ApplicationController
 
   @horaactual=t.strftime("%Y").to_i
 
+  for i in Asesor.where("fecha < ?", Time.now)
 
+     i.disponibilidada=0
+     i.save
+   end
 
 end
 
@@ -258,7 +266,11 @@ end
     @curso="para el curso   #{gg.id}"
     vv=params["cursoselecto"]
     @idaseroriaaa=vv
+    for i in Asesor.where("fecha < ?", Time.now)
 
+       i.disponibilidada=0
+       i.save
+     end
     render 'profesoresa'
   end
 
@@ -296,7 +308,11 @@ end
     @asesoria=Asesor.select("id","fecha","ubicacion","lugar","horai","cursos.nombre").joins("join seccions on asesors.seccion_id=seccions.id join cursos on seccions.curso_id=cursos.id where seccions.idsec=#{ll.idsec} and asesors.disponibilidada=1 ")
 
     @mensaje2 = true
+    for i in Asesor.where("fecha < ?", Time.now)
 
+       i.disponibilidada=0
+       i.save
+     end
 
     render 'profesoresa'
 
