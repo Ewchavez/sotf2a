@@ -13,4 +13,5 @@ test "should not save article without title" do
   assert_not article.save
 end
 
+
 end
