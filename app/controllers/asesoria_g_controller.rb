@@ -235,7 +235,7 @@ class AsesoriaGController < ApplicationController
   @idUsuario="Bienvenido #{currenU.codigo}"
   @todos=Seccion.select("idsec","id","cursos.nombre","capacidad").joins("join cursos on cursos.id=seccions.curso_id join profesors on seccions.profesor_id=profesors.id where profesors.usuario_id=#{currenU.id}")
   @Citasco=Citar.where(asesor_id: 7).count
-  @citasxaten= Citar.select("cursos.nombre,asesors.id,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id}").group("citars.asesor_id,cursos.nombre,seccions.idsec,asesors.id").distinct
+  @citasxaten= Citar.select("cursos.nombre,asesors.id,seccions.idsec,count(citars.asesor_id) as d").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where seccions.profesor_id=#{profe.id} and citars.calumno=1").group("citars.asesor_id,cursos.nombre,seccions.idsec,asesors.id").distinct
   @dispo=profe.estado
   t = Time.now
 
