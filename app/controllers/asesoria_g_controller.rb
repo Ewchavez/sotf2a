@@ -419,7 +419,7 @@ def profeselec
   @cursot=Curso.select("id","nombre").joins(" join carrxcurs  on  cursos.id=carrxcurs.idcurso where carrxcurs.idcarrera=#{gg}")
   @busquedaprofesores=true
 
-  @Profesor=Usuario.select("usuarios.nombre","idsec","profesors.id","usuario_id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ww)
+  @Profesor=Usuario.select("usuarios.nombre","profesors.id").joins("join profesors on profesors.usuario_id=usuarios.id  join seccions on  seccions.profesor_id=profesors.id    ").where("nivelu":2,"seccions.curso_id":ww).distinct()
 
 
 render 'alumnosa'
