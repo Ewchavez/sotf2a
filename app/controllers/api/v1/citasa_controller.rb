@@ -46,7 +46,6 @@ module Api
         private
         def citas_nuevos
           params.permit(:alumno_id,:asesor_id,:fecha,:profesorid,:tema,:resumen)
-
         end
 
 
