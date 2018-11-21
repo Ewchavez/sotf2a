@@ -145,7 +145,7 @@
 
 
                 <ul class="list-group" >
-           <li class="list-group-item d-flex justify-content-between align-items-center"> <a href="/asesoria_g/vercita?citaselecto=<%=@pro["id"]%>"> <%=@pro["nombre"]%>  |   <%=@pro["lugar"]%> </a>
+           <li name="aseso" class="list-group-item d-flex justify-content-between align-items-center"> <a href="/asesoria_g/vercita?citaselecto=<%=@pro["id"]%>"> <%=@pro["nombre"]%>  |   <%=@pro["lugar"]%> </a>
       <%  if @pro["calumno"] ==0        %>
              <span class="badge badge-primary badge-pill">Confirme su cita</span>
                         <% end    %>
@@ -231,7 +231,7 @@
           <h5 class="modal-title">  <%=@temaCita%></h5>
             <% end     %>
          <button type="button" class="close" data-dismiss="modal">
-           <span> <a href="/asesoria_g/eliminaraseso?asesorias=<%=@asesorias%>">Cancelar cita</a> </span>
+           <span> <a name="cance" href="/asesoria_g/eliminaraseso?asesorias=<%=@asesorias%>">Cancelar cita</a> </span>
          </button>
        </div>
        <div class="modal-body">
