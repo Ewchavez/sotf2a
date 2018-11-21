@@ -8,6 +8,7 @@ module Api
           render json: {status: 'SUCCESS', message: 'Lista de Asesorias', data: asesorias },status: :ok
 
 
+            
 
         end
 
