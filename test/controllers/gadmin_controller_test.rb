@@ -1,24 +1,31 @@
 require 'test_helper'
 
 class GadminControllerTest < ActionDispatch::IntegrationTest
-  test "should get gusuario" do
-    get gadmin_gusuario_url
-    assert_response :success
+
+
+
+  test "desabilitar curso" do
+
+  get "/gadmin/deshabilitar",
+     params: { idc: 1}
+   assert_response :success, "Se ha desabilitado el curso correctamente"
   end
 
-  test "should get gfacultad" do
-    get gadmin_gfacultad_url
-    assert_response :success
+
+  test "habilitar curso" do
+
+  get "/gadmin/deshabilitar",
+     params: { idc: 1}
+   assert_response :success, "Se ha habilito el curso correctamente"
   end
 
-  test "should get gasesorias" do
-    get gadmin_gasesorias_url
-    assert_response :success
-  end
 
-  test "should get getc" do
-    get gadmin_getc_url
-    assert_response :success
-  end
 
+  test "cambiar nombre curso" do
+
+  get "/gadmin/cambiarnombre",
+
+      params: { idc: 1,nombre: "nombre nuevo"}
+   assert_response :success, "cambio de nombre correto"
+  end
 end

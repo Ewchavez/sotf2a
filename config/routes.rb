@@ -80,7 +80,7 @@ get 'gadmin/modipdf'
   get 'rooms/show'
   post 'login/verificar'
 
-
+  get 'asesoria_g/controlasesori'
 
 
 

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  dia: 1
+  mes: 1
+  ano: 1
+  tema: sadasdasdad
+  asesor_id: 1
+  alumno_id: 1
+  resumen: "sadASDd"
+  reporte: character varying,
+  profesorid: 1
+  semana: Lunes
+  calumno: 1
+  cprofesor: 1

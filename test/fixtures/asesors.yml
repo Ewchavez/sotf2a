@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   dia: 1
   mes: 1
   ano: 1
@@ -13,6 +14,7 @@ one:
   nivelusuario: 1
 
 two:
+  id: 2
   dia: 1
   mes: 1
   ano: 1

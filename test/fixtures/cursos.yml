@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nombre: MyString
+  nombre: Mate
+  id: 1
   creditos: 1
   nivel: 1
-  nivelusuario: 1
+  nivelusuario: 0
 
 two:
-  nombre: MyString
+  nombre: Fisica
+  id: 2
   creditos: 1
   nivel: 1
-  nivelusuario: 1
+  nivelusuario: 0

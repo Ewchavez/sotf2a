@@ -1,7 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   capacidad: 1
+  idsec: 111
+  estado: 1
+  profesor_id: 1
+  semestre_id: 1
+  curso_id: 1
 
 two:
+  id: 2
   capacidad: 1
+  idsec: 101
+  estado: 1
+  profesor_id: 1
+  semestre_id: 1
+  curso_id: 1

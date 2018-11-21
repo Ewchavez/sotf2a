@@ -1,11 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nombre: MyString
-  contrase«Òa: MyString
+  id: 1
+  nombre: Edward
+  contrasena: holagg
   email: MyString
+  codigo: 1111
+  nivelu: 1
+  activo: 1
 
 two:
-  nombre: MyString
-  contrase«Òa: MyString
-  email: MyString
+  id: 2
+  nombre: Lopez
+  contrasena: 2kndfkn
+  email: Lopez
+  codigo: 20132670
+  nivelu: 2
+  activo: 1
+
+tree:
+  id: 3
+  nombre: rodrigo
+  contrasena: 2kndfkn
+  email: rodrigo
+  codigo: 2555555
+  nivelu: 3
+  activo: 1

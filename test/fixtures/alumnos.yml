@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  recorda: 1
-  estado: 1
-
-two:
-  recorda: 1
-  estado: 1
+  id: 1
+  usuario_id: 2

@@ -3,14 +3,11 @@ require 'test_helper'
 class UsuarioTest < ActiveSupport::TestCase
 
 
-  test "the truth" do
-     assert true
-  end
 
+test "Crear usuario" do
+  article =Asesor.new(horai:12,lugar:"sdadasd",disponibilidada:1)
 
-test "should not save article without title" do
-  article = Usuario.new
-  assert_not article.save
+  assert article.save, "error en relaciòn"
 end
 
 
