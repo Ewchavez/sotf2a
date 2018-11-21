@@ -1,20 +1,24 @@
 
 <%= render template: "layouts/confi" %>
 
-<h1>Reporte Profesor/ Cursos</h1>
-<br>
-<%  for   @pro in  @asesoria      %>
+<h1>Reporte completo de citas por profesor</h1>
 
-<ul class="list-group">
-
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-<a href="/gadmin/modipdf.pdf?profe=<%= @pro["idu"] %>">
-      <%= @pro["profe"] %>/<%= @pro["cur"] %>
-</a>
-    </li>
-
-  </ul>
+<div class="container">
   <br>
+  <%  for   @pro in  @asesoria      %>
+
+  <ul class="list-group">
+
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+  <a href="/gadmin/modipdf.pdf?profe=<%= @pro["idu"] %>">
+        <%= @pro["nombre"] %>/<%= @pro["codigo"] %>
+  </a>
+      </li>
+
+    </ul>
+    <br>
 
 
-  <% end    %>
+    <% end    %>
+
+</div>

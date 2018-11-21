@@ -91,7 +91,7 @@ class AsesoriaGController < ApplicationController
     profe=Profesor.find_by(usuario_id:currenU.id)
 
 
-    @all=Usuario.select("usuarios.nombre, citars.tema,citars.reporte,citars.fecha,citars.resumen").joins("join alumnos on usuarios.id=alumnos.usuario_id join citars on citars.alumno_id=alumnos.id where citars.profesorid=#{profe.id}")
+    @all=Usuario.select("usuarios.nombre, citars.updated_at,citars.created_at,citars.tema,citars.reporte,citars.fecha,citars.semana,citars.resumen").joins("join alumnos on usuarios.id=alumnos.usuario_id join citars on citars.alumno_id=alumnos.id where citars.profesorid=#{profe.id} and citars.cprofesor=1")
     respond_to do |format|
       format.html
       format.json
@@ -115,7 +115,7 @@ class AsesoriaGController < ApplicationController
     alumnosa()
     currenU=Usuario.find_by(codigo:session[:usuario])
     alum=Alumno.find_by(usuario_id:currenU.id)
-     @citas=Citar.select("asesors.lugar,citars.fecha as fc,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where citars.alumno_id=#{alum.id} ")
+     @citas=Citar.select("asesors.lugar,citars.calumno,citars.fecha as fc,citars.id,cursos.nombre").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id where citars.alumno_id=#{alum.id} ")
 
   end
 
@@ -127,7 +127,12 @@ class AsesoriaGController < ApplicationController
     gg=Citar.find_by(id:cita)
 
     @asesorias=gg.id
+    if gg.fecha==nil
+
+      @fecha=gg.semana
+    else
     @fecha=gg.fecha
+    end
     if gg.tema==nil
          @tema1=true
           @mensajep=  "En proceso"
@@ -148,11 +153,19 @@ class AsesoriaGController < ApplicationController
   def eliminaraseso
     alumnosb()
     cita=params["asesorias"]
+
     gg=Citar.find_by(id:cita)
-    gg.destroy
+    if gg.cprofesor==1
+      @mensajelol="El profesor ya confirmo la cita, por favor no faltar"
+    else
+      gg.destroy
+        @mensajelol="Cita correctamente eliminada"
+    end
+
+
+
 
     render 'alumnosb'
-
 
   end
 
@@ -164,6 +177,8 @@ class AsesoriaGController < ApplicationController
     gg=Citar.find_by(id:params["idasesoria"])
     gg.tema=params["temap"]
     gg.resumen=params["resumen"]
+
+    gg.calumno=1
 
     gg.save
     @resumen=gg.resumen
@@ -418,10 +433,13 @@ def solicitarase
   currenU=Usuario.find_by(codigo:session[:usuario])
   jj=Seccion.find_by(id:go.seccion_id)
   alumno=Alumno.find_by(usuario_id:currenU.id)
-
-  secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,fecha:go.fecha,profesorid:jj.profesor_id)
-  secc.save
-
+  if go.fecha==nil
+    secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,semana:go.ubicacion,profesorid:jj.profesor_id,calumno:0,cprofesor:0)
+    secc.save
+  else
+    secc=Citar.new(alumno_id:alumno.id,asesor_id:dd,fecha:go.fecha,profesorid:jj.profesor_id,calumno:0,cprofesor:0)
+    secc.save
+  end
   redirect_to('/asesoria_g/alumnosb')
 
 
@@ -433,7 +451,7 @@ def profesoresb
   bb=params["asesoria"]
   currenU=Usuario.find_by(codigo:session[:usuario])
   profe=Profesor.find_by(usuario_id:currenU.id)
-  @citas=Citar.select("citars.tema,citars.id as cid,seccions.idsec,usuarios.codigo,cursos.nombre as c,asesors.id,seccions.idsec,usuarios.nombre as u").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id join alumnos on  citars.alumno_id=alumnos.id join usuarios on usuarios.id=alumnos.usuario_id where seccions.profesor_id=#{profe.id}")
+  @citas=Citar.select("citars.tema,citars.cprofesor, citars.id as cid,seccions.idsec,usuarios.codigo,cursos.nombre as c,asesors.id,seccions.idsec,usuarios.nombre as u").joins("join asesors on citars.asesor_id=asesors.id join seccions on asesors.seccion_id=seccions.id join cursos on cursos.id=seccions.curso_id join alumnos on  citars.alumno_id=alumnos.id join usuarios on usuarios.id=alumnos.usuario_id where seccions.profesor_id=#{profe.id} and citars.calumno=1")
 
 
 
@@ -446,7 +464,11 @@ def gcita
   @citaid=dd.id
   @resumen=dd.resumen
   @temaCita=dd.tema
+  if dd.fecha==nil
+    @fecha=dd.semana
+  else
   @fecha=dd.fecha.to_formatted_s(:short)
+end
   @reporte=dd.reporte
 
 render 'profesoresb'
@@ -462,7 +484,10 @@ def realizareport
   dd=Citar.find_by(id:params["idasesoria"])
   dd.tema=aa
   dd.reporte=bb
+    dd.cprofesor=1
   dd.save
+
+
   @reporte=dd.reporte
 
   render 'profesoresb'

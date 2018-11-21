@@ -4,11 +4,12 @@
   <br>
 
   <%  for   @pro in  @all      %>
+    <small class="text-muted" style="border-style: ridge"><%= @pro["fecha"] %><%= @pro["semana"] %>  </small>
   <div class="list-group" style="border-style: ridge">
     <table class="table table-hover table-dark">
 
       <div class="d-flex w-100 justify-content-between">
-        <small class="text-muted" style="border-style: ridge"><%= @pro["fecha"] %> </small>
+
         <p><%=@pro["idsec"]%></p>
         <h5>Nombre del alumno- Tema</h5>
         <p class="mb-1"><%= @pro["nombre"] %> - <%= @pro["tema"] %></p>
@@ -17,9 +18,33 @@
       <p class="mb-1"> <%= @pro["resumen"] %>  </p>
       <h5>Mi reporte</h5>
       <p class="mb-1"> <%= @pro["reporte"] %>  </p>
-    </a>
+      <h5>Detalles</h5>
+      <% if @pro["calumno"]==0 %>
+      <p class="mb-1">El alumno no confirmo su cita </p>
+        <% end%> 
+        <% if @pro["calumno"]==1 %>
+        <p class="mb-1">El alumno confirmo su cita </p>
+          <% end%>
+          <% if @pro["cprofesor"]==0 %>
+          <p class="mb-1">El profesor no realizo reporte </p>
+            <% end%>
+            <% if @pro["cprofesor"]==1 %>
+            <p class="mb-1">El profesor realizo el reporte </p>
+              <% end%>
+
+
+
+
+
 
     </table>
+    <small class="text-muted" >
+      Creado
+      <%= @pro["created_at"] %>
+      <br>
+      Última modificaciòn
+      <%= @pro["updated_at"] %>
+    </small>
 </div>
 <br>
 <% end    %>

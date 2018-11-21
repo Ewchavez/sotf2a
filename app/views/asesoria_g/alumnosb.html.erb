@@ -140,13 +140,15 @@
 
                 <h1>Mis Asesorias</h1>
 
+<a style="color:red"><%=@mensajelol%></a>
                                 <%  for   @pro in  @citas      %>
 
 
                 <ul class="list-group" >
            <li class="list-group-item d-flex justify-content-between align-items-center"> <a href="/asesoria_g/vercita?citaselecto=<%=@pro["id"]%>"> <%=@pro["nombre"]%>  |   <%=@pro["lugar"]%> </a>
-
-             <span class="badge badge-primary badge-pill">#</span>
+      <%  if @pro["calumno"] ==0        %>
+             <span class="badge badge-primary badge-pill">Confirme su cita</span>
+                        <% end    %>
            </li>
 
            <br>
