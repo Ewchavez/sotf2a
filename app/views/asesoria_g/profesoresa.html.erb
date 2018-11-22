@@ -26,7 +26,7 @@
           <%  for   @pro in  @todos      %>
 
 
-          <a id="<%=@pro["idsec"]%>" href= "/asesoria_g/cursopselec?cursoselecto=<%=@pro["idsec"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
+          <a id="<%=@pro["idsec"]%>" name="a1" href= "/asesoria_g/cursopselec?cursoselecto=<%=@pro["idsec"]%>" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1"><%= @pro["nombre"] %> / <%= @pro["idsec"] %></h5>
               <small class="text-muted">4 days ago</small>
@@ -142,7 +142,7 @@ document.getElementById("<%=@idaseroriaaa%>").style.boxShadow = "10px 10px 30px 
       </select>
 <br>
 
-    
+
       <input id="date" type="date" name="calendario2" onchange="fechasc()" >
 <br>
 
@@ -221,7 +221,7 @@ habilitar
                 <ul class="list-group">
 
                   <%  for   @pro in  @citasxaten      %>
-    <a href="/asesoria_g/profesoresb?asesoria=<%=@pro["id"] %>">
+    <a name="a2" href="/asesoria_g/profesoresb?asesoria=<%=@pro["id"] %>">
                   <li class="list-group-item d-flex justify-content-between align-items-center"> <%=@pro["nombre"] %> | <%=@pro["idsec"] %>
                     <span class="badge badge-primary badge-pill">Por atender  <%=@pro["d"] %>/4</span>
                   </li>

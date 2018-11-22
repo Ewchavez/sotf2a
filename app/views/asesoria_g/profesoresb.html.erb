@@ -57,7 +57,7 @@
 
 
                 <ul class="list-group" >
-           <li class="list-group-item d-flex justify-content-between align-items-center"> <a href="/asesoria_g/gcita?citaselecto=<%=@pro["cid"]%>"> <%=@pro["c"]%>- <%=@pro["idsec"]%> |   <%=@pro["u"]%>   -  <%=@pro["codigo"]%>| Tema: <%=@pro["tema"]%></a>
+           <li class="list-group-item d-flex justify-content-between align-items-center"> <a  name="a1" href="/asesoria_g/gcita?citaselecto=<%=@pro["cid"]%>"> <%=@pro["c"]%>- <%=@pro["idsec"]%> |   <%=@pro["u"]%>   -  <%=@pro["codigo"]%>| Tema: <%=@pro["tema"]%></a>
     <%  if @pro["cprofesor"] ==0       %>
              <span class="badge badge-primary badge-pill">Realizar reporte</span>
            <% end    %>
