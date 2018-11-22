@@ -6187,3 +6187,346 @@ Processing by LoginController#verificar as HTML
   Rendered login/inicio.html.erb within layouts/application (8.0ms)
 Completed 200 OK in 646ms (Views: 612.5ms | ActiveRecord: 3.0ms)
   [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "semestres" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL;ALTER TABLE "alumnos" DISABLE TRIGGER ALL;ALTER TABLE "profesors" DISABLE TRIGGER ALL;ALTER TABLE "asesors" DISABLE TRIGGER ALL;ALTER TABLE "administradors" DISABLE TRIGGER ALL;ALTER TABLE "usuarios" DISABLE TRIGGER ALL;ALTER TABLE "cursos" DISABLE TRIGGER ALL;ALTER TABLE "facultads" DISABLE TRIGGER ALL;ALTER TABLE "carrxcurs" DISABLE TRIGGER ALL;ALTER TABLE "carreras" DISABLE TRIGGER ALL;ALTER TABLE "seccions" DISABLE TRIGGER ALL;ALTER TABLE "chats" DISABLE TRIGGER ALL;ALTER TABLE "citars" DISABLE TRIGGER ALL[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAsesor Load (6.0ms)[0m  [1m[34mSELECT "asesors".* FROM "asesors" WHERE (fecha < '2018-11-22 01:25:01.355360')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "administradors"[0m
+  [1m[36mFixture Insert (3.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:25:01.431365', '2018-11-22 01:25:01.431365', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:25:01.431365', '2018-11-22 01:25:01.431365', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "administradors"[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "alumnos"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "alumnos" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:25:01.481367', '2018-11-22 01:25:01.481367')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "alumnos"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "asesors"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (1, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:25:01.502369', '2018-11-22 01:25:01.502369')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (2, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:25:01.502369', '2018-11-22 01:25:01.502369')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "asesors"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "carreras"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.528370', '2018-11-22 01:25:01.528370', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.528370', '2018-11-22 01:25:01.528370', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "carreras"[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "carrxcurs"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:25:01.551371', '2018-11-22 01:25:01.551371', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:25:01.551371', '2018-11-22 01:25:01.551371', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "carrxcurs"[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "chats"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:25:01.572373', '2018-11-22 01:25:01.572373', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:25:01.572373', '2018-11-22 01:25:01.572373', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "chats"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "citars"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "citars" ("id", "dia", "mes", "ano", "tema", "asesor_id", "alumno_id", "resumen", "reporte", "profesorid", "semana", "calumno", "cprofesor", "created_at", "updated_at") VALUES (1, 1, 1, 1, 'sadasdasdad', 1, 1, 'sadASDd', 'character varying,', 1, 'Lunes', 1, 1, '2018-11-22 01:25:01.593374', '2018-11-22 01:25:01.593374')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "citars"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "cursos"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Mate', 1, 1, 1, 0, '2018-11-22 01:25:01.619375', '2018-11-22 01:25:01.619375')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Fisica', 2, 1, 1, 0, '2018-11-22 01:25:01.619375', '2018-11-22 01:25:01.619375')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "cursos"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "facultads"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.640376', '2018-11-22 01:25:01.640376', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.640376', '2018-11-22 01:25:01.640376', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "facultads"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "messages"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:25:01.665378', '2018-11-22 01:25:01.665378', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:25:01.665378', '2018-11-22 01:25:01.665378', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "messages"[0m
+  [1m[36mFixture Delete (8.0ms)[0m  [1m[31mDELETE FROM "profesors"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "profesors" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:25:01.691379', '2018-11-22 01:25:01.691379')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "profesors"[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "seccions"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (1, 1, 111, 1, 1, 1, 1, '2018-11-22 01:25:01.717381', '2018-11-22 01:25:01.717381')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (2, 1, 101, 1, 1, 1, 1, '2018-11-22 01:25:01.717381', '2018-11-22 01:25:01.717381')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "seccions"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "semestres"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.741382', '2018-11-22 01:25:01.741382', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:01.741382', '2018-11-22 01:25:01.741382', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "semestres"[0m
+  [1m[36mFixture Delete (3.0ms)[0m  [1m[31mDELETE FROM "usuarios"[0m
+  [1m[36mFixture Insert (2.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (1, 'Edward', 'holagg', 'MyString', 1111, 1, 1, '2018-11-22 01:25:01.765384', '2018-11-22 01:25:01.765384')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (2, 'Lopez', '2kndfkn', 'Lopez', 20132670, 2, 1, '2018-11-22 01:25:01.765384', '2018-11-22 01:25:01.765384')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (3, 'rodrigo', '2kndfkn', 'rodrigo', 2555555, 3, 1, '2018-11-22 01:25:01.765384', '2018-11-22 01:25:01.765384')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "usuarios"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "semestres" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL;ALTER TABLE "alumnos" ENABLE TRIGGER ALL;ALTER TABLE "profesors" ENABLE TRIGGER ALL;ALTER TABLE "asesors" ENABLE TRIGGER ALL;ALTER TABLE "administradors" ENABLE TRIGGER ALL;ALTER TABLE "usuarios" ENABLE TRIGGER ALL;ALTER TABLE "cursos" ENABLE TRIGGER ALL;ALTER TABLE "facultads" ENABLE TRIGGER ALL;ALTER TABLE "carrxcurs" ENABLE TRIGGER ALL;ALTER TABLE "carreras" ENABLE TRIGGER ALL;ALTER TABLE "seccions" ENABLE TRIGGER ALL;ALTER TABLE "chats" ENABLE TRIGGER ALL;ALTER TABLE "citars" ENABLE TRIGGER ALL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------
+UsuarioTest: test_Crear_usuario
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "asesors" ("horai", "lugar", "disponibilidada", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["horai", 12], ["lugar", "sdadasd"], ["disponibilidada", 1], ["created_at", "2018-11-22 01:25:01.822387"], ["updated_at", "2018-11-22 01:25:01.822387"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "semestres" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL;ALTER TABLE "alumnos" DISABLE TRIGGER ALL;ALTER TABLE "profesors" DISABLE TRIGGER ALL;ALTER TABLE "asesors" DISABLE TRIGGER ALL;ALTER TABLE "administradors" DISABLE TRIGGER ALL;ALTER TABLE "usuarios" DISABLE TRIGGER ALL;ALTER TABLE "cursos" DISABLE TRIGGER ALL;ALTER TABLE "facultads" DISABLE TRIGGER ALL;ALTER TABLE "carrxcurs" DISABLE TRIGGER ALL;ALTER TABLE "carreras" DISABLE TRIGGER ALL;ALTER TABLE "seccions" DISABLE TRIGGER ALL;ALTER TABLE "chats" DISABLE TRIGGER ALL;ALTER TABLE "citars" DISABLE TRIGGER ALL[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAsesor Load (1.0ms)[0m  [1m[34mSELECT "asesors".* FROM "asesors" WHERE (fecha < '2018-11-22 01:25:09.538828')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "administradors"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:25:09.597832', '2018-11-22 01:25:09.597832', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:25:09.597832', '2018-11-22 01:25:09.597832', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "administradors"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "alumnos"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "alumnos" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:25:09.620833', '2018-11-22 01:25:09.620833')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "alumnos"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "asesors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (1, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:25:09.639834', '2018-11-22 01:25:09.639834')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (2, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:25:09.639834', '2018-11-22 01:25:09.639834')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "asesors"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "carreras"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.655835', '2018-11-22 01:25:09.655835', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.655835', '2018-11-22 01:25:09.655835', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "carreras"[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "carrxcurs"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:25:09.671836', '2018-11-22 01:25:09.671836', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:25:09.671836', '2018-11-22 01:25:09.671836', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "carrxcurs"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "chats"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:25:09.690837', '2018-11-22 01:25:09.690837', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:25:09.690837', '2018-11-22 01:25:09.690837', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "chats"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "citars"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "citars" ("id", "dia", "mes", "ano", "tema", "asesor_id", "alumno_id", "resumen", "reporte", "profesorid", "semana", "calumno", "cprofesor", "created_at", "updated_at") VALUES (1, 1, 1, 1, 'sadasdasdad', 1, 1, 'sadASDd', 'character varying,', 1, 'Lunes', 1, 1, '2018-11-22 01:25:09.705838', '2018-11-22 01:25:09.705838')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "citars"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "cursos"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Mate', 1, 1, 1, 0, '2018-11-22 01:25:09.726839', '2018-11-22 01:25:09.726839')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Fisica', 2, 1, 1, 0, '2018-11-22 01:25:09.726839', '2018-11-22 01:25:09.726839')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "cursos"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "facultads"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.747840', '2018-11-22 01:25:09.747840', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.747840', '2018-11-22 01:25:09.747840', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "facultads"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "messages"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:25:09.761841', '2018-11-22 01:25:09.761841', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:25:09.761841', '2018-11-22 01:25:09.761841', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "messages"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "profesors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "profesors" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:25:09.776842', '2018-11-22 01:25:09.776842')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "profesors"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "seccions"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (1, 1, 111, 1, 1, 1, 1, '2018-11-22 01:25:09.791843', '2018-11-22 01:25:09.791843')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (2, 1, 101, 1, 1, 1, 1, '2018-11-22 01:25:09.791843', '2018-11-22 01:25:09.791843')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "seccions"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "semestres"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.809844', '2018-11-22 01:25:09.809844', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:25:09.809844', '2018-11-22 01:25:09.809844', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "semestres"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "usuarios"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (1, 'Edward', 'holagg', 'MyString', 1111, 1, 1, '2018-11-22 01:25:09.827845', '2018-11-22 01:25:09.827845')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (2, 'Lopez', '2kndfkn', 'Lopez', 20132670, 2, 1, '2018-11-22 01:25:09.827845', '2018-11-22 01:25:09.827845')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (3, 'rodrigo', '2kndfkn', 'rodrigo', 2555555, 3, 1, '2018-11-22 01:25:09.827845', '2018-11-22 01:25:09.827845')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "usuarios"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "semestres" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL;ALTER TABLE "alumnos" ENABLE TRIGGER ALL;ALTER TABLE "profesors" ENABLE TRIGGER ALL;ALTER TABLE "asesors" ENABLE TRIGGER ALL;ALTER TABLE "administradors" ENABLE TRIGGER ALL;ALTER TABLE "usuarios" ENABLE TRIGGER ALL;ALTER TABLE "cursos" ENABLE TRIGGER ALL;ALTER TABLE "facultads" ENABLE TRIGGER ALL;ALTER TABLE "carrxcurs" ENABLE TRIGGER ALL;ALTER TABLE "carreras" ENABLE TRIGGER ALL;ALTER TABLE "seccions" ENABLE TRIGGER ALL;ALTER TABLE "chats" ENABLE TRIGGER ALL;ALTER TABLE "citars" ENABLE TRIGGER ALL[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+GadminControllerTest: test_habilitar_curso
+------------------------------------------
+Started GET "/gadmin/deshabilitar?idc=1" for 127.0.0.1 at 2018-11-21 20:25:10 -0500
+Processing by GadminController#deshabilitar as HTML
+  Parameters: {"idc"=>"1"}
+  [1m[36mCurso Load (1.0ms)[0m  [1m[34mSELECT  "cursos".* FROM "cursos" WHERE "cursos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering gadmin/getc.html.erb within layouts/application
+  Rendering layouts/confi.html.erb
+  Rendered layouts/confi.html.erb (1.0ms)
+  [1m[36mCurso Load (1.0ms)[0m  [1m[34mSELECT "cursos"."nombre", "cursos"."id", "cursos"."nivelusuario" FROM "cursos"[0m
+  Rendered gadmin/getc.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 654ms (Views: 607.7ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+GadminControllerTest: test_desabilitar_curso
+--------------------------------------------
+Started GET "/gadmin/deshabilitar?idc=1" for 127.0.0.1 at 2018-11-21 20:25:10 -0500
+Processing by GadminController#deshabilitar as HTML
+  Parameters: {"idc"=>"1"}
+  [1m[36mCurso Load (0.0ms)[0m  [1m[34mSELECT  "cursos".* FROM "cursos" WHERE "cursos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering gadmin/getc.html.erb within layouts/application
+  Rendering layouts/confi.html.erb
+  Rendered layouts/confi.html.erb (3.0ms)
+  [1m[36mCurso Load (2.0ms)[0m  [1m[34mSELECT "cursos"."nombre", "cursos"."id", "cursos"."nivelusuario" FROM "cursos"[0m
+  Rendered gadmin/getc.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 98ms (Views: 91.2ms | ActiveRecord: 4.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+GadminControllerTest: test_cambiar_nombre_curso
+-----------------------------------------------
+Started GET "/gadmin/cambiarnombre?idc=1&nombre=nombre+nuevo" for 127.0.0.1 at 2018-11-21 20:25:11 -0500
+Processing by GadminController#cambiarnombre as HTML
+  Parameters: {"idc"=>"1", "nombre"=>"nombre nuevo"}
+  [1m[36mCurso Load (0.0ms)[0m  [1m[34mSELECT  "cursos".* FROM "cursos" WHERE "cursos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "cursos" SET "nombre" = $1, "updated_at" = $2 WHERE "cursos"."id" = $3[0m  [["nombre", "nombre nuevo"], ["updated_at", "2018-11-22 01:25:11.043914"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering gadmin/getc.html.erb within layouts/application
+  Rendering layouts/confi.html.erb
+  Rendered layouts/confi.html.erb (1.0ms)
+  [1m[36mCurso Load (0.0ms)[0m  [1m[34mSELECT "cursos"."nombre", "cursos"."id", "cursos"."nivelusuario" FROM "cursos"[0m
+  Rendered gadmin/getc.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 111ms (Views: 102.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "semestres" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL;ALTER TABLE "alumnos" DISABLE TRIGGER ALL;ALTER TABLE "profesors" DISABLE TRIGGER ALL;ALTER TABLE "asesors" DISABLE TRIGGER ALL;ALTER TABLE "administradors" DISABLE TRIGGER ALL;ALTER TABLE "usuarios" DISABLE TRIGGER ALL;ALTER TABLE "cursos" DISABLE TRIGGER ALL;ALTER TABLE "facultads" DISABLE TRIGGER ALL;ALTER TABLE "carrxcurs" DISABLE TRIGGER ALL;ALTER TABLE "carreras" DISABLE TRIGGER ALL;ALTER TABLE "seccions" DISABLE TRIGGER ALL;ALTER TABLE "chats" DISABLE TRIGGER ALL;ALTER TABLE "citars" DISABLE TRIGGER ALL[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAsesor Load (1.0ms)[0m  [1m[34mSELECT "asesors".* FROM "asesors" WHERE (fecha < '2018-11-22 01:26:21.426940')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "administradors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:26:21.488944', '2018-11-22 01:26:21.488944', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:26:21.488944', '2018-11-22 01:26:21.488944', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "administradors"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "alumnos"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "alumnos" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:26:21.509945', '2018-11-22 01:26:21.509945')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "alumnos"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "asesors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (1, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:26:21.525946', '2018-11-22 01:26:21.525946')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (2, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:26:21.525946', '2018-11-22 01:26:21.525946')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "asesors"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "carreras"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.542947', '2018-11-22 01:26:21.542947', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.542947', '2018-11-22 01:26:21.542947', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "carreras"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "carrxcurs"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:26:21.557947', '2018-11-22 01:26:21.557947', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:26:21.557947', '2018-11-22 01:26:21.557947', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "carrxcurs"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "chats"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:26:21.574948', '2018-11-22 01:26:21.574948', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:26:21.574948', '2018-11-22 01:26:21.574948', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "chats"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "citars"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "citars" ("id", "dia", "mes", "ano", "tema", "asesor_id", "alumno_id", "resumen", "reporte", "profesorid", "semana", "calumno", "cprofesor", "created_at", "updated_at") VALUES (1, 1, 1, 1, 'sadasdasdad', 1, 1, 'sadASDd', 'character varying,', 1, 'Lunes', 1, 1, '2018-11-22 01:26:21.589949', '2018-11-22 01:26:21.589949')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "citars"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "cursos"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Mate', 1, 1, 1, 0, '2018-11-22 01:26:21.608950', '2018-11-22 01:26:21.608950')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Fisica', 2, 1, 1, 0, '2018-11-22 01:26:21.608950', '2018-11-22 01:26:21.608950')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "cursos"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "facultads"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.626951', '2018-11-22 01:26:21.626951', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.626951', '2018-11-22 01:26:21.626951', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "facultads"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "messages"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:26:21.643952', '2018-11-22 01:26:21.643952', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:26:21.643952', '2018-11-22 01:26:21.643952', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "messages"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "profesors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "profesors" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:26:21.658953', '2018-11-22 01:26:21.658953')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "profesors"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "seccions"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (1, 1, 111, 1, 1, 1, 1, '2018-11-22 01:26:21.675954', '2018-11-22 01:26:21.675954')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (2, 1, 101, 1, 1, 1, 1, '2018-11-22 01:26:21.675954', '2018-11-22 01:26:21.675954')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "seccions"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "semestres"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.694955', '2018-11-22 01:26:21.694955', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:26:21.694955', '2018-11-22 01:26:21.694955', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "semestres"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "usuarios"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (1, 'Edward', 'holagg', 'MyString', 1111, 1, 1, '2018-11-22 01:26:21.710956', '2018-11-22 01:26:21.710956')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (2, 'Lopez', '2kndfkn', 'Lopez', 20132670, 2, 1, '2018-11-22 01:26:21.710956', '2018-11-22 01:26:21.710956')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (3, 'rodrigo', '2kndfkn', 'rodrigo', 2555555, 3, 1, '2018-11-22 01:26:21.710956', '2018-11-22 01:26:21.710956')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "usuarios"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "semestres" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL;ALTER TABLE "alumnos" ENABLE TRIGGER ALL;ALTER TABLE "profesors" ENABLE TRIGGER ALL;ALTER TABLE "asesors" ENABLE TRIGGER ALL;ALTER TABLE "administradors" ENABLE TRIGGER ALL;ALTER TABLE "usuarios" ENABLE TRIGGER ALL;ALTER TABLE "cursos" ENABLE TRIGGER ALL;ALTER TABLE "facultads" ENABLE TRIGGER ALL;ALTER TABLE "carrxcurs" ENABLE TRIGGER ALL;ALTER TABLE "carreras" ENABLE TRIGGER ALL;ALTER TABLE "seccions" ENABLE TRIGGER ALL;ALTER TABLE "chats" ENABLE TRIGGER ALL;ALTER TABLE "citars" ENABLE TRIGGER ALL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+LoginControllerTest: test_Login_usuario
+---------------------------------------
+Started POST "/login/verificar" for 127.0.0.1 at 2018-11-21 20:26:22 -0500
+Processing by LoginController#verificar as HTML
+  Parameters: {"codigo"=>"1111", "contrasena"=>"holagg"}
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."codigo" IS NULL AND "usuarios"."contrasena" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering login/inicio.html.erb within layouts/application
+  Rendered login/inicio.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 618ms (ActiveRecord: 2.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL;ALTER TABLE "semestres" DISABLE TRIGGER ALL;ALTER TABLE "messages" DISABLE TRIGGER ALL;ALTER TABLE "alumnos" DISABLE TRIGGER ALL;ALTER TABLE "profesors" DISABLE TRIGGER ALL;ALTER TABLE "asesors" DISABLE TRIGGER ALL;ALTER TABLE "administradors" DISABLE TRIGGER ALL;ALTER TABLE "usuarios" DISABLE TRIGGER ALL;ALTER TABLE "cursos" DISABLE TRIGGER ALL;ALTER TABLE "facultads" DISABLE TRIGGER ALL;ALTER TABLE "carrxcurs" DISABLE TRIGGER ALL;ALTER TABLE "carreras" DISABLE TRIGGER ALL;ALTER TABLE "seccions" DISABLE TRIGGER ALL;ALTER TABLE "chats" DISABLE TRIGGER ALL;ALTER TABLE "citars" DISABLE TRIGGER ALL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAsesor Load (2.0ms)[0m  [1m[34mSELECT "asesors".* FROM "asesors" WHERE (fecha < '2018-11-22 01:27:38.558352')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "administradors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:27:38.625356', '2018-11-22 01:27:38.625356', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("foto", "log", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2018-11-22 01:27:38.625356', '2018-11-22 01:27:38.625356', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "administradors"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "alumnos"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "alumnos" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:27:38.650357', '2018-11-22 01:27:38.650357')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "alumnos"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "asesors"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (1, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:27:38.668358', '2018-11-22 01:27:38.668358')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "asesors" ("id", "dia", "mes", "ano", "horai", "horaf", "lugar", "codl", "disponibilidada", "atendido", "nivelusuario", "created_at", "updated_at") VALUES (2, 1, 1, 1, 1, 1, 'MyString', 1, 1, 1, 1, '2018-11-22 01:27:38.668358', '2018-11-22 01:27:38.668358')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "asesors"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "carreras"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.683359', '2018-11-22 01:27:38.683359', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carreras" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.683359', '2018-11-22 01:27:38.683359', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "carreras"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "carrxcurs"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:27:38.700360', '2018-11-22 01:27:38.700360', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "carrxcurs" ("idcarrera", "idcurso", "created_at", "updated_at", "id") VALUES (1, 1, '2018-11-22 01:27:38.700360', '2018-11-22 01:27:38.700360', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "carrxcurs"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "chats"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:27:38.714361', '2018-11-22 01:27:38.714361', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "chats" ("origen", "destino", "channel", "created_at", "updated_at", "id") VALUES (1, 1, 1, '2018-11-22 01:27:38.714361', '2018-11-22 01:27:38.714361', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "chats"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "citars"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "citars" ("id", "dia", "mes", "ano", "tema", "asesor_id", "alumno_id", "resumen", "reporte", "profesorid", "semana", "calumno", "cprofesor", "created_at", "updated_at") VALUES (1, 1, 1, 1, 'sadasdasdad', 1, 1, 'sadASDd', 'character varying,', 1, 'Lunes', 1, 1, '2018-11-22 01:27:38.732362', '2018-11-22 01:27:38.732362')[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "citars"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "cursos"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Mate', 1, 1, 1, 0, '2018-11-22 01:27:38.753363', '2018-11-22 01:27:38.753363')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "cursos" ("nombre", "id", "creditos", "nivel", "nivelusuario", "created_at", "updated_at") VALUES ('Fisica', 2, 1, 1, 0, '2018-11-22 01:27:38.753363', '2018-11-22 01:27:38.753363')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "cursos"[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "facultads"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.776364', '2018-11-22 01:27:38.776364', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "facultads" ("nombre", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.776364', '2018-11-22 01:27:38.776364', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "facultads"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "messages"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:27:38.793365', '2018-11-22 01:27:38.793365', 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("content", "created_at", "updated_at", "id") VALUES ('MyText', '2018-11-22 01:27:38.793365', '2018-11-22 01:27:38.793365', 298486374)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "messages"[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "profesors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "profesors" ("id", "usuario_id", "created_at", "updated_at") VALUES (1, 2, '2018-11-22 01:27:38.810366', '2018-11-22 01:27:38.810366')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "profesors"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "seccions"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (1, 1, 111, 1, 1, 1, 1, '2018-11-22 01:27:38.828367', '2018-11-22 01:27:38.828367')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "seccions" ("id", "capacidad", "idsec", "estado", "profesor_id", "semestre_id", "curso_id", "created_at", "updated_at") VALUES (2, 1, 101, 1, 1, 1, 1, '2018-11-22 01:27:38.828367', '2018-11-22 01:27:38.828367')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "seccions"[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "semestres"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.845368', '2018-11-22 01:27:38.845368', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "semestres" ("fecha", "created_at", "updated_at", "id") VALUES ('MyString', '2018-11-22 01:27:38.845368', '2018-11-22 01:27:38.845368', 298486374)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect MAX("id") from "semestres"[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "usuarios"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (1, 'Edward', 'holagg', 'MyString', 1111, 1, 1, '2018-11-22 01:27:38.864369', '2018-11-22 01:27:38.864369')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (2, 'Lopez', '2kndfkn', 'Lopez', 20132670, 2, 1, '2018-11-22 01:27:38.864369', '2018-11-22 01:27:38.864369')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "usuarios" ("id", "nombre", "contrasena", "email", "codigo", "nivelu", "activo", "created_at", "updated_at") VALUES (3, 'rodrigo', '2kndfkn', 'rodrigo', 2555555, 3, 1, '2018-11-22 01:27:38.864369', '2018-11-22 01:27:38.864369')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect MAX("id") from "usuarios"[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL;ALTER TABLE "semestres" ENABLE TRIGGER ALL;ALTER TABLE "messages" ENABLE TRIGGER ALL;ALTER TABLE "alumnos" ENABLE TRIGGER ALL;ALTER TABLE "profesors" ENABLE TRIGGER ALL;ALTER TABLE "asesors" ENABLE TRIGGER ALL;ALTER TABLE "administradors" ENABLE TRIGGER ALL;ALTER TABLE "usuarios" ENABLE TRIGGER ALL;ALTER TABLE "cursos" ENABLE TRIGGER ALL;ALTER TABLE "facultads" ENABLE TRIGGER ALL;ALTER TABLE "carrxcurs" ENABLE TRIGGER ALL;ALTER TABLE "carreras" ENABLE TRIGGER ALL;ALTER TABLE "seccions" ENABLE TRIGGER ALL;ALTER TABLE "chats" ENABLE TRIGGER ALL;ALTER TABLE "citars" ENABLE TRIGGER ALL[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+LoginControllerTest: test_Login_usuario
+---------------------------------------
+Started POST "/login/verificar" for 127.0.0.1 at 2018-11-21 20:27:39 -0500
+Processing by LoginController#verificar as HTML
+  Parameters: {"codigo"=>"1111", "contrasena"=>"holagg"}
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 5]]
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."codigo" IS NULL AND "usuarios"."contrasena" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering login/inicio.html.erb within layouts/application
+  Rendered login/inicio.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 614ms (Views: 562.8ms | ActiveRecord: 2.0ms)
+  [1m[35m (21.0ms)[0m  [1m[31mROLLBACK[0m
