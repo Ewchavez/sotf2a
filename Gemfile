@@ -23,7 +23,7 @@ gem 'turbolinks', '~> 5.x'
 gem 'jbuilder'
 
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', '>= 4.3.9'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
