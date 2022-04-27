@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0', '< 5.1'
+gem 'rails', '~> 5.2', '>= 5.2.7.1'
 gem 'pg'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0', '>= 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', require: false
 # Use CoffeeScript for .coffee assets and views
